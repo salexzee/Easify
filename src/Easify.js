@@ -88,6 +88,23 @@
         }
         return repeatedString.trim();
       }
+    },
+
+    // Reverse a string
+    //
+    // Takes 1 argument(string)
+    // e.reverse('hello'); //=> 'olleh'
+    reverse: function(str) {
+      if(validateString(str)) {
+        // Break string up into an array of characters
+        // including spaces.
+        var arr = str.split('');
+        // Reverse array
+        arr = arr.reverse();
+        // Rejoin array into string
+        str = arr.join('');
+        return str;
+      }
     }
 
   }
