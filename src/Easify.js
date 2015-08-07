@@ -2,11 +2,14 @@
 // Created by: Sam Webb
 // Version: 1.0
 
+// Start with semicolon in case other libraries
+// don't end with one.
 ;(function(global){
 	// Creating new easify object:
 	// var e = Easify();
 	// or the preferred method
-	// var e = $E(); 
+	// var e = $E();
+	// Will be using e variable throughout the code
 
 	// 'new' Easify object
 	var Easify = function() {
@@ -24,8 +27,7 @@
 	Easify.prototype = {
 
 		// Easy way to grab the last letter of a string
-		// var e = $E();
-		// 
+		// e.last('hello'); //=> "o"
 		last: function(str) {
 			// If str can be coerced to false, it will fail
 			if (!str) {
