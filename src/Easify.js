@@ -3,22 +3,35 @@
 // Version: 1.0
 
 ;(function(global){
+	// Creating new easify object:
+	// var e = Easify();
+	// or the preferred method
+	// var e = $E(); 
 
 	// 'new' Easify object
 	var Easify = function() {
 		return new Easify.init();
 	}
 
+	// Function that actually creates object
+	// to remove 'new' keyword for users
 	Easify.init = function() {
 		var self = this;
 	}
 
+	// Universal methods and properties of Easify
+	// on the protorype
 	Easify.prototype = {
 
+		// Easy way to grab the last letter of a string
+		// var e = $E();
+		// 
 		last: function(str) {
+			// If str can be coerced to false, it will fail
 			if (!str) {
 				throw 'No string provided.';
 			}
+			// Checks to make sure it is a string
 			if (typeof str === 'string') {
 				return str[str.length - 1];
 			} else {
@@ -28,7 +41,9 @@
 
 	}
 
+	// Point init prototype to the Easify prototype
 	Easify.init.prototype = Easify.prototype;
 
+	// Sets up global variables
 	global.Easify = global.$E = Easify
 }(window));
