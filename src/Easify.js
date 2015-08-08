@@ -13,7 +13,8 @@
 
   // Variables
   var validateString,
-      validateNum;
+      validateNum,
+      randomNumberFromItemLength;
 
   // Private Functions
 
