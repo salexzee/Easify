@@ -1,6 +1,8 @@
 // EasifyJS
 // Created by: Sam Webb
-// Version: 1.0
+// Version: 0.0.1
+
+// Dependencies: None
 
 // Start with semicolon in case other libraries
 // don't end with one.
@@ -86,12 +88,18 @@
     // e.randomize("Hello"); //=> "olelH"
     randomize: function(str) {
       if (validateString(str)) {
+        // Split the string into an array
         var arr = str.split('');
+        // Set some variables
         var newString = '';
         var num;
+        // Array will get shortened by 1 for each iteration
         while (arr.length > 0) {
+          // Set random number from 0 to 1 below array length
           num = randomNumberFromItemLength(arr);
+          // Add letter to newString
           newString += arr[num];
+          // Remove the letter from the array
           arr.splice(num, 1)[0];
         }
         return newString;
