@@ -49,9 +49,17 @@ h6 {
 }
 
 .header-text a {
-  color: white;
+  color: azure;
   text-decoration: none;
-  border: 3px solid white;
+  border: 3px solid azure;
   padding: 10px 20px;
-  border-radius: 10px
+  border-radius: 10px;
+  transition: .5s;
+  font-weight: bold;
+  background: hsla(0,0%,0%,.2);
+}
+
+.header-text a:hover {
+  color: #444;
+  border-color: #444;
 }
