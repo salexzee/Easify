@@ -17,7 +17,14 @@
 
   // Private Functions
 
+  // Returns a random number from 0 to the length of
+  // the passed in array or string
+  randomNumberFromItemLength = function(item) {
+    return Math.floor(Math.random() * item.length)
+  }
+
   // For validating strings
+  // Always use this if method takes a string artument
   validateString = function(str) {
     // If str can be coerced to false, it will fail
     if (!str) {
@@ -33,6 +40,7 @@
   }
 
   // For validating numbers
+  // Always use this if method takes a number argument
   validateNum = function(num) {
     // If num is not of type "number" it will fail
     if(typeof num !== "number") {
@@ -68,6 +76,24 @@
     last: function(str) {
       if (validateString(str)) {
         return str[str.length - 1];
+      }
+    },
+
+    // Returns a randomized version of a passed in string
+    //
+    // Takes 1 argument(string)
+    // e.randomize("Hello"); //=> "olelH"
+    randomize: function(str) {
+      if (validateString(str)) {
+        var arr = str.split('');
+        var newString = '';
+        var num;
+        while (arr.length > 0) {
+          num = randomNumberFromItemLength(arr);
+          newString += arr[num];
+          arr.splice(num, 1)[0];
+        }
+        return newString;
       }
     },
 
