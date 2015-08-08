@@ -22,33 +22,33 @@ h6 {
   padding: 0;
 }
 
-.main-header {
+.main {
   width: 100%;
   height: 100%;
   display: table;
   background: mediumspringgreen;
 }
 
-.header-text {
+.main-text {
   display: table-cell;
   vertical-align: middle; 
   text-align: center;
   letter-spacing: .1em;
 }
 
-.header-text h1 {
+.main-text h1 {
   font-size: 4.5em; 
   color: azure;
   margin-bottom: 10px;
 }
 
-.header-text h3 {
+.main-text h3 {
   font-size: 1.5em;
   color: #444; 
   margin-bottom: 30px;
 }
 
-.header-text a {
+.main-text a {
   color: azure;
   text-decoration: none;
   border: 3px solid azure;
@@ -59,7 +59,7 @@ h6 {
   background: hsla(0,0%,0%,.2);
 }
 
-.header-text a:hover {
+.main-text a:hover {
   color: #444;
   border-color: #444;
 }
