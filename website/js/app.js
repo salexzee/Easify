@@ -12,7 +12,5 @@ easifyApp.config(function($routeProvider) {
 });
 
 easifyApp.controller('mainController' ,['$scope', function ($scope) {
-    
-  console.log($scope.title = 'Easify');
-    
+
 }]);

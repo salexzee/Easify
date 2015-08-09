@@ -7,7 +7,7 @@ body,
 }
 
 body {
-  font-family: sans-serif; 
+  font-family: sans-serif;
 }
 
 body,
@@ -20,6 +20,37 @@ h5,
 h6 {
   margin: 0;
   padding: 0;
+}
+
+.nav {
+  position: fixed; 
+  text-align: center;
+  width: 100%;
+}
+
+.nav-button {
+  display: inline-block;
+  margin: 20px 15px 0 15px;
+}
+
+.nav-button,
+.nav-button a{
+  z-index: 100;
+  width: 30px;
+  height: 30px; 
+  border-radius: 50%;
+}
+
+.nav-button a {
+  background: azure;
+  display: block;
+  border: 3px solid azure;
+  transition: .5s;
+}
+
+.nav-button a:hover,
+.nav-button a.active {
+  border-color: #777; 
 }
 
 .main {
@@ -62,34 +93,4 @@ h6 {
 .main-text a:hover {
   color: #444;
   border-color: #444;
-}
-
-.left-slide-button,
-.right-slide-button {
-  position: fixed; 
-  z-index: 100;
-  top: 40%;
-  bottom: 40%;
-}
-
-.left-slide-button a,
-.right-slide-button a {
-   font-size: 3em;
-   color: hsla(0,0%,0%,.2);
-   text-decoration: none;
-   transition: .5s;
-   display: inline-block;
-}
-
-.left-slide-button a:hover,
-.right-slide-button a:hover {
-  color: #444;
-}
-
-.left-slide-button {
-  left: 1.5%; 
-}
-
-.right-slide-button {
-  right: 1.5%; 
 }
