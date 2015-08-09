@@ -1,5 +1,6 @@
 // EasifyJS
 // Created by: Sam Webb
+// Copyright 2015
 // Version: 0.0.1
 
 // Dependencies: None
@@ -149,4 +150,6 @@
 
   // Sets up global variables
   global.Easify = global.$E = Easify
+  
+  console.log("Easify loaded!");
 }(window));
