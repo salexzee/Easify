@@ -141,6 +141,71 @@
         str = arr.join('');
         return str;
       }
+    },
+
+    // DOM METHODS
+
+    // Insert HTML into the selected HTML element
+    //
+    // Takes 4 arguments(string, string, string, number)
+    // e.insertHTML('id', 'home-link', 'Home');
+    // The previous code will insert the text 'Home' inside
+    // of the element on your page with an id of #home-link.
+    // Any valid HTML can also be be the input value.
+    //
+    // Arguments
+    // ----------
+    // The selectorType argument is expecting a string of
+    // either 'id' or 'class'
+    //
+    // The selector artument is expecting a string that
+    // corrisponds to the name provided in the HTML
+    // 
+    // The input argument can be any valid HTML or text
+    //
+    // The amount argument is an optional argument and is
+    // used when a selector which returns multiple elements
+    // is selected. You can set an amount of elements to
+    // add your HTML to. It will go in order starting from
+    // the first element. If no amount is selected, all
+    // elements will get the change.
+    // ----------
+    insertHTML: function(selectorType, selector, input, amount) {
+      // Makes sure all arguments are filled in
+      if (selectorType && selector && input) {
+
+        // Sets some variables
+        var element;
+        var elements = [];
+        var num = 0;
+
+        // Checking the selector type for 'id'
+        if (selectorType.toLowerCase() === "id") {
+          element = document.getElementById(selector);
+          element.innerHTML = input;
+        // Checking the selector type of 'class'
+        } else if (selectorType.toLowerCase() === "class") {
+          // If amount validates to be a number, set the num
+          // variable to amount
+          if (validateNum(amount)) { num = amount }
+          elements = document.getElementsByClassName(selector);
+          // Iterates over the elements array and adds the html
+          // to every element contained in it
+          for (var i = 0; i < ( amount || elements.length ); i++) {
+            // Prevents error if amount is higher than the length of
+            // elements
+            if (i === elements.length) {
+              break;
+            }
+            element = elements[i];
+            element.innerHTML = input;
+          }
+        }
+        // Returns true if successful
+        return true;
+      }
+      // Returns false if unsuccessful
+      return false;
     }
 
   }
