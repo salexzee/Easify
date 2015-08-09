@@ -32,12 +32,10 @@
   validateString = function(str) {
     // If str can be coerced to false, it will fail
     if (!str) {
-      throw 'No string provided.';
       return false;
     }
     // If str is not of type "string" it will fail
     if (typeof str !== "string") {
-      throw 'Argument must be of type "string".';
       return false;
     }
     return true;
@@ -48,7 +46,6 @@
   validateNum = function(num) {
     // If num is not of type "number" it will fail
     if(typeof num !== "number") {
-      throw 'Argument must be of type "number".';
       return false;
     }
     return true;
@@ -80,6 +77,8 @@
     last: function(str) {
       if (validateString(str)) {
         return str[str.length - 1];
+      } else {
+        throw 'String validation failed.'
       }
     },
 
@@ -104,6 +103,8 @@
           arr.splice(num, 1)[0];
         }
         return newString;
+      } else {
+        throw 'String validation failed.'
       }
     },
 
@@ -123,6 +124,8 @@
           repeatedString += str;
         }
         return repeatedString.trim();
+      } else {
+        throw 'Argument validation failed.'
       }
     },
 
@@ -140,6 +143,8 @@
         // Rejoin array into string
         str = arr.join('');
         return str;
+      } else {
+        throw 'String validation failed.'
       }
     },
 
@@ -171,8 +176,8 @@
     // elements will get the change.
     // ----------
     insertHTML: function(selectorType, selector, input, amount) {
-      // Makes sure all arguments are filled in
-      if (selectorType && selector && input) {
+      // Makes sure first 3 arguments valid
+      if (validateString(selectorType) && validateString(selector) && validateString(input)) {
 
         // Sets some variables
         var element;
@@ -200,12 +205,16 @@
             element = elements[i];
             element.innerHTML = input;
           }
+        } else {
+          throw 'You must pass either "id" or "class" as the selectorType argument to insertHTML function.'
         }
         // Returns true if successful
         return true;
       }
       // Returns false if unsuccessful
+      throw 'insertHTML arguments are invalid.'
       return false;
+      // Does not check if there is a matching HTML element. YET!
     }
 
   }
