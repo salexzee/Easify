@@ -105,3 +105,22 @@ h6 {
   color: #444;
   border-color: #444;
 }
+
+.description {
+  padding: 150px 50px;
+  background: #9d8ff1;
+}
+
+.description p {
+  font-size: 1.5em;
+  line-height: 1.5;
+  color: #333;
+  width: 85%;
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .description p {
+    font-size: 1.1em; 
+  }
+}
