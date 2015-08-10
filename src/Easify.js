@@ -1,9 +1,10 @@
-// EasifyJS
-// Created by: Sam Webb
-// Copyright 2015
+// Easify.JS
+// Author: Sam Webb
+// Copyright: 2015
+// License: MIT
 // Version: 0.0.1
 
-// Dependencies: None
+// Dependencies: N/A
 
 // Start with semicolon in case other libraries
 // don't end with one.
@@ -80,6 +81,39 @@
       } else {
         throw 'String validation failed.'
       }
+    },
+
+    // Randomly removes a specified amount of characters from
+    // a string
+    //
+    // Takes 2 arguments(string, number)
+    // e.remove('hello', 2); //=> 'hlo'
+    // Honestly can't see a use case for this but it's here
+    remove: function(str, amount) {
+      if (validateString(str) && validateNum(amount)){
+        // Protects amount from being larger than the string
+        // argument's length
+        if (amount > str.length) {
+          amount = str.length;
+        }
+        // Split the string into an array
+        var arr = str.split('');
+        // Set some variables
+        var newString = '';
+        var num;
+        // Iterate to remove each letter
+        for (var i = 0; i < amount; i++) {
+          // Set random number from 0 to 1 below array length
+          num = randomNumberFromItemLength(arr);
+          // Remove random letter from the array
+          arr.splice(num, 1)[0];
+        }
+        newString = arr.join('');
+        return newString;
+      } else {
+        throw 'Argument validation failed.';
+      }
+
     },
 
     // Returns a randomized version of a passed in string
