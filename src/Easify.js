@@ -116,6 +116,40 @@
 
     },
 
+    // Removes all occurances of the specified letter from
+    // the string
+    //
+    // Takes 2 arguments(string, string)
+    // e.removeAll('hello', 'l'); //=> 'heo'
+    removeAll: function(str, letter) {
+      if (validateString(str) && validateString(letter)) {
+        // Makes sure the letter argument is 1 character long
+        if (letter.length !== 1) {
+          throw 'The letter argument should not be greater or less than 1.'
+        }
+        // Sets some variables.
+        var newString;
+        var arr = str.split('');
+        // Loops over the array to check the letters
+        for (var i = 0; i < arr.length; i++) {
+          // If the letter in the array matches the letter
+          // argument, this will run
+          if (arr[i] === letter) {
+            // Removes letter
+            arr.splice(i, 1);
+            // Small code to make sure when something is removed,
+            // the loop doesn't skip the next letter
+            i = i - 1;
+          }
+        }
+        // Join the array back together
+        newString = arr.join('');
+        return newString;
+      } else {
+        throw 'String validation failed.'
+      }
+    },
+
     // Returns a randomized version of a passed in string
     //
     // Takes 1 argument(string)
@@ -134,7 +168,7 @@
           // Add letter to newString
           newString += arr[num];
           // Remove the letter from the array
-          arr.splice(num, 1)[0];
+          arr.splice(num, 1);
         }
         return newString;
       } else {
