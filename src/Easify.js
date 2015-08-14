@@ -216,6 +216,19 @@
       }
     },
 
+    // Wrap a string in a specified element
+    //
+    // Takes 2 arguments(string, string)
+    // e.wrap('Hello', 'h1'); //=> "<h1>Hello</h1>"
+    wrap: function(str, element) {
+      // String validation
+      if (validateString(str) && validateString(element)) {
+        return '<' + element + '>' + str + '</' + element + '>';
+      } else {
+        throw 'String validation failed.'
+      }
+    },
+
     // DOM METHODS
 
     // Insert HTML into the selected HTML element
