@@ -36,10 +36,11 @@
       return false;
     }
     // If str is not of type "string" it will fail
-    if (typeof str !== "string") {
+    if (typeof str === "string") {
+      return true;
+    } else {
       return false;
     }
-    return true;
   }
 
   // For validating numbers
