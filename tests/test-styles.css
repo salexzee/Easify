@@ -7,7 +7,7 @@ body {
   margin: 0;
 }
 
-#run-test-button {
+#run-tests-button {
   text-align: center;
   display: inline-block;
   padding: 15px 30px;
@@ -21,7 +21,7 @@ body {
   font-weight: bold;
 }
 
-#run-test-button:hover {
+#run-tests-button:hover {
   cursor: pointer;
   color: #3d3;
 }

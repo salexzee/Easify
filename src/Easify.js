@@ -75,6 +75,17 @@
     // **************
     // **************
 
+    capitalize: function(str) {
+      if (validateString(str)) {
+        var strList = str.split('');
+        strList[0] = strList[0].toUpperCase();
+        str = strList.join('');
+        return str;
+      } else {
+        throw 'String validation failed.'
+      }
+    },
+
     isString: function(str) {
       return validateString(str);
     },
