@@ -1,3 +1,9 @@
+
+// Testing for Easify.JS
+
+// Dependencies: N/A
+
+// Starts with semicolon to make sure it runs
 ;(function(){
   // Some variable setup
   var e = $E();
@@ -7,8 +13,8 @@
   var testWord = "testing";
   var testSentence = "This is a test sentence.";
   var testNumber = 5;
-  var passed = 0;
-  var failed = 0;
+  var passed = 0; // Set for future use
+  var failed = 0; // Set for future use
 
   // Runs all tests
   function runTests() {
@@ -82,7 +88,7 @@
     }
   );
 
-  // Checks if remove takes out the provided amount of letters
+  // Checks if remove() takes out the provided amount of letters
   tests.push(
     function() {
       var text = 'remove returns a string with letters removed';
@@ -94,6 +100,7 @@
     }
   );
 
+  // Checks if removeAll() takes out all occurances of the provided letter
   tests.push(
     function() {
       var text = 'removeAll returns a string with all of a specified letter removed';
