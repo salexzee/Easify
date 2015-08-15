@@ -12,6 +12,7 @@
 
   // Runs all tests
   function runTests() {
+    checkBlock.innerHTML = '';
     for (var i = 0; i < tests.length; i++) {
       tests[i]();
     }
