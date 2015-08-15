@@ -41,6 +41,7 @@
     }
   );
 
+  // Test to check isString returns true
   tests.push(
     function() {
       var text = "isString returns true if input value is of type 'string'";
@@ -52,6 +53,7 @@
     }
   );
 
+  // Test to check isString returns false
   tests.push(
     function() {
       var text = "isString returns false if input value is not of type 'string'";
@@ -65,5 +67,6 @@
 
   // Stop adding tests here
 
+  // Assign runTests function to the button on the page
   testStartButton.onclick = runTests;
 })();
