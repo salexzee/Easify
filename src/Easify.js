@@ -69,7 +69,15 @@
   // on the protorype
   Easify.prototype = {
 
+    // **************
+    // **************
     // STRING METHODS
+    // **************
+    // **************
+
+    isString: function(str) {
+      return validateString(str);
+    },
 
     // Easy way to grab the last letter of a string
     //
@@ -229,7 +237,11 @@
       }
     },
 
+    // ***********
+    // ***********
     // DOM METHODS
+    // ***********
+    // ***********
 
     // Insert HTML into the selected HTML element
     //
@@ -296,9 +308,66 @@
       throw 'insertHTML arguments are invalid.'
       return false;
       // Does not check if there is a matching HTML element. YET!
+    },
+
+    // *****************
+    // *****************
+    // UNIVERSAL METHODS
+    // *****************
+    // *****************
+
+    // Returns true if arguments are equal.
+    isEqual: function(a, b) {
+      return a === b;
+    },
+
+    // Returns true if arguments are not equal.
+    isNotEqual: function(a, b) {
+      return a !== b;
+    },
+
+    // Returns true if arguments can be coerced to equal.
+    isSimilar: function(a, b) {
+      return a == b;
+    },
+
+    // Returns true if arguments can not be coreced to equal.
+    isNotSimilar: function(a, b) {
+      return a != b;
+    },
+
+    // Checks if the argument is a truthy value
+    isTruthy: function(a) {
+      if (a) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+
+    // Checks if the argument is a falsey value
+    isFalsey: function(a) {
+      if(!a) {
+        return true;
+      } else {
+        return false;
+      }
     }
 
   }
+
+  // **********
+  // **********
+  // ALTERNATES
+  // **********
+  // **********
+
+  // Alternate name for isEqual method
+  Easify.prototype.equals = Easify.prototype.isEqual;
+
+
+  // ******************************
+
 
   // Point init prototype to the Easify prototype
   Easify.init.prototype = Easify.prototype;
