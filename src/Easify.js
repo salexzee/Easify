@@ -2,7 +2,7 @@
 // Author: Sam Webb
 // Copyright: 2015
 // License: MIT
-// Version: 0.0.1
+// Version: 0.0.2
 
 // Dependencies: N/A
 
