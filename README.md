@@ -30,7 +30,7 @@ var e = $E();
 
 Now you can access all of the Easify methods by using dot notation.
 
-*****Capitalize*****
+####Capitalize
 
 Used to capitalize the first letter of a provided string.
 
