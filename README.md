@@ -16,6 +16,8 @@ To get started, include Easify.js in your website. Make sure it's included above
 </html>
 ```
 
+You'll know it's included if you look in the console and see 'Easify loaded!'
+
 Once included, you'll need to initialize an Easify object. There are 2 ways to do this:
 
 ```javascript
@@ -132,7 +134,7 @@ e.insertHTML('class', 'class-name', 'hello world', 2);
 
 ***isEqual**
 
-Returns true if both arguments are equal (strict)
+Returns true if both arguments are equal (strict).
 
 ```javascript
 e.isEqual(5, 5); // > true
@@ -142,13 +144,84 @@ e.isEqual('hello', 'hello'); // > true
 
 ***isNotEqual***
 
-Returns true if both arguments are not equal (strict)
+Returns true if both arguments are not equal (strict).
 
 ```javascript
 e.isNotEqual(5, 5); // > false
 e.isNotEqual(5, '5'); // > true
 e.isNotEqual('hello', 'Hello'); // true
 ```
+
+***isSimilar***
+
+Returns true if both arguments are equal (not strict).
+
+```javascript
+e.isSimilar(5, 5); // > true
+e.isSimilar(5, '5'); // > true
+e.isSimilar('hello', 'Hello'); // > false
+```
+
+***isNotSimilar***
+
+Returns true if both arguments are not equal (not strict).
+
+```javascript
+e.isNotSimilar(5, 5); // > false
+e.isNotSimilar(5, '5') // > false
+e.isNotSimilar('hello', 'Hello'); // > true
+```
+
+***isTruthy***
+
+Returns true if input is truthy value.
+
+```javascript
+// Numbers
+e.isTruthy(0); // > false
+e.isTruthy(1); // > true
+
+// Strings
+e.isTruthy(''); // > false
+e.isTruthy('hello'); // > true
+
+// Arrays
+e.isTruthy([]); // > true
+e.isTruthy([1, 2, 3]); // > true
+
+// Objects
+e.isTruthy({}); // > true
+e.isTruthy({a: 1, b: 2, c: 3}); // > true
+
+// Functions
+e.isTruthy(function(){}); // > true
+```
+
+***isFalsey***
+
+Returns true if input is falsey value.
+
+```javascript
+// Numbers
+e.isFalsey(0); // > true
+e.isFalsey(1); // > false
+
+// Strings
+e.isFalsey(''); // > true
+e.isFalsey('hello'); // > false
+
+// Arrays
+e.isFalsey([]); // > false
+e.isFalsey([1, 2, 3]); // > false
+
+// Objects
+e.isFalsey({}); // > false
+e.isFalsey({a: 1, b: 2, c: 3}); // > false
+
+// Functions
+e.isFalsey(function(){}); // > false
+```
+
 
 ##CONTRIBUTE
 
