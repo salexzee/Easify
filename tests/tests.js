@@ -112,6 +112,35 @@
     }
   );
 
+  // Checks if randomize() returns a string of the same length as the provided string
+  tests.push(
+    function() {
+      var text = 'randomize returns a string of the same length of the input string';
+      if (e.randomize(testWord).length === testWord.length) {
+        testOutput(text, 'passed');
+      } else {
+        testOutput(text, 'failed');
+      }
+    }
+  );
+
+  // Checks if randomize() returns a string that is not the same as the provided string
+  // It is currently possible for the returned string to be
+  // the same as the input string. The shorter the word,
+  // the higher the chance of it being the same.
+  // Using test sentence to lower the probability of returning
+  // the same string.
+  tests.push(
+    function() {
+      var text = 'randomize returns a string that is not the same as the input word';
+      if(e.randomize(testSentence) !== testSentence) {
+        testOutput(text, 'passed');
+      } else {
+        testOutput(text, 'failed');
+      }
+    }
+  );
+
   // Stop adding tests here
 
   // Assign runTests function to the button on the page
