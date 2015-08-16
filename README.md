@@ -5,6 +5,39 @@ A small library that makes JavaScript easier to work with.
 
 ---------------
 
+***DOCUMENTATION***
+
+To get started, include Easify.js in your website. Make sure it's included above your websites JS file. To make sure JS doesn't interfere with the loading of your HTML and CSS, it is suggested that you add your JS files right above your closing `body` tag.
+
+```html
+    <script src="js/Easify.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
+```
+
+Once included, you'll need to initialize an Easify object. There are 2 ways to do this:
+
+```javascript
+// The long hand version
+var e = Easify();
+
+// The preferred method
+var e = $E();
+
+// Will be using the 'e' variable for the rest of this section
+````
+
+Now you can access all of the Easify methods by using dot notation.
+
+*****Capitalize*****
+
+Used to capitalize the first letter of a provided string.
+
+```javascript
+e.capitalize('john'); // > 'John' 
+```
+
 ***CONTRIBUTE***
 
 Currently, there are 2 ways you can contribute to this project:
