@@ -1,11 +1,11 @@
-**EasifyJS**
+EasifyJS
 ===============
 
 A small library that makes JavaScript easier to work with.
 
 ---------------
 
-***DOCUMENTATION***
+##DOCUMENTATION
 
 To get started, include Easify.js in your website. Make sure it's included above your websites JS file. To make sure JS doesn't interfere with the loading of your HTML and CSS, it is suggested that you add your JS files right above your closing `body` tag.
 
@@ -30,7 +30,7 @@ var e = $E();
 
 Now you can access all of the Easify methods by using dot notation.
 
-######Capitalize
+***Capitalize***
 
 Used to capitalize the first letter of a provided string.
 
@@ -38,7 +38,16 @@ Used to capitalize the first letter of a provided string.
 e.capitalize('john'); // > 'John' 
 ```
 
-***CONTRIBUTE***
+***isString***
+
+Used to check if the provided value is of type 'string'
+
+```javascript
+e.isString('hello world'); // > true
+e.isString(33); // > false
+```
+
+##CONTRIBUTE
 
 Currently, there are 2 ways you can contribute to this project:
 
@@ -49,7 +58,7 @@ Currently, there are 2 ways you can contribute to this project:
 In the future, this section will be moved into a CONTRIBUTE.md file along with anything else deemed necessary. For now it's small enough to just leave here.
 
 
-***TESTS***
+##TESTS
 
 To run tests is simple, just open test/index.html in your browser of choice and click the "Run Tests" button. You'll see a long list of the tests that were run and whether they passed or failed.
 
@@ -88,6 +97,6 @@ Here is an example of a real world test:
   );
 ```
 
-***FINAL NOTES***
+##FINAL NOTES
 
 The website portion of this uses AngularJS so if things look a little odd in your forked version, it's because you need to run it in some sort of server. If you're using [Brackets](http://brackets.io/) as your text editor, you should be good if you hit the preview button from website/index.html.
