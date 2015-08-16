@@ -30,21 +30,124 @@ var e = $E();
 
 Now you can access all of the Easify methods by using dot notation.
 
-***Capitalize***
+####String Methods
+
+***capitalize***
 
 Used to capitalize the first letter of a provided string.
 
 ```javascript
-e.capitalize('john'); // > 'John' 
+e.capitalize('john'); // > "John"
 ```
 
 ***isString***
 
-Used to check if the provided value is of type 'string'
+Used to check if the provided value is of type 'string'.
 
 ```javascript
 e.isString('hello world'); // > true
 e.isString(33); // > false
+```
+
+***last***
+
+Used to get the last letter of a string.
+
+```javascript
+e.last('hello world'); // > "d"
+```
+
+***remove***
+
+Used to remove a specified amount of random letters from a provided string.
+
+```javascript
+e.remove('hello world', 4); // > "hell od"
+e.remove('hello world', 4); // > "heloorl"
+```
+
+***removeAll***
+
+Used to remove all instances of a specified letter from a provided string.
+
+```javascript
+e.removeAll('hello world', 'l'); // > "heo word"
+```
+
+***randomize***
+
+Used to randomly sort the letters in a provided string.
+
+```javascript
+e.randomize('hello world'); // > "lrdlwloeho "
+e.randomize('hello world'); // > "roheodlw ll"
+```
+
+***repeat***
+
+Used to repeate a provided string, a specified amount of times. Also trims off white space from the beginning and end.
+
+```javascript
+e.repeat('John ', 3); // > "John John John";
+```
+
+***reverse***
+
+Used to reverse the order of a string.
+
+```javascript
+e.reverse('hello world'); // > "dlrow olleh"
+```
+
+***wrap***
+
+Used to wrap a provided string inside of a provided HTML element.
+
+```javascript
+e.wrap('hello world', 'h1'); // > "<h1>hello world</h1>"
+```
+
+####DOM Methods
+
+***insertHTML***
+
+Used to insert text or HTML into a selected element. Can be used with id or class selectors. If class is selected, a 4th(optional) parameter can be used to specify how many will be affected, starting from the first.
+
+```javascript
+// This will place 'hello world' inside of the element with an id of #id-name
+e.insertHTML('id', 'id-name', 'hello world');
+
+// This will place 'hello world' inside of all elements with the class of .class-name
+e.insertHTML('class', 'class-name', 'hello world');
+
+// This will place 'hello world' inside of 2 elements with the class of .class-name
+e.insertHTML('class', 'class-name', 'hello world', 2);
+
+// Note: If the amount argument is more than the amount of elements with
+// the specified classname, the amount argument will default to actual
+// amount of elements.
+```
+
+####Universal Methods
+
+***isEqual**
+
+Returns true if both arguments are equal (strict)
+
+```javascript
+e.isEqual(5, 5); // > true
+e.isEqual(5, '5'); // > false
+e.isEqual('hello', 'hello'); // > true
+```
+
+***isNotEqual***
+
+Returns true if both arguments are not equal (strict)
+
+```javascript
+e.isNotEqual(5, 5); // > false
+e.isNotEqual(5, '5'); // > true
+e.isNotEqual('hello', 'Hello'); // true
 ```
 
 ##CONTRIBUTE
