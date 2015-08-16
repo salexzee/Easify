@@ -132,7 +132,7 @@ e.insertHTML('class', 'class-name', 'hello world', 2);
 
 ####Universal Methods
 
-***isEqual**
+***isEqual***
 
 Returns true if both arguments are equal (strict).
 
