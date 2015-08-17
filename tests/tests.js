@@ -177,6 +177,32 @@
     }
   );
 
+  // insertHTML() not tested
+
+  //Checks if isEqual() returns true when 2 arguments are strictly equal
+  tests.push(
+    function() {
+      var text = 'isEqual() returns true when 2 arguments are strictly equal';
+      if (e.isEqual(5, 5) === true) {
+        testOutput(text, 'passed');
+      } else {
+        testOutput(text, 'failed');
+      }
+    }
+  );
+
+  //Checks if isEqual() returns false when 2 arguments are equal, but not strictly equal
+  tests.push(
+    function() {
+      var text = 'isEqual() returns false when 2 arguments are not strictly equal';
+      if (e.isEqual(5, '5') === false) {
+        testOutput(text, 'passed');
+      } else {
+        testOutput(text, 'failed');
+      }
+    }
+  );
+
   // Stop adding tests here
 
   // Assign runTests function to the button on the page
