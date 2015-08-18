@@ -116,7 +116,7 @@ e.wrap('hello world', 'h1'); // > "<h1>hello world</h1>"
 Used to check the types of all values contained in a passed in array
 
 ```javascript
-e.isArray([{}, [], 'hello', 3, function(){}, true]); // > ["object", "array", "string", "number", "function", "boolean"]
+e.checkTypes([{}, [], 'hello', 3, function(){}, true]); // > ["object", "array", "string", "number", "function", "boolean"]
 ```
 
 ***isArray***
