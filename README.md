@@ -109,6 +109,38 @@ Used to wrap a provided string inside of a provided HTML element.
 e.wrap('hello world', 'h1'); // > "<h1>hello world</h1>"
 ```
 
+####ARRAY METHODS
+
+***checkTypes***
+
+Used to check the types of all values contained in a passed in array
+
+```javascript
+e.isArray([{}, [], 'hello', 3, function(){}, true]); // > ["object", "array", "string", "number", "function", "boolean"]
+```
+
+***isArray***
+
+Used to check if passed in value is an array
+
+```javascript
+e.isArray([]); // > true
+e.isArray({}); // > false
+e.isArray('hello'); // > false
+```
+
+####OBJECT METHODS
+
+***isObject***
+
+Used to check if passed in value is an object
+
+```javascript
+e.isObject({}); // > true
+e.isObject([]); // > false
+e.isObject(4); // > false
+```
+
 ####DOM Methods
 
 ***insertHTML***
@@ -220,6 +252,18 @@ e.isFalsey({a: 1, b: 2, c: 3}); // > false
 
 // Functions
 e.isFalsey(function(){}); // > false
+```
+
+***checkType***
+
+Returns the type of a passed in value
+
+```javascript
+e.checkType([]); // > "array"
+e.checkType({}); // > "object"
+e.checkType('hello'); // > "string"
+e.checkType(3); // > "number"
+e.checkType(true); // > "boolean"
 ```
 
 
