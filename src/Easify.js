@@ -275,6 +275,32 @@
       throw 'checkTypes() only accepts arrays'
     },
 
+    // Checks if input value is an array
+    isArray: function(arr) {
+      if (Array.isArray(arr) === true) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+
+    // **************
+    // **************
+    // OBJECT METHODS
+    // **************
+    // **************
+
+    // Checks if input value returns 'object' and not 'array'
+    isObject: function(obj) {
+      if (Array.isArray(obj) === true) {
+        return false;
+      } else if (typeof obj === 'object') {
+        return true;
+      } else {
+        return false;
+      }
+    },
+
     // ***********
     // ***********
     // DOM METHODS
