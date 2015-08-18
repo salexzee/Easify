@@ -251,6 +251,30 @@
       }
     },
 
+    // *************
+    // *************
+    // ARRAY METHODS
+    // *************
+    // *************
+
+    // Checks the type of each element contained in the passed
+    // in array
+    //
+    // Takes 1 argument(array)
+    // e.checkTypes([1, 'hello', [], {}, function(){}, true])
+    // returns
+    // ['number', 'string', 'array', 'object', 'function', 'boolean']
+    checkTypes: function(arr) {
+      if (Array.isArray(arr) === true) {
+        var returnedArray = [];
+        for (var i = 0; i < arr.length; i++) {
+          returnedArray.push(checkType(arr[i]));
+        }
+        return returnedArray;
+      }
+      throw 'checkTypes() only accepts arrays'
+    },
+
     // ***********
     // ***********
     // DOM METHODS
