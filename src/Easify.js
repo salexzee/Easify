@@ -268,7 +268,7 @@
       if (Array.isArray(arr) === true) {
         var returnedArray = [];
         for (var i = 0; i < arr.length; i++) {
-          returnedArray.push(checkType(arr[i]));
+          returnedArray.push(this.checkType(arr[i]));
         }
         return returnedArray;
       }
