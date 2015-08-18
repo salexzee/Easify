@@ -268,6 +268,7 @@
       if (Array.isArray(arr) === true) {
         var returnedArray = [];
         for (var i = 0; i < arr.length; i++) {
+          // Method depends on checkType() method
           returnedArray.push(this.checkType(arr[i]));
         }
         return returnedArray;
@@ -424,7 +425,12 @@
       // typeof as 'object'
       if (Array.isArray(a) === true) {
         return 'array';
-      } else {
+      // Check for null since null returns from typeof as
+      // 'object'
+      } else if (a === null) {
+        return 'null';
+      } {
+        // Checks for everything else with typeof
         switch (typeof a) {
           case 'string':
             return 'string';
@@ -436,8 +442,10 @@
             return 'function';
           case 'object':
             return 'object';
+          case 'undefined'
+            return 'undefined'
           default:
-            return;
+            return null;
         }
       }
     }
