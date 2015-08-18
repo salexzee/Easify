@@ -2,7 +2,7 @@
 // Author: Sam Webb
 // Copyright: 2015
 // License: MIT
-// Version: 0.0.2
+// Version: 0.0.3
 
 // Dependencies: N/A
 
@@ -59,6 +59,8 @@
   var Easify = function() {
     return new Easify.init();
   }
+
+  Easify.VERSION = '0.0.3';
 
   // Function that actually creates object
   // to remove 'new' keyword for users
@@ -363,6 +365,30 @@
         return true;
       } else {
         return false;
+      }
+    },
+
+    // Checks the type of a passed in value
+    checkType: function(a) {
+      // Specific check for arrays since they return from
+      // typeof as 'object'
+      if (Array.isArray(a) === true) {
+        return 'array';
+      } else {
+        switch (typeof a) {
+          case 'string':
+            return 'string';
+          case 'number':
+            return 'number';
+          case 'boolean':
+            return 'boolean';
+          case 'function':
+            return 'function';
+          case 'object':
+            return 'object';
+          default:
+            return;
+        }
       }
     }
 
