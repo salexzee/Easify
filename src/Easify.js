@@ -2,7 +2,7 @@
 // Author: Sam Webb
 // Copyright: 2015
 // License: MIT
-// Version: 0.0.3
+// Version: 0.0.4
 
 // Dependencies: N/A
 
@@ -273,7 +273,20 @@
         }
         return returnedArray;
       }
-      throw 'checkTypes() only accepts arrays'
+      throw 'checkTypes() requires an array argument'
+    },
+
+    contains: function(arr, value) {
+      if (Array.isArray(arr) === true) {
+        var isIn = false;
+        for (var i = 0; i < arr.length; i++) {
+          if (arr[i] === value) {
+            isIn = true;
+          }
+        }
+        return isIn;
+      }
+      throw 'contains() requires an array argument'
     },
 
     // Checks if input value is an array
@@ -419,6 +432,20 @@
       }
     },
 
+    // Runs callback if comparison returns true
+    ifTrue: function(comparison, callback){
+      if(comparison) {
+        callback();
+      }
+    },
+
+    // Runs callback if comparison returns false
+    ifFalse: function(comparison, callback) {
+      if(!comparison) {
+        callback();
+      }
+    },
+
     // Checks the type of a passed in value
     checkType: function(a) {
       // Specific check for arrays since they return from
@@ -442,8 +469,8 @@
             return 'function';
           case 'object':
             return 'object';
-          case 'undefined'
-            return 'undefined'
+          case 'undefined':
+            return 'undefined';
           default:
             return null;
         }
