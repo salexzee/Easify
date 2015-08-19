@@ -276,6 +276,7 @@
       throw 'checkTypes() requires an array argument'
     },
 
+    // Returns true if the passed in value is inside of the array
     contains: function(arr, value) {
       if (Array.isArray(arr) === true) {
         var isIn = false;
@@ -386,6 +387,21 @@
       throw 'insertHTML arguments are invalid.'
       return false;
       // Does not check if there is a matching HTML element. YET!
+    },
+
+    // Returns the DOM element with the passed in ID
+    elementFromId: function(id) {
+      return document.getElementById(id);
+    };
+
+    // Returns a list of DOM elements with the passed in class
+    elementsFromClass: function(class) {
+      return document.getElementsByClassName(class);
+    },
+
+    // Returns a list of DOM elements with the passed in tag
+    elementsFromTag: function(tag) {
+      return document.getElementsByTagName(tag);
     },
 
     // *****************
