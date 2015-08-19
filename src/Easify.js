@@ -442,8 +442,8 @@
             return 'function';
           case 'object':
             return 'object';
-          case 'undefined'
-            return 'undefined'
+          case 'undefined':
+            return 'undefined';
           default:
             return null;
         }
