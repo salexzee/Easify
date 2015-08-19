@@ -176,8 +176,8 @@ e.insertHTML('class', 'class-name', 'hello world', 2);
 Returns the DOM element with the given ID.
 
 ```javascript
-e.elementFromId('heading');
 // Will return the element with the #heading ID. If it doesn't exist, it will return null.
+e.elementFromId('heading');
 ```
 
 ####Universal Methods
