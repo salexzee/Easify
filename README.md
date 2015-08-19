@@ -119,6 +119,15 @@ Used to check the types of all values contained in a passed in array
 e.checkTypes([{}, [], 'hello', 3, function(){}, true]); // > ["object", "array", "string", "number", "function", "boolean"]
 ```
 
+***contains***
+
+Used to check if a specific value is inside of an array
+
+```javascript
+e.contains([1,2,3], 4); // > false
+e.contains([1,2,3], 2); // > true
+```
+
 ***isArray***
 
 Used to check if passed in value is an array
@@ -160,6 +169,15 @@ e.insertHTML('class', 'class-name', 'hello world', 2);
 // Note: If the amount argument is more than the amount of elements with
 // the specified classname, the amount argument will default to actual
 // amount of elements.
+```
+
+***elementFromId***
+
+Returns the DOM element with the given ID.
+
+```javascript
+e.elementFromId('heading');
+// Will return the element with the #heading ID. If it doesn't exist, it will return null.
 ```
 
 ####Universal Methods
