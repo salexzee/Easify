@@ -309,6 +309,8 @@
     isObject: function(obj) {
       if (Array.isArray(obj) === true) {
         return false;
+      } else if (obj === null) {
+        return false;
       } else if (typeof obj === 'object') {
         return true;
       } else {
@@ -392,16 +394,20 @@
     // Returns the DOM element with the passed in ID
     elementFromId: function(id) {
       return document.getElementById(id);
-    };
+    },
 
     // Returns a list of DOM elements with the passed in class
-    elementsFromClass: function(class) {
-      return document.getElementsByClassName(class);
+    elementsFromClass: function(classname) {
+      return document.getElementsByClassName(classname);
     },
 
     // Returns a list of DOM elements with the passed in tag
     elementsFromTag: function(tag) {
       return document.getElementsByTagName(tag);
+    },
+
+    elementsFromName: function(name) {
+      return document.getElementsByName(name);
     },
 
     // *****************
