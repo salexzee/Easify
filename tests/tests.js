@@ -10,8 +10,8 @@
   var checkBlock = document.getElementById('checks');
   var testStartButton = document.getElementById('run-tests-button');
   var tests = [];
-  var passed = 0; // Set for future use
-  var failed = 0; // Set for future use
+  var passed = 0;
+  var failed = 0;
 
   // Runs all tests
   function runTests() {
@@ -20,6 +20,7 @@
       tests[i]();
     }
     console.log('Tests run!');
+    console.log(passed + ' passed - ' + failed + ' failed');
   }
 
   // Creates the output for the tests
@@ -35,8 +36,10 @@
   function runTest(comparison, text) {
     if(comparison) {
       testOutput(text, 'passed');
+      passed += 1;
     } else {
       testOutput(text, 'failed');
+      failed += 1;
     }
   }
 
