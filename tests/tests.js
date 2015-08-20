@@ -189,7 +189,105 @@
       var text = 'isSimilar() returns false when 2 arguments are not equal';
       runTest(e.isSimilar(5, 4) === false, text);
     }
-  )
+  );
+
+  tests.push(
+    function() {
+      var text = 'isNotSimilar() returns true when 2 arguments are not equal';
+      runTest(e.isNotSimilar(5, 4) === true, text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'isNotSimilar() returns false whe 2 arguments are equal';
+      runTest(e.isNotSimilar(5, 5) === false, text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'isTruthy() returns true when value is truthy';
+      runTest(e.isTruthy(5) === true, text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'isTruthy() returns false when value is falsey';
+      runTest(e.isTruthy(0) === false, text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'isFalsey() returns true when value is falsey';
+      runTest(e.isFalsey(0) === true, text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'isFalsey() returns false when value is truthy';
+      runTest(e.isFalsey(5) === false, text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'checkType() returns "array" when an array is passed in';
+      runTest(e.checkType([]) === 'array', text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'checkType() returns "object" when an object is passed in';
+      runTest(e.checkType({}) === 'object', text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'checkType() returns "string" when a string value is passed in';
+      runTest(e.checkType('test') === 'string', text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'checkType() returns "boolean" when a boolean value is passed in';
+      runTest(e.checkType(false) === 'boolean', text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'checkType() returns "function" when a function is passed in';
+      runTest(e.checkType(function(){}) === 'function', text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'checkType() returns "null" when null is passed in';
+      runTest(e.checkType(null) === 'null', text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'checkType() returns "undefined" when undefined is passed in';
+      runTest(e.checkType(undefined) === 'undefined', text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'checkType() returns "undefined" when nothing is passed in';
+      runTest(e.checkType() === 'undefined', text);
+    }
+  );
 
   // Stop adding tests here
 
