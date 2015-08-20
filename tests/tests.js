@@ -51,7 +51,7 @@
   // Checks if capitalize() returns a string with the first letter capitalized
   tests.push(
     function() {
-      var text = "capitalize() returns a new string with the first letter capitalized"
+      var text = "capitalize() returns a new string with the first letter capitalized";
       runTest(e.capitalize('testing') === 'Testing', text);
     }
   );
