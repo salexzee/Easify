@@ -10,9 +10,6 @@
   var checkBlock = document.getElementById('checks');
   var testStartButton = document.getElementById('run-tests-button');
   var tests = [];
-  var testWord = "testing";
-  var testSentence = "This is a test sentence.";
-  var testNumber = 5;
   var passed = 0; // Set for future use
   var failed = 0; // Set for future use
 
@@ -44,7 +41,7 @@
   tests.push(
     function() {
       var text = "capitalize() returns a new string with the first letter capitalized"
-      if (e.capitalize(testWord) === 'Testing') {
+      if (e.capitalize('testing') === 'Testing') {
         testOutput(text, 'passed');
       } else {
         testOutput(text, 'failed');
@@ -56,7 +53,7 @@
   tests.push(
     function() {
       var text = "isString() returns true if input value is of type 'string'";
-      if (e.isString(testWord) === true) {
+      if (e.isString('testing') === true) {
         testOutput(text, 'passed');
       } else {
         testOutput(text, 'failed');
@@ -68,7 +65,7 @@
   tests.push(
     function() {
       var text = "isString() returns false if input value is not of type 'string'";
-      if (e.isString(testNumber) === false) {
+      if (e.isString(5) === false) {
         testOutput(text, 'passed');
       } else {
         testOutput(text, 'failed');
@@ -80,7 +77,7 @@
   tests.push(
     function() {
       var text = "last() returns the last letter in a string";
-      if (e.last(testWord) === 'g') {
+      if (e.last('testing') === 'g') {
         testOutput(text, 'passed');
       } else {
         testOutput(text, 'failed');
@@ -92,6 +89,8 @@
   tests.push(
     function() {
       var text = 'remove() returns a string with letters removed';
+      var testWord = 'testing';
+      var testNumber = 5;
       if (e.remove(testWord, testNumber).length === testWord.length - testNumber ) {
         testOutput(text, 'passed');
       } else {
@@ -104,7 +103,7 @@
   tests.push(
     function() {
       var text = 'removeAll() returns a string with all of a specified letter removed';
-      if (e.removeAll(testWord, 't') === 'esing') {
+      if (e.removeAll('testing', 't') === 'esing') {
         testOutput(text, 'passed'); 
       } else {
         testOutput(text, 'failed');
@@ -116,6 +115,7 @@
   tests.push(
     function() {
       var text = 'randomize() returns a string of the same length of the input string';
+      var testWord = 'testing';
       if (e.randomize(testWord).length === testWord.length) {
         testOutput(text, 'passed');
       } else {
@@ -133,6 +133,7 @@
   tests.push(
     function() {
       var text = 'randomize() returns a string that is not the same as the input word';
+      var testSentence = "This is a test sentence.";
       if(e.randomize(testSentence) !== testSentence) {
         testOutput(text, 'passed');
       } else {
@@ -145,7 +146,7 @@
   tests.push(
     function() {
       var text = 'repeat() returns the provided string repeated the specified amount of times';
-      if (e.repeat(testWord, 3) === 'testingtestingtesting') {
+      if (e.repeat('testing', 3) === 'testingtestingtesting') {
         testOutput(text, 'passed');
       } else {
         testOutput(text, 'failed');
@@ -157,7 +158,7 @@
   tests.push(
     function() {
       var text = 'reverse() returns the provided string backwawrds';
-      if (e.reverse(testWord) === 'gnitset') {
+      if (e.reverse('testing') === 'gnitset') {
         testOutput(text, 'passed');
       } else {
         testOutput(text, 'failed');
@@ -169,7 +170,7 @@
   tests.push(
     function() {
       var text = 'wrap() encapsulates the provided string in a provided HTML tag';
-      if (e.wrap(testWord, 'h1') === '<h1>testing</h1>') {
+      if (e.wrap('testing', 'h1') === '<h1>testing</h1>') {
         testOutput(text, 'passed');
       } else {
         testOutput(text, 'failed');
@@ -196,6 +197,29 @@
     function() {
       var text = 'isEqual() returns false when 2 arguments are not strictly equal';
       if (e.isEqual(5, '5') === false) {
+        testOutput(text, 'passed');
+      } else {
+        testOutput(text, 'failed');
+      }
+    }
+  );
+
+  // Checks if isNotEqual returns true when 2 arguments are equal, but not strictly equal
+  tests.push(
+    function() {
+      var text = 'isNotEqual() returns true when 2 arguments are not strictly equal';
+      if(e.isNotEqual(5, '5') === true) {
+        testOutput(text, 'passed');
+      } else {
+        testOutput(text, 'failed');
+      }
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'isNotEqual() returns false when 2 arguments are strictly equal';
+      if (e.isNotEqual(5, 5) === false) {
         testOutput(text, 'passed');
       } else {
         testOutput(text, 'failed');
