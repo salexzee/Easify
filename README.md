@@ -310,11 +310,7 @@ Tests are very simple to implement. Here's the format:
 tests.push(
   function() {
     var text = "Short description that will appear when testing";
-    if(a > b) { // Your test condition will replace 'a > b'
-      testOutput(text, 'true');
-    } else {
-      testOutput(text, 'false');
-    }
+    runTest(comparison, text);
   }
 );
 ```
@@ -322,15 +318,11 @@ tests.push(
 Here is an example of a real world test:
 
 ```javascript
-// Checks if remove() takes out the provided amount of letters
+// Checks if capitalize() returns a string with the first letter capitalized
   tests.push(
     function() {
-      var text = 'remove returns a string with letters removed';
-      if (e.remove(testWord, testNumber).length === testWord.length - testNumber ) {
-        testOutput(text, 'passed');
-      } else {
-        testOutput(text, 'failed');
-      }
+      var text = "capitalize() returns a new string with the first letter capitalized"
+      runTest(e.capitalize('testing') === 'Testing', text);
     }
   );
 ```
