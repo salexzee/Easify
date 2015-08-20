@@ -16,6 +16,8 @@
   // Runs all tests
   function runTests() {
     checkBlock.innerHTML = '';
+    passed = 0;
+    failed = 0;
     for (var i = 0; i < tests.length; i++) {
       tests[i]();
     }
@@ -286,6 +288,55 @@
     function() {
       var text = 'checkType() returns "undefined" when nothing is passed in';
       runTest(e.checkType() === 'undefined', text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'isObject() returns true if passed in value is an object';
+      runTest(e.isObject({}) === true, text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'isObject() returns false if an array is passed in';
+      runTest(e.isObject([]) === false, text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'isObject() returns false if null is passed in';
+      runTest(e.isObject(null) === false, text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'isArray() returns true if an array is passed in';
+      runTest(e.isArray([]) === true, text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'isArray() returns false if an object is passed in';
+      runTest(e.isArray({}) === false, text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'contains() returns true if the passed in value is inside of the passed in array';
+      runTest(e.contains([1,2,3], 3) === true, text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'contains() returns false if the passed in value is not inside of the passed in array';
+      runTest(e.contains([1,2,3], 4) === false, text);
     }
   );
 
