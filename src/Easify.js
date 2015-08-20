@@ -2,7 +2,7 @@
 // Author: Sam Webb
 // Copyright: 2015
 // License: MIT
-// Version: 0.1.0
+// Version: 0.0.4
 
 // Dependencies: N/A
 
@@ -257,6 +257,16 @@
     // *************
     // *************
 
+    // Combines 2 arrays into a single array with all the values
+    bridge: function(arr1, arr2) {
+      if (this.isArray(arr1) && this.isArray(arr2)) {
+        for (var i = 0; i < arr2.length; i++) {
+          arr1.push(arr2[i]);
+        }
+        return arr1;
+      }
+    },
+
     // Checks the type of each element contained in the passed
     // in array
     //
@@ -497,6 +507,16 @@
             return null;
         }
       }
+    },
+
+    // Returns an array containing all Easify methods
+    methods: function() {
+      return Object.keys($E.prototype);
+    },
+
+    // Returns the amount of Easify methods
+    methodCount: function() {
+      return this.methods().length;
     }
 
   }
