@@ -239,8 +239,8 @@
         // Reverse array
         arr = arr.reverse();
         // Rejoin array into string
-        str = arr.join('');
-        return str;
+        var newString = arr.join('');
+        return newString;
       } else {
         throw 'String validation failed.'
       }
@@ -268,10 +268,11 @@
     // Combines 2 arrays into a single array with all the values
     bridge: function(arr1, arr2) {
       if (validateArray(arr1) && validateArray(arr2)) {
+        var newArr = arr1;
         for (var i = 0; i < arr2.length; i++) {
-          arr1.push(arr2[i]);
+          newArr.push(arr2[i]);
         }
-        return arr1;
+        return newArr;
       }
     },
 
@@ -317,6 +318,19 @@
       }
     },
 
+    // Removes the array item at the specified index
+    removeItem: function(arr, index) {
+      if (validateArray(arr) && validateNum(index)) {
+        var newArray = [];
+        for (var i = 0; i < arr.length; i++) {
+          if (i !== index) {
+            newArray.push(arr[i]);
+          }
+        }
+        return newArray;
+      }
+    },
+
     // **************
     // **************
     // OBJECT METHODS
@@ -334,6 +348,13 @@
       } else {
         return false;
       }
+    },
+
+    // Adds a property or method to an existing object
+    // This method mutates the original object
+    objectPush: function(obj, property, value) {
+      obj[property] = value;
+      return {property: value};
     },
 
     // ***********
