@@ -2,7 +2,7 @@
 // Author: Sam Webb
 // Copyright: 2015
 // License: MIT
-// Version: 0.0.4
+// Version: 0.1.0
 
 // Dependencies: N/A
 
@@ -16,7 +16,8 @@
   // Will be using e variable throughout the code
 
   // Variables
-  var validateString,
+  var validateArray,
+      validateString,
       validateNum,
       randomNumberFromItemLength;
 
@@ -26,6 +27,13 @@
   // the passed in array or string
   randomNumberFromItemLength = function(item) {
     return Math.floor(Math.random() * item.length)
+  }
+
+  validateArray = function(arr) {
+    if (Array.isArray(arr) === true) {
+      return true;
+    }
+    return false;
   }
 
   // For validating strings
@@ -60,7 +68,7 @@
     return new Easify.init();
   }
 
-  Easify.VERSION = '0.0.3';
+  Easify.VERSION = '0.1.0';
 
   // Function that actually creates object
   // to remove 'new' keyword for users
@@ -231,8 +239,8 @@
         // Reverse array
         arr = arr.reverse();
         // Rejoin array into string
-        str = arr.join('');
-        return str;
+        var newString = arr.join('');
+        return newString;
       } else {
         throw 'String validation failed.'
       }
@@ -257,6 +265,17 @@
     // *************
     // *************
 
+    // Combines 2 arrays into a single array with all the values
+    bridge: function(arr1, arr2) {
+      if (validateArray(arr1) && validateArray(arr2)) {
+        var newArr = arr1;
+        for (var i = 0; i < arr2.length; i++) {
+          newArr.push(arr2[i]);
+        }
+        return newArr;
+      }
+    },
+
     // Checks the type of each element contained in the passed
     // in array
     //
@@ -265,7 +284,7 @@
     // returns
     // ['number', 'string', 'array', 'object', 'function', 'boolean']
     checkTypes: function(arr) {
-      if (Array.isArray(arr) === true) {
+      if (validateArray(arr)) {
         var returnedArray = [];
         for (var i = 0; i < arr.length; i++) {
           // Method depends on checkType() method
@@ -278,7 +297,7 @@
 
     // Returns true if the passed in value is inside of the array
     contains: function(arr, value) {
-      if (Array.isArray(arr) === true) {
+      if (validateArray(arr)) {
         var isIn = false;
         for (var i = 0; i < arr.length; i++) {
           if (arr[i] === value) {
@@ -292,10 +311,23 @@
 
     // Checks if input value is an array
     isArray: function(arr) {
-      if (Array.isArray(arr) === true) {
+      if (validateArray(arr)) {
         return true;
       } else {
         return false;
+      }
+    },
+
+    // Removes the array item at the specified index
+    removeItem: function(arr, index) {
+      if (validateArray(arr) && validateNum(index)) {
+        var newArray = [];
+        for (var i = 0; i < arr.length; i++) {
+          if (i !== index) {
+            newArray.push(arr[i]);
+          }
+        }
+        return newArray;
       }
     },
 
@@ -307,7 +339,7 @@
 
     // Checks if input value returns 'object' and not 'array'
     isObject: function(obj) {
-      if (Array.isArray(obj) === true) {
+      if (validateArray(obj)) {
         return false;
       } else if (obj === null) {
         return false;
@@ -316,6 +348,13 @@
       } else {
         return false;
       }
+    },
+
+    // Adds a property or method to an existing object
+    // This method mutates the original object
+    objectPush: function(obj, property, value) {
+      obj[property] = value;
+      return {property: value};
     },
 
     // ***********
@@ -497,6 +536,16 @@
             return null;
         }
       }
+    },
+
+    // Returns an array containing all Easify methods
+    methods: function() {
+      return Object.keys($E.prototype);
+    },
+
+    // Returns the amount of Easify methods
+    methodCount: function() {
+      return this.methods().length;
     }
 
   }
