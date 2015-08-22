@@ -2,7 +2,7 @@
 // Author: Sam Webb
 // Copyright: 2015
 // License: MIT
-// Version: 0.0.4
+// Version: 0.1.0
 
 // Dependencies: N/A
 
@@ -16,7 +16,8 @@
   // Will be using e variable throughout the code
 
   // Variables
-  var validateString,
+  var validateArray,
+      validateString,
       validateNum,
       randomNumberFromItemLength;
 
@@ -26,6 +27,13 @@
   // the passed in array or string
   randomNumberFromItemLength = function(item) {
     return Math.floor(Math.random() * item.length)
+  }
+
+  validateArray = function(arr) {
+    if (Array.isArray(arr) === true) {
+      return true;
+    }
+    return false;
   }
 
   // For validating strings
@@ -60,7 +68,7 @@
     return new Easify.init();
   }
 
-  Easify.VERSION = '0.0.3';
+  Easify.VERSION = '0.1.0';
 
   // Function that actually creates object
   // to remove 'new' keyword for users
@@ -259,7 +267,7 @@
 
     // Combines 2 arrays into a single array with all the values
     bridge: function(arr1, arr2) {
-      if (this.isArray(arr1) && this.isArray(arr2)) {
+      if (validateArray(arr1) && validateArray(arr2)) {
         for (var i = 0; i < arr2.length; i++) {
           arr1.push(arr2[i]);
         }
@@ -275,7 +283,7 @@
     // returns
     // ['number', 'string', 'array', 'object', 'function', 'boolean']
     checkTypes: function(arr) {
-      if (Array.isArray(arr) === true) {
+      if (validateArray(arr)) {
         var returnedArray = [];
         for (var i = 0; i < arr.length; i++) {
           // Method depends on checkType() method
@@ -288,7 +296,7 @@
 
     // Returns true if the passed in value is inside of the array
     contains: function(arr, value) {
-      if (Array.isArray(arr) === true) {
+      if (validateArray(arr)) {
         var isIn = false;
         for (var i = 0; i < arr.length; i++) {
           if (arr[i] === value) {
@@ -302,7 +310,7 @@
 
     // Checks if input value is an array
     isArray: function(arr) {
-      if (Array.isArray(arr) === true) {
+      if (validateArray(arr)) {
         return true;
       } else {
         return false;
@@ -317,7 +325,7 @@
 
     // Checks if input value returns 'object' and not 'array'
     isObject: function(obj) {
-      if (Array.isArray(obj) === true) {
+      if (validateArray(obj)) {
         return false;
       } else if (obj === null) {
         return false;
