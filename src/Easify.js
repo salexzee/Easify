@@ -415,6 +415,17 @@
       }
     },
 
+    toArray: function(obj) {
+      if (this.isObject(obj)) {
+        var keys = Object.keys(obj);
+        var mainArr = [];
+        for (var i = 0; i < keys.length; i++) {
+          mainArr.push([keys[i], obj[keys[i]]]);
+        }
+        return mainArr;
+      }
+    },
+
     // ***********
     // ***********
     // DOM METHODS
