@@ -415,6 +415,7 @@
       }
     },
 
+    // Converts an object into an array of key/value arrays
     toArray: function(obj) {
       if (this.isObject(obj)) {
         var keys = Object.keys(obj);
