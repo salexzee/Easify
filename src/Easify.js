@@ -246,6 +246,11 @@
       }
     },
 
+    // Pulls from the original trim method
+    trim: function(str) {
+      return str.trim();
+    },
+
     // Wrap a string in a specified element
     //
     // Takes 2 arguments(string, string)
