@@ -400,6 +400,20 @@
       return;
     },
 
+    // Returns an array with all but the specified keys
+    drop: function(obj, dropKeys) {
+      if (this.isObject(obj) && this.isArray(dropKeys)) {
+        var keys = Object.keys(obj);
+        var newObj = {};
+        for (var i = 0; i < keys.length; i++) {
+          if (!this.contains(dropKeys, keys[i])) {
+            newObj[keys[i]] = obj[keys[i]];
+          }
+        }
+        return newObj;
+      }
+    },
+
     // Checks if input value returns 'object' and not 'array'
     isObject: function(obj) {
       if (validateArray(obj)) {
@@ -410,6 +424,20 @@
         return true;
       } else {
         return false;
+      }
+    },
+
+    // Returns an object with only the specified keys
+    maintain: function(obj, mKeys) {
+      if (this.isObject(obj) && this.isArray(mKeys)) {
+        var keys = Object.keys(obj);
+        var newObj = {};
+        for (var i = 0; i < keys.length; i++) {
+          if (this.contains(mKeys, keys[i])) {
+            newObj[keys[i]] = obj[keys[i]];
+          }
+        }
+        return newObj;
       }
     },
 
