@@ -374,6 +374,32 @@
     // **************
     // **************
 
+    // Combines 2 objects or an array of objects into 1
+    combine: function(obj1, obj2) {
+      if(this.isObject(obj1) && this.isObject(obj2)) {
+        var keys1 = Object.keys(obj1);
+        var keys2 = Object.keys(obj2);
+        var newObj = {};
+        for (var i = 0; i < keys1.length; i++) {
+          newObj[keys1[i]] = obj1[keys1[i]];
+        }
+        for (var i = 0; i < keys2.length; i++) {
+          newObj[keys2[i]] = obj2[keys2[i]];
+        }
+        return newObj;
+      } else if (this.isArray(obj1)) {
+        var newObj = {};
+        for (var i = 0; i < obj1.length; i++) {
+          var keys = Object.keys(obj1[i]);
+          for (var j = 0; j < keys.length; j++) {
+            newObj[keys[j]] = obj1[i][keys[j]];
+          }
+        }
+        return newObj;
+      }
+      return;
+    },
+
     // Checks if input value returns 'object' and not 'array'
     isObject: function(obj) {
       if (validateArray(obj)) {
@@ -394,7 +420,7 @@
       return {property: value};
     },
 
-    // Renames a property of an object
+    // Renames a property of an object and returns it as a new object
     rename: function(obj, original, update) {
       if (this.isObject(obj) && validateString(original) && validateString(update)) {
         var keys = Object.keys(obj);
@@ -411,7 +437,7 @@
         } else {
           return;
         }
-        return newObj;r
+        return newObj;
       }
     },
 
