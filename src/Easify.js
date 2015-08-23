@@ -394,6 +394,27 @@
       return {property: value};
     },
 
+    // Renames a property of an object
+    rename: function(obj, original, update) {
+      if (this.isObject(obj) && validateString(original) && validateString(update)) {
+        var keys = Object.keys(obj);
+        var newObj = {};
+        if (keys.indexOf(original) !== -1) {
+          var index = keys.indexOf(original);
+          for (var i = 0; i < keys.length; i++) {
+            if (keys[i] !== original) {
+             newObj[keys[i]] = obj[keys[i]]
+            } else {
+             newObj[update] = obj[original];
+            }
+          }
+        } else {
+          return;
+        }
+        return newObj;r
+      }
+    },
+
     // ***********
     // ***********
     // DOM METHODS
