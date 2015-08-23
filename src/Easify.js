@@ -2,7 +2,7 @@
 // Author: Sam Webb
 // Copyright: 2015
 // License: MIT
-// Version: 0.1.0
+// Version: 0.2.0
 
 // Dependencies: N/A
 
@@ -68,7 +68,7 @@
     return new Easify.init();
   }
 
-  Easify.VERSION = '0.1.0';
+  Easify.VERSION = '0.2.0';
 
   // Function that actually creates object
   // to remove 'new' keyword for users
@@ -318,6 +318,25 @@
       }
     },
 
+    // Returns a new array with only the specified indexes
+    parlay: function(arr, indexes) {
+      if (validateArray(arr)) {
+        for (var i = 0; i < indexes.length; i++) {
+          if (!validateNum(indexes[i])) {
+            return;
+          }
+        }
+
+        var newArr = [];
+        for (var i = 0; i < indexes.length; i++) {
+          if (indexes[i] < arr.length) {
+            newArr.push(arr[indexes[i]]);
+          }
+        }
+        return newArr;
+      }
+    },
+
     // Removes the array item at the specified index
     removeItem: function(arr, index) {
       if (validateArray(arr) && validateNum(index)) {
@@ -329,6 +348,19 @@
         }
         return newArray;
       }
+    },
+
+    // Returns a new array with the elements shuffled
+    shuffle: function(arr) {
+      var inputArr = arr;
+      var newArr = [];
+      var num;
+      while (inputArr.length > 0) {
+        num = randomNumberFromItemLength(inputArr);
+        newArr.push(inputArr[num]);
+        this.removeItem(inputArr, num);
+      }
+      return newArr;
     },
 
     // **************
