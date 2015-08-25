@@ -5,6 +5,11 @@ A small library that makes JavaScript easier to work with.
 
 ---------------
 
+##CONTRIBUTE
+
+[How to contribute.](CONTRIBUTE.md)
+
+
 ##DOCUMENTATION
 
 To get started, include Easify.min.js in your website. Make sure it's included above your websites JS file. To make sure JS doesn't interfere with the loading of your HTML and CSS, it is suggested that you add your JS files right above your closing `body` tag.
@@ -284,10 +289,6 @@ e.checkType(3); // > "number"
 e.checkType(true); // > "boolean"
 ```
 
-
-##CONTRIBUTE
-
-[How to contribute.](CONTRIBUTE.md)
 
 ##TESTS
 
