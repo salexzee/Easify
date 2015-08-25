@@ -22,9 +22,3 @@ Documentation is a beast. There is a nice amount of documentation in the source 
 
 You still need to sumit an issue, but it doesn't need to be approved. The reason for the pull request is to let people know what you plan to work on so that they don't duplicate efforts. Just say which methods you plan on adding documentation for and assign it to yourself. Giving your issue the "Documentation" label will also help when filtering through issues.
 
-###4. Spread the word
-
-Share this project via Twitter ... <a rel="canonical" class="twitter-share-button"
-  href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdev.twitter.com%2Fweb%2Ftweet-button%3Fsrc%3Dtwitter?text=Check%20out%20Easify.JS, making%20JS%20easier%20@samthewebb?hashtags=easifyjs,javascript?url=https://github.com/salexzee/Easify"
-  data-counturl="https://dev.twitter.com/web/tweet-button">
-Tweet</a>
