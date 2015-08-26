@@ -185,6 +185,24 @@ Returns the DOM element with the given ID.
 e.elementFromId('heading');
 ```
 
+***elementsFromClass***
+
+Returns an array of DOM elements with the given class
+
+```javascript
+// Will return an array of elements with the class of .item.
+e.elementsFromClass('item');
+```
+
+***elementsFromTag***
+
+Returns an array of DOM elements of the provided tag name
+
+```javascript
+// Will return an array of all divs on the page
+e.elementsFromTag('div');
+```
+
 ####Universal Methods
 
 ***isEqual***
@@ -275,6 +293,24 @@ e.isFalsey({a: 1, b: 2, c: 3}); // > false
 
 // Functions
 e.isFalsey(function(){}); // > false
+```
+
+***ifTrue***
+
+Runs a provided function if the comparison returns true
+
+```javascript
+e.ifTrue(1 < 2, function(){return '1 is less than 2'});
+// > "1 is less than 2"
+```
+
+***ifFalse***
+
+Runs a provided function if the comparison returns false
+
+```javascript
+e.ifFalse(1 > 2, function(){return '1 is actually less than 2'});
+// > "1 is actually less than 2"
 ```
 
 ***checkType***
