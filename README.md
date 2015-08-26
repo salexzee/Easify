@@ -114,6 +114,7 @@ Used to wrap a provided string inside of a provided HTML element.
 e.wrap('hello world', 'h1'); // > "<h1>hello world</h1>"
 ```
 
+
 ####ARRAY METHODS
 
 ***checkTypes***
@@ -143,6 +144,7 @@ e.isArray({}); // > false
 e.isArray('hello'); // > false
 ```
 
+
 ####OBJECT METHODS
 
 ***isObject***
@@ -154,6 +156,25 @@ e.isObject({}); // > true
 e.isObject([]); // > false
 e.isObject(4); // > false
 ```
+
+***rename***
+
+Changes the name of the specified property name of an object
+
+```javascript
+var person = {firstname: 'John'};
+e.rename(person, 'firstname', 'name'); // > {name: 'John'}
+```
+
+***toArray***
+
+Converts an object into an array of arrays containing the key and value
+
+```javascript
+var person = {firstname: 'John', lastname: 'Doe'};
+e.toArray(person); // > [["firstname", "John"], ["lastname", "Doe"]]
+```
+
 
 ####DOM Methods
 
@@ -202,6 +223,16 @@ Returns an array of DOM elements of the provided tag name
 // Will return an array of all divs on the page
 e.elementsFromTag('div');
 ```
+
+***elementsFromName***
+
+Returns an array of DOM elements with the provided name
+
+```javascript
+// Will return an array of elements with the name "city"
+e.elementsFromName('city');
+```
+
 
 ####Universal Methods
 
