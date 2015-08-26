@@ -106,6 +106,8 @@ Used to reverse the order of a string.
 e.reverse('hello world'); // > "dlrow olleh"
 ```
 
+***trim***
+
 ***wrap***
 
 Used to wrap a provided string inside of a provided HTML element.
@@ -116,6 +118,8 @@ e.wrap('hello world', 'h1'); // > "<h1>hello world</h1>"
 
 
 ####ARRAY METHODS
+
+***bridge***
 
 ***checkTypes***
 
@@ -144,8 +148,18 @@ e.isArray({}); // > false
 e.isArray('hello'); // > false
 ```
 
+***parlay***
+
+***removeItem***
+
+***shuffle***
+
 
 ####OBJECT METHODS
+
+***combine***
+
+***drop***
 
 ***isObject***
 
@@ -156,6 +170,10 @@ e.isObject({}); // > true
 e.isObject([]); // > false
 e.isObject(4); // > false
 ```
+
+***maintain***
+
+***objectPush***
 
 ***rename***
 
