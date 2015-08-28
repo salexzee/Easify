@@ -108,6 +108,12 @@ e.reverse('hello world'); // > "dlrow olleh"
 
 ***trim***
 
+Removes any white space from the beginning and end of a string
+
+```javascript
+e.trim(' hello world '); // > "hello world"
+```
+
 ***wrap***
 
 Used to wrap a provided string inside of a provided HTML element.
@@ -120,6 +126,12 @@ e.wrap('hello world', 'h1'); // > "<h1>hello world</h1>"
 ####ARRAY METHODS
 
 ***bridge***
+
+Combines 2 arrays and returns 1 array of all values
+
+```javascript
+e.bridge([1,2,3], [4,5,6]); // > [1, 2, 3, 4, 5, 6]
+```
 
 ***checkTypes***
 
@@ -150,9 +162,27 @@ e.isArray('hello'); // > false
 
 ***parlay***
 
+Creates a new array out of specified indexes from the provided array
+
+```javascript
+e.parlay(['a','b','c','d','e'], [0,3,4]); // > ["a", "d", "e"]
+```
+
 ***removeItem***
 
+Returns a new array without the specified index of the input array
+
+```javascript
+e.removeItem(['a', 'b', 'c'], 1); // > ["a", "c"]
+```
+
 ***shuffle***
+
+Returnes a new array with the input array's values shuffled
+
+```javascript
+e.shuffle([1,2,3,4,5]); // > [2, 4, 1, 5, 3]
+```
 
 
 ####OBJECT METHODS
