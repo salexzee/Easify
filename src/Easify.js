@@ -623,6 +623,8 @@
     ifTrue: function(comparison, callback){
       if(comparison) {
         callback();
+      } else {
+        return false;
       }
     },
 
@@ -630,6 +632,8 @@
     ifFalse: function(comparison, callback) {
       if(!comparison) {
         callback();
+      } else {
+        return false;
       }
     },
 
@@ -643,7 +647,7 @@
       // 'object'
       } else if (a === null) {
         return 'null';
-      } {
+      } else {
         // Checks for everything else with typeof
         switch (typeof a) {
           case 'string':
@@ -672,6 +676,44 @@
     // Returns the amount of Easify methods
     methodCount: function() {
       return this.methods().length;
+    },
+
+    // ************
+    // ************
+    // MATH METHODS
+    // ************
+    // ************
+
+    add: function(a, b) {
+      if (validateNum(a) && validateNum(b)) {
+        return a + b;
+      } else if (this.isArray(a)) {
+        var val = 0;
+        for (var i = 0; i < a.length; i++) {
+          if (validateNum(a[i])) {
+            val += a[i];
+          }
+        }
+        return val;
+      } else {
+        return false;
+      }
+    },
+
+    subtract: function(a, b) {
+      if (validateNum(a) && validateNum(b)) {
+        return a - b;
+      } else if (this.isArray(a)) {
+        var val = a[0];
+        for (var i = 1; i < a.length; i++) {
+          if (validateNum(a[i])) {
+            val -= a[i];
+          }
+        }
+        return val;
+      } else {
+        return false;
+      }
     }
 
   }
