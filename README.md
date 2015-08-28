@@ -444,6 +444,22 @@ e.checkType(3); // > "number"
 e.checkType(true); // > "boolean"
 ```
 
+***methods***
+
+Returns an array of the Easify methods
+
+```javascript
+e.methods(); // > ["capitalize", "isString", ... , "methodCount", "last"];
+```
+
+***methodCount***
+
+Returns the amount of methods on EasifyJS
+
+```javascript
+e.methodCount(); // > 41
+```
+
 
 ##TESTS
 
