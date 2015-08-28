@@ -211,7 +211,7 @@ Returns a new object without the specified keys
 ```javascript
 var person = {name: 'John', age: 21, title: 'Mr.'};
 
-e.drop(person, ["title"]); // > {name: 'John', age: 21}
+e.drop(person, ["title"]); // > {name: "John", age: 21}
 ```
 
 ***isObject***
@@ -226,7 +226,23 @@ e.isObject(4); // > false
 
 ***maintain***
 
+Returns a new object with only the specified keys
+
+```javascript
+var person = {name: 'John', age: 21, title: 'Mr.'};
+
+e.maintain(person, ['name', 'age']); // > {name: "John", age: 21}
+```
+
 ***objectPush***
+
+Adds a property and a value to an object
+
+```javascript
+var person = {name: 'John', age: 21};
+
+e.objectPush(person, 'title', 'Mr.'); // > {name: "John", age: 21, title: "Mr."}
+```
 
 ***rename***
 
@@ -234,7 +250,7 @@ Changes the name of the specified property name of an object
 
 ```javascript
 var person = {firstname: 'John'};
-e.rename(person, 'firstname', 'name'); // > {name: 'John'}
+e.rename(person, 'firstname', 'name'); // > {name: "John"}
 ```
 
 ***toArray***
