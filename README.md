@@ -189,7 +189,30 @@ e.shuffle([1,2,3,4,5]); // > [2, 4, 1, 5, 3]
 
 ***combine***
 
+Takes 2 object arguments or a single argument which is an array of objects.
+
+Returns a new object which has all keys from input objects. If values conflict, the value from the right most object will take precedence
+
+```javascript
+var person = {name: 'John', age: 21};
+var dog = {fur: 'black', eyes: 'brown'};
+var cat = {fur: 'white', legs: 4};
+
+// With 2 objects
+e.combine(dog, cat); // > {fur: "white", eyes: "brown", legs: 4}
+// With array of objects
+e.combine([person, cat, dog]); // > {name: "John", age: 21, fur: "black", eyes: "brown", legs: 4}
+```
+
 ***drop***
+
+Returns a new object without the specified keys
+
+```javascript
+var person = {name: 'John', age: 21, title: 'Mr.'};
+
+e.drop(person, ["title"]); // > {name: 'John', age: 21}
+```
 
 ***isObject***
 

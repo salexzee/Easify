@@ -376,6 +376,7 @@
 
     // Combines 2 objects or an array of objects into 1
     combine: function(obj1, obj2) {
+      // Checks if both arguments are objects
       if(this.isObject(obj1) && this.isObject(obj2)) {
         var keys1 = Object.keys(obj1);
         var keys2 = Object.keys(obj2);
@@ -387,6 +388,7 @@
           newObj[keys2[i]] = obj2[keys2[i]];
         }
         return newObj;
+      // Checks if first argument is an array
       } else if (this.isArray(obj1)) {
         var newObj = {};
         for (var i = 0; i < obj1.length; i++) {
@@ -400,7 +402,7 @@
       return;
     },
 
-    // Returns an array with all but the specified keys
+    // Returns an object with all but the specified keys
     drop: function(obj, dropKeys) {
       if (this.isObject(obj) && this.isArray(dropKeys)) {
         var keys = Object.keys(obj);
