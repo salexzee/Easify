@@ -222,6 +222,7 @@ Used to check if passed in value is an object
 e.isObject({}); // > true
 e.isObject([]); // > false
 e.isObject(4); // > false
+e.isObject(null); // > false
 ```
 
 ***maintain***
