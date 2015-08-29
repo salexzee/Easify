@@ -416,7 +416,7 @@ e.isFalsey(function(){}); // > false
 
 ***ifTrue***
 
-Runs a provided function if the comparison returns true
+Runs a provided function if the comparison returns true.
 
 ```javascript
 e.ifTrue(1 < 2, function(){return '1 is less than 2'});
@@ -425,7 +425,7 @@ e.ifTrue(1 < 2, function(){return '1 is less than 2'});
 
 ***ifFalse***
 
-Runs a provided function if the comparison returns false
+Runs a provided function if the comparison returns false.
 
 ```javascript
 e.ifFalse(1 > 2, function(){return '1 is actually less than 2'});
@@ -434,7 +434,7 @@ e.ifFalse(1 > 2, function(){return '1 is actually less than 2'});
 
 ***checkType***
 
-Returns the type of a passed in value
+Returns the type of a passed in value.
 
 ```javascript
 e.checkType([]); // > "array"
@@ -446,7 +446,7 @@ e.checkType(true); // > "boolean"
 
 ***methods***
 
-Returns an array of the Easify methods
+Returns an array of the Easify methods.
 
 ```javascript
 e.methods(); // > ["capitalize", "isString", ... , "methodCount", "last"];
@@ -454,10 +454,37 @@ e.methods(); // > ["capitalize", "isString", ... , "methodCount", "last"];
 
 ***methodCount***
 
-Returns the amount of methods on EasifyJS
+Returns the amount of methods on EasifyJS.
 
 ```javascript
 e.methodCount(); // > 41
+```
+
+
+####Math Methods
+
+***add***
+
+Performs addition on 2 or more numbers.
+
+```javascript
+// Add just 2 numbers
+e.add(5, 5); // > 10
+
+// Add an array of numbers
+e.add([5, 5, 5]); // > 15
+```
+
+***subtract***
+
+Performs subtraction on 2 or more numbers.
+
+```javascript
+// Subtract using 2 numbers
+e.subtract(5, 3); // > 2
+
+// Subtract using an array of numbers
+e.subtract([10, 4, 1]); // > 5
 ```
 
 
