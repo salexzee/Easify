@@ -767,6 +767,9 @@
 
   // Alternate name for isEqual method
   Easify.prototype.equals = Easify.prototype.isEqual;
+  Easify.prototype.type = Easify.prototype.checkType;
+  Easify.prototype.cap = Easify.prototype.capitalize;
+  Easify.prototype.has = Easify.prototype.contains;
 
 
   // ******************************
