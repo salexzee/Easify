@@ -41,6 +41,8 @@ Now you can access all of the Easify methods by using dot notation.
 
 ***capitalize***
 
+*Alias: cap*
+
 Used to capitalize the first letter of a provided string.
 
 ```javascript
@@ -142,6 +144,8 @@ e.checkTypes([{}, [], 'hello', 3, function(){}, true]); // > ["object", "array",
 ```
 
 ***contains***
+
+*Alias: has*
 
 Used to check if a specific value is inside of an array
 
@@ -326,6 +330,8 @@ e.elementsFromName('city');
 
 ***isEqual***
 
+*Alias: equals*
+
 Returns true if both arguments are equal (strict).
 
 ```javascript
@@ -433,6 +439,8 @@ e.ifFalse(1 > 2, function(){return '1 is actually less than 2'});
 ```
 
 ***checkType***
+
+*Alias: type*
 
 Returns the type of a passed in value.
 
