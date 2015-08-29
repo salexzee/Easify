@@ -511,6 +511,16 @@ e.divide(6, 3); // > 2
 e.divide([20, 2, 5]); // > 2
 ```
 
+***isNum***
+
+Checks if provided argument is of type "number"
+
+```javascript
+e.isNum(5); // > true
+e.isNum('5'); // > false
+e.isNum(true); // > false
+```
+
 
 ##TESTS
 

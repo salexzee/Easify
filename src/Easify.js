@@ -684,6 +684,7 @@
     // ************
     // ************
 
+    // Returns the sum of the provided numbers
     add: function(a, b) {
       if (validateNum(a) && validateNum(b)) {
         return a + b;
@@ -700,6 +701,7 @@
       }
     },
 
+    // Returns the deduction of the provided numbers
     subtract: function(a, b) {
       if (validateNum(a) && validateNum(b)) {
         return a - b;
@@ -716,6 +718,7 @@
       }
     },
 
+    // Returns the product of the provided numbers
     multiply: function(a, b) {
       if (validateNum(a) && validateNum(b)) {
         return a * b;
@@ -732,6 +735,7 @@
       }
     },
 
+    // Returns the quotient of the provided numbers
     divide: function(a, b) {
       if (validateNum(a) && validateNum(b)) {
         return a / b;
@@ -746,6 +750,11 @@
       } else {
         return false;
       }
+    },
+
+    // Returns true if the provided argument is of type "number"
+    isNum: function(num) {
+      return validateNum(num);
     }
 
   }
