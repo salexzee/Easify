@@ -461,7 +461,7 @@ e.methodCount(); // > 41
 ```
 
 
-####Math Methods
+####Number Methods
 
 ***add***
 
@@ -485,6 +485,30 @@ e.subtract(5, 3); // > 2
 
 // Subtract using an array of numbers
 e.subtract([10, 4, 1]); // > 5
+```
+
+***multiply***
+
+Multiplies 2 or more numbers together.
+
+```javascript
+// Multiplies 2 numbers
+e.multiply(5, 5); // > 25
+
+// Multipllies an array of numbers
+e.multiply([5, 2, 2]); > 20
+```
+
+***divide***
+
+Performs division with 2 or more numbers.
+
+```javascript
+// Divides using 2 numbers
+e.divide(6, 3); // > 2
+
+// Divides using an array of numbers
+e.divide([20, 2, 5]); // > 2
 ```
 
 

@@ -680,7 +680,7 @@
 
     // ************
     // ************
-    // MATH METHODS
+    // NUMBER METHODS
     // ************
     // ************
 
@@ -708,6 +708,38 @@
         for (var i = 1; i < a.length; i++) {
           if (validateNum(a[i])) {
             val -= a[i];
+          }
+        }
+        return val;
+      } else {
+        return false;
+      }
+    },
+
+    multiply: function(a, b) {
+      if (validateNum(a) && validateNum(b)) {
+        return a * b;
+      } else if (this.isArray(a)) {
+        var val = a[0];
+        for (var i = 1; i < a.length; i++) {
+          if (validateNum(a[i])) {
+            val *= a[i];
+          }
+        }
+        return val;
+      } else {
+        return false;
+      }
+    },
+
+    divide: function(a, b) {
+      if (validateNum(a) && validateNum(b)) {
+        return a / b;
+      } else if (this.isArray(a)) {
+        var val = a[0];
+        for (var i = 1; i < a.length; i++) {
+          if (validateNum(a[i])) {
+            val /= a[i];
           }
         }
         return val;
