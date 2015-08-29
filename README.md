@@ -463,6 +463,8 @@ e.methodCount(); // > 41
 
 ####Number Methods
 
+*Everything in the Number section is only available in 0.3.0 development version*
+
 ***add***
 
 Performs addition on 2 or more numbers.
@@ -556,3 +558,5 @@ Here is an example of a real world test:
 ##FINAL NOTES
 
 The website portion of this uses AngularJS so if things look a little odd in your forked version, it's because you need to run it in some sort of server. If you're using [Brackets](http://brackets.io/) as your text editor, you should be good if you hit the preview button from website/index.html.
+
+Some methods in this README are only accessible in the current development version and will be identified.
