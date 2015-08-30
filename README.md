@@ -559,6 +559,8 @@ e.PI(); // > 3.141592653589793
 
 ***randNum***
 
+*Alias: random*
+
 Returns a random whole number from 1 to the specified number.
 
 ```javascript

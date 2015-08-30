@@ -835,6 +835,7 @@
   Easify.prototype.type = Easify.prototype.checkType;
   Easify.prototype.cap = Easify.prototype.capitalize;
   Easify.prototype.has = Easify.prototype.contains;
+  Easify.prototype.random = Easify.prototype.randNum;
   Easify.prototype.between = Easify.prototype.randNumBetween;
 
 
