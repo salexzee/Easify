@@ -570,6 +570,22 @@ e.randNum(5); // > 2
 e.randNum(0); // > 1
 ```
 
+***randNumBetween***
+
+*Alias: between*
+
+Returns a random whole number between and including the 2 arguments.
+
+```javascript
+e.randNumBetween(5, 10); // > 7
+
+// The order of the numbers doesn't matter
+e.randNumBetween(10, 5); // > 6
+
+// 2 of the same decimal number will round down to it's whole number
+e.randNumBetween(5.5, 5.5); // > 5
+```
+
 
 ##TESTS
 

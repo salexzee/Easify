@@ -790,7 +790,36 @@
 
     // Returns a random number from 1 to the specified number
     randNum: function(num) {
-      return Math.floor(Math.random() * num) + 1;
+      if(validateNum(num)) {
+        return Math.floor(Math.random() * num) + 1;
+      } else {
+        return false;
+      }
+    },
+
+    // Returns a number anywhere from the first input to the second
+    // If numbers are the same, and are decimal, that will be returned
+    // rounded down to the nearest whole number
+    randNumBetween: function(a, b) {
+      if(validateNum(a) && validateNum(b)) {
+        if (a < b) {
+          var num = Math.floor(Math.random() * b) + 1;
+          while(num < a || num > b) {
+            num = Math.floor(Math.random() * b) + 1;
+          }
+          return num;
+        } else if (b < a) {
+          var num = Math.floor(Math.random() * a) + 1;
+          while(num < b || num > a) {
+            num = Math.floor(Math.random() * a) + 1;
+          }
+          return num;
+        } else {
+          return Math.floor(a);
+        }
+      } else {
+        return false;
+      }
     }
 
   }
@@ -806,6 +835,7 @@
   Easify.prototype.type = Easify.prototype.checkType;
   Easify.prototype.cap = Easify.prototype.capitalize;
   Easify.prototype.has = Easify.prototype.contains;
+  Easify.prototype.between = Easify.prototype.randNumBetween;
 
 
   // ******************************
