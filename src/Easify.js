@@ -26,7 +26,7 @@
   // Returns a random number from 0 to the length of
   // the passed in array or string
   randomNumberFromItemLength = function(item) {
-    return Math.floor(Math.random() * item.length)
+    return Math.floor(Math.random() * item.length);
   }
 
   validateArray = function(arr) {
@@ -755,6 +755,42 @@
     // Returns true if the provided argument is of type "number"
     isNum: function(num) {
       return validateNum(num);
+    },
+
+    // Returns true if number is odd
+    isOdd: function(num) {
+      if(validateNum(num)) {
+        if (num % 2 !== 0) {
+          return true;
+        } else {
+          return false;
+        }
+      } else {
+        return false;
+      }
+    },
+
+    // Returns true if number is even
+    isEven: function(num) {
+      if(validateNum(num)) {
+        if (num % 2 === 0) {
+          return true;
+        } else {
+          return false;
+        }
+      } else {
+        return false;
+      }
+    },
+
+    // Returns the value of PI
+    PI: function() {
+      return Math.PI;
+    },
+
+    // Returns a random number from 1 to the specified number
+    randNum: function(num) {
+      return Math.floor(Math.random() * num) + 1;
     }
 
   }

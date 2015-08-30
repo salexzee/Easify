@@ -517,18 +517,57 @@ Performs division with 2 or more numbers.
 // Divides using 2 numbers
 e.divide(6, 3); // > 2
 
-// Divides using an array of numbers
+// Divides using an array of numbers.
 e.divide([20, 2, 5]); // > 2
 ```
 
 ***isNum***
 
-Checks if provided argument is of type "number"
+Checks if provided argument is of type "number".
 
 ```javascript
 e.isNum(5); // > true
 e.isNum('5'); // > false
 e.isNum(true); // > false
+```
+
+***isOdd***
+
+Checks if number is odd.
+
+```javascript
+e.isOdd(5); // > true
+e.isOdd(4); // > false
+```
+
+***isEven***
+
+Checks if number is even.
+
+```javascript
+e.isEven(5); // > false
+e.isEven(4); // > true
+```
+
+***PI***
+
+Returns the value of PI.
+
+```javascript
+e.PI(); // > 3.141592653589793
+```
+
+***randNum***
+
+Returns a random whole number from 1 to the specified number.
+
+```javascript
+e.randNum(5); // > 4
+e.randNum(5); // > 1
+e.randNum(5); // > 2
+
+// If argument is 0, return value will be 1
+e.randNum(0); // > 1
 ```
 
 
