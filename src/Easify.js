@@ -336,6 +336,8 @@
           newArr.push(arr2[i]);
         }
         return newArr;
+      } else {
+        return false;
       }
     },
 
@@ -354,8 +356,9 @@
           returnedArray.push(this.checkType(arr[i]));
         }
         return returnedArray;
+      } else {
+        return false;
       }
-      throw 'checkTypes() requires an array argument'
     },
 
     // Returns true if the passed in value is inside of the array
@@ -368,8 +371,9 @@
           }
         }
         return isIn;
+      } else {
+        return false;
       }
-      throw 'contains() requires an array argument'
     },
 
     // Checks if input value is an array
@@ -397,6 +401,8 @@
           }
         }
         return newArr;
+      } else {
+        return false;
       }
     },
 
@@ -410,21 +416,36 @@
           }
         }
         return newArray;
+      } else {
+        return false;
       }
     },
 
     // Returns a new array with the elements shuffled
     shuffle: function(arr) {
-      var inputArr = arr;
-      var newArr = [];
-      var num;
-      while (inputArr.length > 0) {
-        num = randomNumberFromItemLength(inputArr);
-        newArr.push(inputArr[num]);
-        this.removeItem(inputArr, num);
+      if(validateArray(arr)) {
+        var inputArr = arr;
+        var newArr = [];
+        var num;
+        while (inputArr.length > 0) {
+          num = randomNumberFromItemLength(inputArr);
+          newArr.push(inputArr[num]);
+          this.removeItem(inputArr, num);
+        }
+        return newArr;
+      } else {
+        return false;
       }
-      return newArr;
     },
+
+    // Returns a random item from an array
+    stray: function(arr) {
+      if (validate(arr)) {
+        return arr[randomNumberFromItemLength(arr)];
+      } else {
+        return false;
+      }
+    };
 
     // **************
     // **************
@@ -880,6 +901,7 @@
       }
     },
 
+
     /////////////////
     /////////////////
     // SECRET METHODS
@@ -893,7 +915,7 @@
     // IF YOU DECIDE TO USE ANY OF THE SECRET METHODS, YOU ARE
     // COMPLETELY LIABLE FOR THE OUTCOME THAT FOLLOWS, NOT ME.
 
-    // Replaces the current website with a bad word in large,
+    // Replaces the current website with a random bad word in large,
     // bold letters.
     bw: function() {
       var bw = ['Fuck', 'Shit', 'Motherfucker', 'Ass', 'Asshole', 'Bitch'];
