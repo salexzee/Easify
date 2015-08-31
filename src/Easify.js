@@ -2,7 +2,7 @@
 // Author: Sam Webb
 // Copyright: 2015
 // License: MIT
-// Version: 0.3.0
+// Version: 0.4.0
 
 // Dependencies: N/A
 
@@ -68,7 +68,7 @@
     return new Easify.init();
   }
 
-  Easify.VERSION = '0.3.0';
+  Easify.VERSION = '0.4.0';
 
   // Function that actually creates object
   // to remove 'new' keyword for users
@@ -116,6 +116,26 @@
     last: function(str) {
       if (validateString(str)) {
         return str[str.length - 1];
+      } else {
+        return false;
+      }
+    },
+
+    // Creates a random password with the specified amount of
+    // letters, numbers and special characters
+    password: function(letters, nums, specials) {
+      if (letters === undefined || letters === null) {
+        var letters = 8;
+      }
+      if (nums === undefined || nums === null) {
+        var nums = 2;
+      }
+
+      if (specials === undefined || specials === null) {
+        var specials = 2;
+      }
+      if (validateNum(letters) && validateNum(nums) && validateNum(special)) {
+        var specialChars = ["!", "@", "#", "$", "%", "&", "*"];
       } else {
         return false;
       }
