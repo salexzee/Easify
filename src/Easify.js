@@ -483,7 +483,7 @@
 
     // Returns an object with all but the specified keys
     drop: function(obj, dropKeys) {
-      if (this.isObject(obj) && this.isArray(dropKeys)) {
+      if (this.isObject(obj) && validateArray(dropKeys)) {
         var keys = Object.keys(obj);
         var newObj = {};
         for (var i = 0; i < keys.length; i++) {
@@ -510,7 +510,7 @@
 
     // Returns an object with only the specified keys
     maintain: function(obj, mKeys) {
-      if (this.isObject(obj) && this.isArray(mKeys)) {
+      if (this.isObject(obj) && validateArray(mKeys)) {
         var keys = Object.keys(obj);
         var newObj = {};
         for (var i = 0; i < keys.length; i++) {
@@ -519,14 +519,20 @@
           }
         }
         return newObj;
+      } else {
+        return false;
       }
     },
 
     // Adds a property or method to an existing object
     // This method mutates the original object
     objectPush: function(obj, property, value) {
-      obj[property] = value;
-      return {property: value};
+      if (this.isObject(obj) && validateString(property)) {
+        obj[property] = value;
+        return {property: value};
+      } else {
+        return false;
+      }
     },
 
     // Renames a property of an object and returns it as a new object
@@ -547,6 +553,8 @@
           return;
         }
         return newObj;
+      } else {
+        return false;
       }
     },
 
@@ -559,6 +567,8 @@
           mainArr.push([keys[i], obj[keys[i]]]);
         }
         return mainArr;
+      } else {
+        return false;
       }
     },
 
