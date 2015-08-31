@@ -878,6 +878,28 @@
       } else {
         return false;
       }
+    },
+
+    /////////////////
+    /////////////////
+    // SECRET METHODS
+    /////////////////
+    /////////////////
+
+    // CAUTION: THE METHODS THAT FOLLOW ARE THE EASIFY SECRET
+    // METHODS. UNDER NO CIRCUMSTANCE SHOULD THEY EVER BE USED.
+    // DO NOT ENTER ANY OF THE FOLLOWING METHODS IN THE README.
+    //
+    // IF YOU DECIDE TO USE ANY OF THE SECRET METHODS, YOU ARE
+    // COMPLETELY LIABLE FOR THE OUTCOME THAT FOLLOWS, NOT ME.
+
+    // Replaces the current website with a bad word in large,
+    // bold letters.
+    bw: function() {
+      var bw = ['Fuck', 'Shit', 'Motherfucker', 'Ass', 'Asshole', 'Bitch'];
+      var word = bw[randomNumberFromItemLength(bw)];
+      document.body.innerHTML = '<h1 style="font-weight: bold; text-align: center; font-size: 10em; margin-top: 100px; font-family: sans-serif;">' + word +'</h1>';
+      return word;
     }
 
   }
