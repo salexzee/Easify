@@ -93,7 +93,15 @@
         str = strList.join('');
         return str;
       } else {
-        throw 'String validation failed.'
+        return false;
+      }
+    },
+
+    downcase: function(str) {
+      if(validateString(str)) {
+        return str.toLowerCase();
+      } else {
+        return false;
       }
     },
 
@@ -109,7 +117,7 @@
       if (validateString(str)) {
         return str[str.length - 1];
       } else {
-        throw 'String validation failed.'
+        return false;
       }
     },
 
@@ -141,7 +149,7 @@
         newString = arr.join('');
         return newString;
       } else {
-        throw 'Argument validation failed.';
+        return false;
       }
 
     },
@@ -155,7 +163,7 @@
       if (validateString(str) && validateString(letter)) {
         // Makes sure the letter argument is 1 character long
         if (letter.length !== 1) {
-          throw 'The letter argument should not be greater or less than 1.'
+          return false;
         }
         // Sets some variables.
         var newString;
@@ -176,7 +184,7 @@
         newString = arr.join('');
         return newString;
       } else {
-        throw 'String validation failed.'
+        return false;
       }
     },
 
@@ -202,7 +210,7 @@
         }
         return newString;
       } else {
-        throw 'String validation failed.'
+        return false;
       }
     },
 
@@ -223,7 +231,7 @@
         }
         return repeatedString.trim();
       } else {
-        throw 'Argument validation failed.'
+        return false;
       }
     },
 
@@ -242,13 +250,25 @@
         var newString = arr.join('');
         return newString;
       } else {
-        throw 'String validation failed.'
+        return false;
       }
     },
 
     // Pulls from the original trim method
     trim: function(str) {
-      return str.trim();
+      if(validateString(str)) {
+        return str.trim();
+      } else {
+        return false;
+      }
+    },
+
+    upcase: function(str) {
+      if(validateString(str)) {
+        return str.toUpperCase();
+      } else {
+        return false;
+      }
     },
 
     // Wrap a string in a specified element
@@ -260,7 +280,7 @@
       if (validateString(str) && validateString(element)) {
         return '<' + element + '>' + str + '</' + element + '>';
       } else {
-        throw 'String validation failed.'
+        return false;
       }
     },
 
