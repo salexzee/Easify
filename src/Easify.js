@@ -61,6 +61,20 @@
     return true;
   }
 
+  randomLetter = function() {
+    var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    return letters[randomNumberFromItemLength(letters)];
+  }
+
+  randomNumberAsString = function() {
+    return String(Math.ceil(Math.random() * 10));
+  }
+
+  randomSpecialChar = function() {
+    var specials = ["!", "@", "#", "$", "%", "&", "*"];
+    return specials[randomNumberFromItemLength(specials)];
+  }
+
   // End of private functions
 
   // 'new' Easify object
@@ -121,21 +135,25 @@
       }
     },
 
-    // Creates a random password with the specified amount of
-    // letters, numbers and special characters
-    password: function(letters, nums, specials) {
-      if (letters === undefined || letters === null) {
-        var letters = 8;
-      }
-      if (nums === undefined || nums === null) {
-        var nums = 2;
-      }
+    // Creates a random string at the specified length
+    // For use as a password
+    // If no length is passed in, it defaults to 12
+    //
+    // Takes 1 optional argument(number)
+    // e.password(); //=> "39108%47m!s8e"
+    password: function(len) {
+      // Set default length to 12
+      var len = len || 12;
 
-      if (specials === undefined || specials === null) {
-        var specials = 2;
-      }
-      if (validateNum(letters) && validateNum(nums) && validateNum(special)) {
-        var specialChars = ["!", "@", "#", "$", "%", "&", "*"];
+      if (validateNum(len)) {
+        // Setup variables
+        var password = '';
+        var possibilities = [randomLetter, randomSpecialChar, randomNumberAsString];
+        // This does all the work
+        for (var i = 0; i < len; i++) {
+          password += possibilities[randomNumberFromItemLength(possibilities)]();
+        }
+        return password;
       } else {
         return false;
       }
