@@ -440,12 +440,12 @@
 
     // Returns a random item from an array
     stray: function(arr) {
-      if (validate(arr)) {
+      if (validateArray(arr)) {
         return arr[randomNumberFromItemLength(arr)];
       } else {
         return false;
       }
-    };
+    },
 
     // **************
     // **************
