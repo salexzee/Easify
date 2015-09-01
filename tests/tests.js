@@ -121,7 +121,15 @@
       runTest(e.randomize("This is a test sentence.") !== "This is a test sentence.", text);
     }
   );
-
+  
+  // Checks if randomcase() returns random upper and lower cased letters  
+  tests.push(
+    function() {
+      var text = 'randomcase() returns a string with the letters randomly changed to upper or lower case';
+      runTest(e.randomcase("This is a test sentence.") !== "This is a test sentence.", text);
+    }
+  );
+  
   // Checks if repeat() returns the provided string repeated the specified amount of times
   tests.push(
     function() {
