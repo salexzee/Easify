@@ -1,5 +1,5 @@
 body {
-  background: #438861;
+  background: #FFF0A5;
   font-family: sans-serif;
   width: 100%;
   text-align: center;
@@ -7,13 +7,24 @@ body {
   margin: 0;
 }
 
-#run-tests-button {
+hr {
+  border: 0;
+  border-bottom: 1px dashed #ccc;
+  background: #999;
+}
+
+.code {
+  background-color: rgba(238, 238, 238, 0.2);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#run {
   text-align: center;
   display: inline-block;
   padding: 15px 30px;
   color: #222;
   margin: 50px auto 0 auto;
-  background: hsla(0, 0%, 0%, .4);
   font-size: 3em;
   border-radius: 10px;
   border: 5px solid #222;
@@ -21,13 +32,13 @@ body {
   font-weight: bold;
 }
 
-#run-tests-button:hover {
+#run:hover {
   cursor: pointer;
-  color: #3d3;
+  background-color: #222;
+  color: #FFF0A5;
 }
 
 #checks {
-  background: hsla(0, 0%, 0%, .4);
   text-align: left;
   width: 75%;
   margin: 50px auto;
@@ -35,6 +46,8 @@ body {
   border-radius: 10px;
   border: 1px solid #222;
   font-size: 1.2em;
+  background-color: #222;
+  color: #FFF;
 }
 
 .passed,
@@ -43,9 +56,9 @@ body {
 }
 
 .passed {
-  color: #0f0;
+  color: #468966;
 }
 
 .failed {
-  color: red;
+  color: #8E2800;
 }
