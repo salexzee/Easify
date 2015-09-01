@@ -18,7 +18,7 @@ Now it's time to submit code. Your idea has been deemed necessary and you've alr
 
 ###3. Documentation
 
-Documentation is a beast. There is a nice amount of documentation in the source code, but not everyone wants to look there. Sometimes functionality gets added without any mention of it in the documentation which means people may not be able to use this software at it's full capacity. The overall goal is to have everything documented. Documentation can be added for current functionality in a much more streamlined fashion.
+Documentation is a beast. There is a nice amount of documentation in the source code, but not everyone wants to look there. Sometimes functionality gets added without any mention of it in the documentation which means people may not be able to use this software at it's full capacity. The overall goal is to have everything documented.
 
-You still need to sumit an issue, but it doesn't need to be approved. The reason for the pull request is to let people know what you plan to work on so that they don't duplicate efforts. Just say which methods you plan on adding documentation for and assign it to yourself. Giving your issue the "Documentation" label will also help when filtering through issues.
+You still need to sumit an issue, but it doesn't need to be approved. The reason for the issue is to let people know what you plan to work on so that they don't duplicate your efforts. Just say which methods you plan on adding documentation for and give it the label "In progress". Giving your issue the "Documentation" label will also help when filtering through issues.
 
