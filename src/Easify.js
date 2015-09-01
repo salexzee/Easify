@@ -148,6 +148,12 @@
       if (validateNum(len)) {
         // Setup variables
         var password = '';
+        // Letters, numbers and special characters all have a 33% chance
+        // of being selected. To change the odds, add the proper method
+        // to the possibilities array.
+        // For example:
+        // To have the following chances: letters(50%), numbers(25%) and special characters(25%)
+        // You would need to add another randomLetter item to the possibilities list
         var possibilities = [randomLetter, randomSpecialChar, randomNumberAsString];
         // This does all the work
         for (var i = 0; i < len; i++) {
