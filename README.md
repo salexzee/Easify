@@ -89,6 +89,19 @@ Used to get the last letter of a string.
 e.last('hello world'); // > "d"
 ```
 
+***password***
+
+Used to get a random assortment of letters, numbers and special characters for use as a password or anything else
+
+```javascript
+// Takes 1 argument for the length of the string
+e.password(10); // > "5r92x*%9@w"
+
+// When no length is passed in, it defaults to 12
+e.password(); // > "9#r10c10g$4d&!"
+
+```
+
 ***remove***
 
 Used to remove a specified amount of random letters from a provided string.
