@@ -205,6 +205,35 @@
         throw 'String validation failed.'
       }
     },
+    
+    // Letters in a string are randomly set to upper and lowercase
+    // Takes 1 argument(string)
+    // e.randomcase("Hello") //=> "HeLLo"
+    
+    randomcase: function(str) {
+      // Randomize string
+      if (validateString(str)) {
+       // Split the string into an array
+        var arr = str.split('');
+        // Set some variables
+        var newString = '';
+        for (var i = 0; i < arr.length; i++) {
+          // Generate a 50/50 chance
+          if(Math.round(Math.random() * 1) == 1){
+            // Make it Lower case
+            newString += arr[i].toLowerCase();
+          } else {
+            // Make it upper case
+            newString += arr[i].toUpperCase();
+          }
+        }
+        return newString;
+    
+      } else {
+        throw 'String validation failed.';
+      }
+      
+    },
 
     // Repeat the same string multiple times, trimming off
     // extra white space at the beginning or end
