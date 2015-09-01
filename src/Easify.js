@@ -943,12 +943,23 @@
   // **********
 
   // Alternate name for isEqual method
-  Easify.prototype.equals = Easify.prototype.isEqual;
+  Easify.prototype.equal = Easify.prototype.isEqual;
+  Easify.prototype.notEqual = Easify.prototype.isNotEqual;
   Easify.prototype.type = Easify.prototype.checkType;
-  Easify.prototype.cap = Easify.prototype.capitalize;
+  Easify.prototype.cap = Easify.prototype.titlecase = Easify.prototype.capitalize;
   Easify.prototype.has = Easify.prototype.contains;
   Easify.prototype.random = Easify.prototype.randNum;
   Easify.prototype.between = Easify.prototype.randNumBetween;
+  Easify.prototype.upper = Easify.prototype.upcase;
+  Easify.prototype.lower = Easify.prototype.downcase;
+  Easify.prototype.plus = Easify.prototype.add;
+  Easify.prototype.minus = Easify.prototype.subtract;
+  Easify.prototype.even = Easify.prototype.isEven;
+  Easify.prototype.odd = Easify.prototype.isOdd;
+  Easify.prototype.number = Easify.prototype.isNum;
+  Easify.prototype.string = Easify.prototype.isString;
+  Easify.prototype.similar = Easify.prototype.isSimilar;
+  Easify.prototype.notSimilar = Easify.prototype.isNotSimilar;
 
 
   // ******************************
