@@ -942,7 +942,10 @@
   // **********
   // **********
 
-  // Alternate name for isEqual method
+  // In the future, some aliases will take the place of
+  // the actual method. Things like isEqual() will be removed
+  // and replaced with simply equal()
+
   Easify.prototype.equal = Easify.prototype.isEqual;
   Easify.prototype.notEqual = Easify.prototype.isNotEqual;
   Easify.prototype.type = Easify.prototype.checkType;
@@ -960,6 +963,8 @@
   Easify.prototype.string = Easify.prototype.isString;
   Easify.prototype.similar = Easify.prototype.isSimilar;
   Easify.prototype.notSimilar = Easify.prototype.isNotSimilar;
+  Easify.prototype.array = Easify.prototype.isArray;
+
 
 
   // ******************************
