@@ -61,20 +61,6 @@
     }
   );
 
-  tests.push(
-    function() {
-      var text = "uppercase() returns a string with all caps";
-      runTest(e.uppercase('testing') === 'TESTING', text);
-    }
-  );
-  
-  tests.push(
-    function() {
-      var text = "lowercase() returns a string with all lower case letters";
-      runTest(e.lowercase('TESTING') === 'testing', text);
-    }
-  );
-
   // Checks if isString() returns true
   tests.push(
     function() {
