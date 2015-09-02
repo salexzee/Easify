@@ -219,7 +219,7 @@
         var newString = '';
         for (var i = 0; i < arr.length; i++) {
           // Generate a 50/50 chance
-          if(Math.round(Math.random() * 1) == 1){
+          if(Math.round(Math.random() * 1) === 1){
             // Make it Lower case
             newString += arr[i].toLowerCase();
           } else {
