@@ -6,9 +6,9 @@
 // Starts with semicolon to make sure it runs
 ;(function(){
   // Some variable setup
-  var e = $E();
+  var e = Ez();
   var checkBlock = document.getElementById('checks');
-  var testStartButton = document.getElementById('run-tests-button');
+  var testStartButton = document.getElementById('run');
   var tests = [];
   var passed = 0;
   var failed = 0;
@@ -27,7 +27,7 @@
 
   // Creates the output for the tests
   function testOutput(text, check) {
-    checkBlock.innerHTML += '<p>' + text + ': <span class="' + check + '">' + e.capitalize(check) + '!</span></p>';
+    checkBlock.innerHTML += '<p><span class="code">' + text.substring(0, text.indexOf(')') + 1) + "</span>" + text.substring(text.indexOf(')') + 1, text.length) + ': <span class="' + check + '">' + e.capitalize(check) + '!</span></p><hr/>';
   }
 
   // Pulls if/else functionality from tests to make them
@@ -58,6 +58,20 @@
     function() {
       var text = "capitalize() returns a new string with the first letter capitalized";
       runTest(e.capitalize('testing') === 'Testing', text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = "uppercase() returns a string with all caps";
+      runTest(e.uppercase('testing') === 'TESTING', text);
+    }
+  );
+  
+  tests.push(
+    function() {
+      var text = "lowercase() returns a string with all lower case letters";
+      runTest(e.lowercase('TESTING') === 'testing', text);
     }
   );
 
@@ -130,6 +144,7 @@
     }
   );
   
+
   // Checks if repeat() returns the provided string repeated the specified amount of times
   tests.push(
     function() {
