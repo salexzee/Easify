@@ -6,7 +6,7 @@
 // Starts with semicolon to make sure it runs
 ;(function(){
   // Some variable setup
-  var e = Ez();
+  var e = $E();
   var checkBlock = document.getElementById('checks');
   var testStartButton = document.getElementById('run');
   var tests = [];
