@@ -411,6 +411,78 @@
       runTest((num === 1) || (num === 2) || (num === 3), text);
     }
   );
+  
+    tests.push(
+    function() {
+      var text = 'multiply() returns the product of the provided numbers';
+      runTest(e.multiply(5,5) === 25, text)
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'divide() returns the quotient of the provided numbers';
+      runTest(e.divide(6,3) === 2, text)
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'isNum() returns true if input is of type "number"';
+      runTest(e.isNum(4) === true, text)
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'isNum() returns false if input is not of type "number"';
+      runTest(e.isNum('4') === false, text)
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'isOdd() returns true if input number is odd';
+      runTest(e.isOdd(5) === true, text)
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'isOdd() returns false if input number is even';
+      runTest(e.isOdd(4) === false, text)
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'isEven() returns true if input number is even';
+      runTest(e.isEven(4) === true, text)
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'isEven() returns false if input number is not even';
+      runTest(e.isEven(5) === false, text)
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'randNum() returns a number from 1 to the input value';
+      var num = e.randNum(3);
+      runTest((num === 1) || (num === 2) || (num === 3), text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'randNumBetween() returns a number from the higher value number to the lower value number';
+      var num = e.randNumBetween(1,3);
+      runTest((num === 1) || (num === 2) || (num === 3), text);
+    }
+  );
 
   // Stop adding tests here
 
