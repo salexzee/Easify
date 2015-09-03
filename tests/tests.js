@@ -8,7 +8,7 @@
   // Some variable setup
   var e = $E();
   var checkBlock = document.getElementById('checks');
-  var testStartButton = document.getElementById('run-tests-button');
+  var testStartButton = document.getElementById('run');
   var tests = [];
   var passed = 0;
   var failed = 0;
@@ -27,7 +27,7 @@
 
   // Creates the output for the tests
   function testOutput(text, check) {
-    checkBlock.innerHTML += '<p>' + text + ': <span class="' + check + '">' + e.capitalize(check) + '!</span></p>';
+    checkBlock.innerHTML += '<p><span class="code">' + text.substring(0, text.indexOf(')') + 1) + "</span>" + text.substring(text.indexOf(')') + 1, text.length) + ': <span class="' + check + '">' + e.capitalize(check) + '!</span></p><hr/>';
   }
 
   // Pulls if/else functionality from tests to make them
@@ -121,6 +121,15 @@
       runTest(e.randomize("This is a test sentence.") !== "This is a test sentence.", text);
     }
   );
+  
+  // Checks if randomcase() returns random upper and lower cased letters  
+  tests.push(
+    function() {
+      var text = 'randomcase() returns a string with the letters randomly changed to upper or lower case';
+      runTest(e.randomcase("This is a test sentence.") !== "This is a test sentence.", text);
+    }
+  );
+  
 
   // Checks if repeat() returns the provided string repeated the specified amount of times
   tests.push(
