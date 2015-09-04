@@ -2,7 +2,7 @@
 // Author: Sam Webb
 // Copyright: 2015
 // License: MIT
-// Version: 0.3.0
+// Version: 0.4.0
 
 // Dependencies: N/A
 
@@ -61,6 +61,20 @@
     return true;
   }
 
+  randomLetter = function() {
+    var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    return letters[randomNumberFromItemLength(letters)];
+  }
+
+  randomNumberAsString = function() {
+    return String(Math.ceil(Math.random() * 10));
+  }
+
+  randomSpecialChar = function() {
+    var specials = ["!", "@", "#", "$", "%", "&", "*"];
+    return specials[randomNumberFromItemLength(specials)];
+  }
+
   // End of private functions
 
   // 'new' Easify object
@@ -68,7 +82,7 @@
     return new Easify.init();
   }
 
-  Easify.VERSION = '0.3.0';
+  Easify.VERSION = '0.4.0';
 
   // Function that actually creates object
   // to remove 'new' keyword for users
@@ -93,7 +107,15 @@
         str = strList.join('');
         return str;
       } else {
-        throw 'String validation failed.'
+        return false;
+      }
+    },
+
+    downcase: function(str) {
+      if(validateString(str)) {
+        return str.toLowerCase();
+      } else {
+        return false;
       }
     },
 
@@ -109,7 +131,37 @@
       if (validateString(str)) {
         return str[str.length - 1];
       } else {
-        throw 'String validation failed.'
+        return false;
+      }
+    },
+
+    // Creates a random string at the specified length
+    // For use as a password
+    // If no length is passed in, it defaults to 12
+    //
+    // Takes 1 optional argument(number)
+    // e.password(); //=> "39108%47m!s8e"
+    password: function(len) {
+      // Set default length to 12
+      var len = len || 12;
+
+      if (validateNum(len)) {
+        // Setup variables
+        var password = '';
+        // Letters, numbers and special characters all have a 33% chance
+        // of being selected. To change the odds, add the proper method
+        // to the possibilities array.
+        // For example:
+        // To have the following chances: letters(50%), numbers(25%) and special characters(25%)
+        // You would need to add another randomLetter item to the possibilities list
+        var possibilities = [randomLetter, randomSpecialChar, randomNumberAsString];
+        // This does all the work
+        for (var i = 0; i < len; i++) {
+          password += possibilities[randomNumberFromItemLength(possibilities)]();
+        }
+        return password;
+      } else {
+        return false;
       }
     },
 
@@ -141,7 +193,7 @@
         newString = arr.join('');
         return newString;
       } else {
-        throw 'Argument validation failed.';
+        return false;
       }
 
     },
@@ -155,7 +207,7 @@
       if (validateString(str) && validateString(letter)) {
         // Makes sure the letter argument is 1 character long
         if (letter.length !== 1) {
-          throw 'The letter argument should not be greater or less than 1.'
+          return false;
         }
         // Sets some variables.
         var newString;
@@ -176,7 +228,7 @@
         newString = arr.join('');
         return newString;
       } else {
-        throw 'String validation failed.'
+        return false;
       }
     },
 
@@ -202,7 +254,7 @@
         }
         return newString;
       } else {
-        throw 'String validation failed.'
+        return false;
       }
     },
     
@@ -252,7 +304,7 @@
         }
         return repeatedString.trim();
       } else {
-        throw 'Argument validation failed.'
+        return false;
       }
     },
 
@@ -271,13 +323,25 @@
         var newString = arr.join('');
         return newString;
       } else {
-        throw 'String validation failed.'
+        return false;
       }
     },
 
     // Pulls from the original trim method
     trim: function(str) {
-      return str.trim();
+      if(validateString(str)) {
+        return str.trim();
+      } else {
+        return false;
+      }
+    },
+
+    upcase: function(str) {
+      if(validateString(str)) {
+        return str.toUpperCase();
+      } else {
+        return false;
+      }
     },
 
     // Wrap a string in a specified element
@@ -289,7 +353,7 @@
       if (validateString(str) && validateString(element)) {
         return '<' + element + '>' + str + '</' + element + '>';
       } else {
-        throw 'String validation failed.'
+        return false;
       }
     },
 
@@ -307,6 +371,8 @@
           newArr.push(arr2[i]);
         }
         return newArr;
+      } else {
+        return false;
       }
     },
 
@@ -325,8 +391,9 @@
           returnedArray.push(this.checkType(arr[i]));
         }
         return returnedArray;
+      } else {
+        return false;
       }
-      throw 'checkTypes() requires an array argument'
     },
 
     // Returns true if the passed in value is inside of the array
@@ -339,8 +406,9 @@
           }
         }
         return isIn;
+      } else {
+        return false;
       }
-      throw 'contains() requires an array argument'
     },
 
     // Checks if input value is an array
@@ -368,6 +436,8 @@
           }
         }
         return newArr;
+      } else {
+        return false;
       }
     },
 
@@ -381,20 +451,35 @@
           }
         }
         return newArray;
+      } else {
+        return false;
       }
     },
 
     // Returns a new array with the elements shuffled
     shuffle: function(arr) {
-      var inputArr = arr;
-      var newArr = [];
-      var num;
-      while (inputArr.length > 0) {
-        num = randomNumberFromItemLength(inputArr);
-        newArr.push(inputArr[num]);
-        this.removeItem(inputArr, num);
+      if(validateArray(arr)) {
+        var inputArr = arr;
+        var newArr = [];
+        var num;
+        while (inputArr.length > 0) {
+          num = randomNumberFromItemLength(inputArr);
+          newArr.push(inputArr[num]);
+          this.removeItem(inputArr, num);
+        }
+        return newArr;
+      } else {
+        return false;
       }
-      return newArr;
+    },
+
+    // Returns a random item from an array
+    stray: function(arr) {
+      if (validateArray(arr)) {
+        return arr[randomNumberFromItemLength(arr)];
+      } else {
+        return false;
+      }
     },
 
     // **************
@@ -433,7 +518,7 @@
 
     // Returns an object with all but the specified keys
     drop: function(obj, dropKeys) {
-      if (this.isObject(obj) && this.isArray(dropKeys)) {
+      if (this.isObject(obj) && validateArray(dropKeys)) {
         var keys = Object.keys(obj);
         var newObj = {};
         for (var i = 0; i < keys.length; i++) {
@@ -460,7 +545,7 @@
 
     // Returns an object with only the specified keys
     maintain: function(obj, mKeys) {
-      if (this.isObject(obj) && this.isArray(mKeys)) {
+      if (this.isObject(obj) && validateArray(mKeys)) {
         var keys = Object.keys(obj);
         var newObj = {};
         for (var i = 0; i < keys.length; i++) {
@@ -469,14 +554,20 @@
           }
         }
         return newObj;
+      } else {
+        return false;
       }
     },
 
     // Adds a property or method to an existing object
     // This method mutates the original object
     objectPush: function(obj, property, value) {
-      obj[property] = value;
-      return {property: value};
+      if (this.isObject(obj) && validateString(property)) {
+        obj[property] = value;
+        return {property: value};
+      } else {
+        return false;
+      }
     },
 
     // Renames a property of an object and returns it as a new object
@@ -497,6 +588,8 @@
           return;
         }
         return newObj;
+      } else {
+        return false;
       }
     },
 
@@ -509,6 +602,8 @@
           mainArr.push([keys[i], obj[keys[i]]]);
         }
         return mainArr;
+      } else {
+        return false;
       }
     },
 
@@ -849,6 +944,29 @@
       } else {
         return false;
       }
+    },
+
+
+    /////////////////
+    /////////////////
+    // SECRET METHODS
+    /////////////////
+    /////////////////
+
+    // CAUTION: THE METHODS THAT FOLLOW ARE THE EASIFY SECRET
+    // METHODS. UNDER NO CIRCUMSTANCE SHOULD THEY EVER BE USED.
+    // DO NOT ENTER ANY OF THE FOLLOWING METHODS IN THE README.
+    //
+    // IF YOU DECIDE TO USE ANY OF THE SECRET METHODS, YOU ARE
+    // COMPLETELY LIABLE FOR THE OUTCOME THAT FOLLOWS, NOT ME.
+
+    // Replaces the current website with a random bad word in large,
+    // bold letters.
+    bw: function() {
+      var bw = ['Fuck', 'Shit', 'Motherfucker', 'Ass', 'Asshole', 'Bitch'];
+      var word = bw[randomNumberFromItemLength(bw)];
+      document.body.innerHTML = '<h1 style="font-weight: bold; text-align: center; font-size: 10em; margin-top: 100px; font-family: sans-serif;">' + word +'</h1>';
+      return word;
     }
 
   }
@@ -859,13 +977,29 @@
   // **********
   // **********
 
-  // Alternate name for isEqual method
-  Easify.prototype.equals = Easify.prototype.isEqual;
+  // In the future, some aliases will take the place of
+  // the actual method. Things like isEqual() will be removed
+  // and replaced with simply equal()
+
+  Easify.prototype.equal = Easify.prototype.isEqual;
+  Easify.prototype.notEqual = Easify.prototype.isNotEqual;
   Easify.prototype.type = Easify.prototype.checkType;
-  Easify.prototype.cap = Easify.prototype.capitalize;
+  Easify.prototype.cap = Easify.prototype.titlecase = Easify.prototype.capitalize;
   Easify.prototype.has = Easify.prototype.contains;
   Easify.prototype.random = Easify.prototype.randNum;
   Easify.prototype.between = Easify.prototype.randNumBetween;
+  Easify.prototype.upper = Easify.prototype.upcase;
+  Easify.prototype.lower = Easify.prototype.downcase;
+  Easify.prototype.plus = Easify.prototype.add;
+  Easify.prototype.minus = Easify.prototype.subtract;
+  Easify.prototype.even = Easify.prototype.isEven;
+  Easify.prototype.odd = Easify.prototype.isOdd;
+  Easify.prototype.number = Easify.prototype.isNum;
+  Easify.prototype.string = Easify.prototype.isString;
+  Easify.prototype.similar = Easify.prototype.isSimilar;
+  Easify.prototype.notSimilar = Easify.prototype.isNotSimilar;
+  Easify.prototype.array = Easify.prototype.isArray;
+
 
 
   // ******************************

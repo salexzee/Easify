@@ -37,11 +37,22 @@ var e = $E();
 
 Now you can access all of the Easify methods by using dot notation.
 
+Aliases are simply different names you can use to access a method. For example:
+
+```javascript
+e.capitalize('john'); // > "John"
+
+// The same can be accomplished with:
+e.cap('john'); // > "John"
+// And even:
+e.titlecase('john'); // > "john"
+```
+
 ####String Methods
 
 ***capitalize***
 
-*Alias: cap*
+*Aliases: cap, titlecase*
 
 Used to capitalize the first letter of a provided string.
 
@@ -49,7 +60,19 @@ Used to capitalize the first letter of a provided string.
 e.capitalize('john'); // > "John"
 ```
 
+***downcase***
+
+*Alias: lower*
+
+Converts all letters in a string to lowercase.
+
+```javascript
+e.upcase('HELLO WORLD'); // > "hello world"
+```
+
 ***isString***
+
+*Alias: string*
 
 Used to check if the provided value is of type 'string'.
 
@@ -64,6 +87,19 @@ Used to get the last letter of a string.
 
 ```javascript
 e.last('hello world'); // > "d"
+```
+
+***password***
+
+Used to get a random assortment of letters, numbers and special characters for use as a password or anything else
+
+```javascript
+// Takes 1 argument for the length of the string
+e.password(10); // > "5r92x*%9@w"
+
+// When no length is passed in, it defaults to 12
+e.password(); // > "9#r10c10g$4d&!"
+
 ```
 
 ***remove***
@@ -125,6 +161,16 @@ Removes any white space from the beginning and end of a string
 e.trim(' hello world '); // > "hello world"
 ```
 
+***upcase***
+
+*Alias: upper*
+
+Converts all letters in a string to uppercase.
+
+```javascript
+e.upcase('hello world'); // > "HELLO WORLD"
+```
+
 ***wrap***
 
 Used to wrap a provided string inside of a provided HTML element.
@@ -164,6 +210,8 @@ e.contains([1,2,3], 2); // > true
 ```
 
 ***isArray***
+
+*Alias: array*
 
 Used to check if passed in value is an array
 
@@ -339,7 +387,7 @@ e.elementsFromName('city');
 
 ***isEqual***
 
-*Alias: equals*
+*Alias: equal*
 
 Returns true if both arguments are equal (strict).
 
@@ -351,6 +399,8 @@ e.isEqual('hello', 'hello'); // > true
 
 ***isNotEqual***
 
+*Alias: notEqual*
+
 Returns true if both arguments are not equal (strict).
 
 ```javascript
@@ -361,6 +411,8 @@ e.isNotEqual('hello', 'Hello'); // true
 
 ***isSimilar***
 
+*Alias: similar*
+
 Returns true if both arguments are equal (not strict).
 
 ```javascript
@@ -370,6 +422,8 @@ e.isSimilar('hello', 'Hello'); // > false
 ```
 
 ***isNotSimilar***
+
+*Alias: notSimilar*
 
 Returns true if both arguments are not equal (not strict).
 
@@ -482,6 +536,8 @@ e.methodCount(); // > 41
 
 ***add***
 
+*Alias: plus*
+
 Performs addition on 2 or more numbers.
 
 ```javascript
@@ -493,6 +549,8 @@ e.add([5, 5, 5]); // > 15
 ```
 
 ***subtract***
+
+*Alias: minus*
 
 Performs subtraction on 2 or more numbers.
 
@@ -530,6 +588,8 @@ e.divide([20, 2, 5]); // > 2
 
 ***isNum***
 
+*Alias: number*
+
 Checks if provided argument is of type "number".
 
 ```javascript
@@ -540,6 +600,8 @@ e.isNum(true); // > false
 
 ***isOdd***
 
+*Alias: odd*
+
 Checks if number is odd.
 
 ```javascript
@@ -548,6 +610,8 @@ e.isOdd(4); // > false
 ```
 
 ***isEven***
+
+*Alias: even*
 
 Checks if number is even.
 
