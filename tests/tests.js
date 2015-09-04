@@ -193,11 +193,37 @@
     }
   );
 
+  tests.push(
+    function() {
+      var text = 'removeItem() removes the item at the specified index of an array';
+      var inputArray = ['John', 'Jane', 'Joe'];
+      var expect = JSON.stringify(['John', 'Joe']);
+      runTest(JSON.stringify(e.removeItem(inputArray, 1)) === expect, text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'stray() returns a random item from an array';
+      runTest((e.stray([1,2,3]) === 1) || (e.stray([1,2,3]) === 2) || (e.stray([1,2,3]) === 3), text);
+    }
+  );
+
   // ############
   // ############
   // OBJECT TESTS
   // ############
   // ############
+
+  tests.push(
+    function() {
+      var text = 'combine() returns an object with all the properties and values of the passed in objects';
+      var obj1 = { name: 'John Doe' };
+      var obj2 = { age: 21 };
+      var expect = JSON.stringify({ name: 'John Doe', age: 21 });
+      runTest(JSON.stringify(e.combine(obj1, obj2)) === expect, text);
+    }
+  );
 
   tests.push(
     function() {
