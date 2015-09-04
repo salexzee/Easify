@@ -257,11 +257,11 @@
         return false;
       }
     },
-    
+
     // Letters in a string are randomly set to upper and lowercase
     // Takes 1 argument(string)
     // e.randomcase("Hello") //=> "HeLLo"
-    
+
     randomcase: function(str) {
       // Randomize string
       if (validateString(str)) {
@@ -280,11 +280,11 @@
           }
         }
         return newString;
-    
+
       } else {
         throw 'String validation failed.';
       }
-      
+
     },
 
     // Repeat the same string multiple times, trimming off
@@ -374,6 +374,14 @@
       } else {
         return false;
       }
+    },
+
+    // Combines 2 arrays keeping only unique values
+    unify: function(arr1, arr2) {
+      var newArr = arr1.concat(arr2.filter(function (i) {
+        return arr1.indexOf(i) < 0;
+      }));
+      return newArr
     },
 
     // Checks the type of each element contained in the passed
@@ -628,7 +636,7 @@
     //
     // The selector artument is expecting a string that
     // corrisponds to the name provided in the HTML
-    // 
+    //
     // The input argument can be any valid HTML or text
     //
     // The amount argument is an optional argument and is
@@ -1010,6 +1018,6 @@
 
   // Sets up global variables
   global.Easify = global.$E = Easify
-  
+
   console.log("Easify loaded!");
 }(window));
