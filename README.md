@@ -91,6 +91,15 @@ Used to randomly sort the letters in a provided string.
 e.randomize('hello world'); // > "lrdlwloeho "
 e.randomize('hello world'); // > "roheodlw ll"
 ```
+***randomcase***
+
+Used to randomlly make letters uppercase or lowercase.
+
+```javascript
+e.randomcase('hello world'); // > "HeLLo WOrld"
+e.randomcase('hello world'); // > "hELLo WorlD"
+```
+
 
 ***repeat***
 
