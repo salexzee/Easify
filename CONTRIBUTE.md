@@ -16,6 +16,8 @@ So you've checked the issues and haven't found anything about your proposed idea
 
 Now it's time to submit code. Your idea has been deemed necessary and you've already written up all of your code. Now's the easy part, submit your code. Some things to remember are that you'll need to make sure you add in some passing tests and that you update the README with how to use your new code (if necessary).
 
+*Note: Before submitting a PR, make sure you have the most up-to-date repository.
+
 ###3. Documentation
 
 Documentation is a beast. There is a nice amount of documentation in the source code, but not everyone wants to look there. Sometimes functionality gets added without any mention of it in the documentation which means people may not be able to use this software at it's full capacity. The overall goal is to have everything documented.
