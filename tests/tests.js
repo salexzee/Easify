@@ -53,7 +53,12 @@
 
   // Stick to the provided format.
 
-  // Checks if capitalize() returns a string with the first letter capitalized
+  // ############
+  // ############
+  // STRING TESTS
+  // ############
+  // ############
+
   tests.push(
     function() {
       var text = "capitalize() returns a new string with the first letter capitalized";
@@ -61,7 +66,6 @@
     }
   );
 
-  // Checks if isString() returns true
   tests.push(
     function() {
       var text = "isString() returns true if input value is of type 'string'";
@@ -69,7 +73,6 @@
     }
   );
 
-  // Checks if isString() returns false
   tests.push(
     function() {
       var text = "isString() returns false if input value is not of type 'string'";
@@ -77,7 +80,6 @@
     }
   );
 
-  // Checks if last() returns the last letter of a string
   tests.push(
     function() {
       var text = "last() returns the last letter in a string";
@@ -85,7 +87,6 @@
     }
   );
 
-  // Checks if remove() takes out the provided amount of letters
   tests.push(
     function() {
       var text = 'remove() returns a string with letters removed';
@@ -93,7 +94,6 @@
     }
   );
 
-  // Checks if removeAll() takes out all occurances of the provided letter
   tests.push(
     function() {
       var text = 'removeAll() returns a string with all of a specified letter removed';
@@ -101,7 +101,6 @@
     }
   );
 
-  // Checks if randomize() returns a string of the same length as the provided string
   tests.push(
     function() {
       var text = 'randomize() returns a string of the same length of the input string';
@@ -109,7 +108,6 @@
     }
   );
 
-  // Checks if randomize() returns a string that is not the same as the provided string
   // It is currently possible for the returned string to be
   // the same as the input string. The shorter the word,
   // the higher the chance of it being the same.
@@ -122,7 +120,6 @@
     }
   );
 
-  // Checks if randomcase() returns random upper and lower cased letters
   tests.push(
     function() {
       var text = 'randomcase() returns a string with the letters randomly changed to upper or lower case';
@@ -131,7 +128,6 @@
   );
 
 
-  // Checks if repeat() returns the provided string repeated the specified amount of times
   tests.push(
     function() {
       var text = 'repeat() returns the provided string repeated the specified amount of times';
@@ -139,7 +135,6 @@
     }
   );
 
-  // Checks if reverse() takes the provided string and returns a backwards copy
   tests.push(
     function() {
       var text = 'reverse() returns the provided string backwawrds';
@@ -147,13 +142,18 @@
     }
   );
 
-  // Checks if wrap() encapsulates the provided string in a provided HTML tag
   tests.push(
     function() {
       var text = 'wrap() encapsulates the provided string in a provided HTML tag';
       runTest(e.wrap('testing', 'h1') === '<h1>testing</h1>', text);
     }
   );
+
+  // ###########
+  // ###########
+  // ARRAY TESTS
+  // ###########
+  // ###########
 
   tests.push(
     function() {
@@ -165,9 +165,75 @@
     }
   );
 
-  // insertHTML() not tested
+  tests.push(
+    function() {
+      var text = 'isArray() returns true if an array is passed in';
+      runTest(e.isArray([]) === true, text);
+    }
+  );
 
-  //Checks if isEqual() returns true when 2 arguments are strictly equal
+  tests.push(
+    function() {
+      var text = 'isArray() returns false if an object is passed in';
+      runTest(e.isArray({}) === false, text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'contains() returns true if the passed in value is inside of the passed in array';
+      runTest(e.contains([1,2,3], 3) === true, text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'contains() returns false if the passed in value is not inside of the passed in array';
+      runTest(e.contains([1,2,3], 4) === false, text);
+    }
+  );
+
+  // ############
+  // ############
+  // OBJECT TESTS
+  // ############
+  // ############
+
+  tests.push(
+    function() {
+      var text = 'isObject() returns true if passed in value is an object';
+      runTest(e.isObject({}) === true, text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'isObject() returns false if an array is passed in';
+      runTest(e.isObject([]) === false, text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'isObject() returns false if null is passed in';
+      runTest(e.isObject(null) === false, text);
+    }
+  );
+
+  // #########
+  // #########
+  // DOM TESTS
+  // #########
+  // #########
+
+  // NO DOM TESTS IN CURRENT BUILD
+
+  // ###############
+  // ###############
+  // UNIVERSAL TESTS
+  // ###############
+  // ###############
+
   tests.push(
     function() {
       var text = 'isEqual() returns true when 2 arguments are strictly equal';
@@ -175,7 +241,6 @@
     }
   );
 
-  //Checks if isEqual() returns false when 2 arguments are equal, but not strictly equal
   tests.push(
     function() {
       var text = 'isEqual() returns false when 2 arguments are not strictly equal';
@@ -183,7 +248,6 @@
     }
   );
 
-  // Checks if isNotEqual returns true when 2 arguments are equal, but not strictly equal
   tests.push(
     function() {
       var text = 'isNotEqual() returns true when 2 arguments are not strictly equal';
@@ -310,108 +374,86 @@
     }
   );
 
+  // ############
+  // ############
+  // NUMBER TESTS
+  // ############
+  // ############
+
   tests.push(
     function() {
-      var text = 'isObject() returns true if passed in value is an object';
-      runTest(e.isObject({}) === true, text);
+      var text = 'add() returns the sum of the provided numbers';
+      runTest(e.add(5,5) === 10, text);
     }
   );
 
   tests.push(
     function() {
-      var text = 'isObject() returns false if an array is passed in';
-      runTest(e.isObject([]) === false, text);
+      var text = 'add() returns the sum of the provided array of numbers';
+      runTest(e.add([5,5,5,5]) === 20, text);
     }
   );
 
   tests.push(
     function() {
-      var text = 'isObject() returns false if null is passed in';
-      runTest(e.isObject(null) === false, text);
-    }
-  );
-
-  tests.push(
-    function() {
-      var text = 'isArray() returns true if an array is passed in';
-      runTest(e.isArray([]) === true, text);
-    }
-  );
-
-  tests.push(
-    function() {
-      var text = 'isArray() returns false if an object is passed in';
-      runTest(e.isArray({}) === false, text);
-    }
-  );
-
-  tests.push(
-    function() {
-      var text = 'contains() returns true if the passed in value is inside of the passed in array';
-      runTest(e.contains([1,2,3], 3) === true, text);
-    }
-  );
-
-  tests.push(
-    function() {
-      var text = 'contains() returns false if the passed in value is not inside of the passed in array';
-      runTest(e.contains([1,2,3], 4) === false, text);
+      var text = 'subtract() returns the deduction of the provided numbers';
+      runTest(e.subtract(10,5) === 5, text);
     }
   );
 
   tests.push(
     function() {
       var text = 'multiply() returns the product of the provided numbers';
-      runTest(e.multiply(5,5) === 25, text)
+      runTest(e.multiply(5,5) === 25, text);
     }
   );
 
   tests.push(
     function() {
       var text = 'divide() returns the quotient of the provided numbers';
-      runTest(e.divide(6,3) === 2, text)
+      runTest(e.divide(6,3) === 2, text);
     }
   );
 
   tests.push(
     function() {
       var text = 'isNum() returns true if input is of type "number"';
-      runTest(e.isNum(4) === true, text)
+      runTest(e.isNum(4) === true, text);
     }
   );
 
   tests.push(
     function() {
       var text = 'isNum() returns false if input is not of type "number"';
-      runTest(e.isNum('4') === false, text)
+      runTest(e.isNum('4') === false, text);
     }
   );
 
   tests.push(
     function() {
       var text = 'isOdd() returns true if input number is odd';
-      runTest(e.isOdd(5) === true, text)
+      runTest(e.isOdd(5) === true, text);
     }
   );
 
   tests.push(
     function() {
       var text = 'isOdd() returns false if input number is even';
-      runTest(e.isOdd(4) === false, text)
+      runTest(e.isOdd(4) === false, text);
     }
   );
 
   tests.push(
     function() {
       var text = 'isEven() returns true if input number is even';
-      runTest(e.isEven(4) === true, text)
+      runTest(e.isEven(4) === true, text);
     }
   );
 
   tests.push(
     function() {
       var text = 'isEven() returns false if input number is not even';
-      runTest(e.isEven(5) === false, text)
+      runTest(e.isEven(5) === false, text);
     }
   );
 
