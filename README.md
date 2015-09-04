@@ -190,6 +190,14 @@ Combines 2 arrays and returns 1 array of all values
 e.bridge([1,2,3], [4,5,6]); // > [1, 2, 3, 4, 5, 6]
 ```
 
+***unify***
+
+Combines 2 arrays keeping only unique values
+
+```javascript
+e.unify([1, 2, 3], [2, 3, 4, 5]); // > [1, 2, 3, 4, 5]
+```
+
 ***checkTypes***
 
 Used to check the types of all values contained in a passed in array

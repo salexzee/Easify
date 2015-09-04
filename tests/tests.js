@@ -121,15 +121,15 @@
       runTest(e.randomize("This is a test sentence.") !== "This is a test sentence.", text);
     }
   );
-  
-  // Checks if randomcase() returns random upper and lower cased letters  
+
+  // Checks if randomcase() returns random upper and lower cased letters
   tests.push(
     function() {
       var text = 'randomcase() returns a string with the letters randomly changed to upper or lower case';
       runTest(e.randomcase("This is a test sentence.") !== "This is a test sentence.", text);
     }
   );
-  
+
 
   // Checks if repeat() returns the provided string repeated the specified amount of times
   tests.push(
@@ -152,6 +152,16 @@
     function() {
       var text = 'wrap() encapsulates the provided string in a provided HTML tag';
       runTest(e.wrap('testing', 'h1') === '<h1>testing</h1>', text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'unify() combines 2 arrays keeping only unique values';
+      var unifyAssert = JSON.stringify(e.unify([1, 2, 3], [2, 3, 4, 5]));
+      var unifyExpect = JSON.stringify([1, 2, 3, 4, 5]);
+      // We need to write a function for array comparison
+      runTest(unifyAssert === unifyExpect, text);
     }
   );
 
