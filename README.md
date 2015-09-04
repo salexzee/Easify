@@ -192,6 +192,8 @@ e.bridge([1,2,3], [4,5,6]); // > [1, 2, 3, 4, 5, 6]
 
 ***unify***
 
+*Alias: unite*
+
 Combines 2 arrays keeping only unique values
 
 ```javascript

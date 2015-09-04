@@ -1007,6 +1007,7 @@
   Easify.prototype.similar = Easify.prototype.isSimilar;
   Easify.prototype.notSimilar = Easify.prototype.isNotSimilar;
   Easify.prototype.array = Easify.prototype.isArray;
+  Easify.prototype.unite = Easify.prototype.unify;
 
 
 
