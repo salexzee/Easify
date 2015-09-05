@@ -182,6 +182,8 @@ e.supplant('Good {time}, how are {who}?', { time: 'afternoon', who: 'you' });
 // > "Good afternoon, how are you?"
 ```
 
+*Only in development version*
+
 ***wrap***
 
 Used to wrap a provided string inside of a provided HTML element.
