@@ -171,6 +171,17 @@ Converts all letters in a string to uppercase.
 e.upcase('hello world'); // > "HELLO WORLD"
 ```
 
+***supplant***
+
+*Alias: format*
+
+Evaluates a string literal containing one or more placeholders, returning a result in which the placeholders are replaced with their corresponding values.
+
+```javascript
+e.supplant('Good {time}, how are {who}?', { time: 'afternoon', who: 'you' });
+// > "Good afternoon, how are you?"
+```
+
 ***wrap***
 
 Used to wrap a provided string inside of a provided HTML element.
