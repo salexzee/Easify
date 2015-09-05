@@ -344,6 +344,25 @@
       }
     },
 
+    // Suplant a.k.a Interpolation string
+    //
+    // Takes 2 arguments(string, object)
+    // e.supplant("My favorite repo. is {repo}.", { repo: "Easify" })  //==> "My favorite repo. is Easify."
+    supplant:  function (str, o) {
+      // Validate string
+      if(validateString(str)){
+       // Create a regex to find the brackets: {}
+        return str.replace(/{([^{}]*)}/g,
+        function (a, b) {
+            var r = o[b];
+            return typeof r === 'string' || typeof r === 'number' ? r : a;
+          }
+        );
+      } else {
+        return false;
+      }
+    },
+    
     // Wrap a string in a specified element
     //
     // Takes 2 arguments(string, string)
@@ -1008,6 +1027,7 @@
   Easify.prototype.notSimilar = Easify.prototype.isNotSimilar;
   Easify.prototype.array = Easify.prototype.isArray;
   Easify.prototype.unite = Easify.prototype.unify;
+  Easify.prototype.format = Easify.prototype.supplant;
 
 
 
