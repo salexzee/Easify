@@ -141,6 +141,13 @@
       runTest(e.reverse('testing') === 'gnitset', text);
     }
   );
+  
+  tests.push(
+    function() {
+      var text = 'supplant() evaluates string literal containing one or more placeholders';
+      runTest(e.supplant('My favorite repo. is {repo}.', { repo: "Easify" }) === 'My favorite repo. is Easify.', text);
+    }
+  );
 
   tests.push(
     function() {
