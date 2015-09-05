@@ -2,7 +2,7 @@
 // Author: Sam Webb
 // Copyright: 2015
 // License: MIT
-// Version: 0.4.0
+// Version: 0.5.0 dev
 
 // Dependencies: N/A
 
@@ -82,7 +82,7 @@
     return new Easify.init();
   }
 
-  Easify.VERSION = '0.4.0';
+  Easify.VERSION = '0.5.0';
 
   // Function that actually creates object
   // to remove 'new' keyword for users
