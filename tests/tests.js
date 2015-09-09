@@ -27,7 +27,7 @@
 
   // Creates the output for the tests
   function testOutput(text, check) {
-    checkBlock.innerHTML += '<p><span class="code">' + text.substring(0, text.indexOf(')') + 1) + "</span>" + text.substring(text.indexOf(')') + 1, text.length) + ': <span class="' + check + '">' + e.capitalize(check) + '!</span></p><hr/>';
+    checkBlock.innerHTML += '<p><span class="code">' + text.substring(0, text.indexOf(')') + 1) + "</span>" + text.substring(text.indexOf(')') + 1, text.length) + ': <span class="' + check + '">' + e.cap(check) + '!</span></p><hr/>';
   }
 
   // Pulls if/else functionality from tests to make them
@@ -61,8 +61,8 @@
 
   tests.push(
     function() {
-      var text = "capitalize() returns a new string with the first letter capitalized";
-      runTest(e.capitalize('testing') === 'Testing', text);
+      var text = "cap() returns a new string with the first letter capitalized";
+      runTest(e.cap('testing') === 'Testing', text);
     }
   );
 

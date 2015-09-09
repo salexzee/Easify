@@ -50,14 +50,12 @@ e.titlecase('john'); // > "john"
 
 ####String Methods
 
-***capitalize***
-
-*Aliases: cap, titlecase*
+***cap***
 
 Used to capitalize the first letter of a provided string.
 
 ```javascript
-e.capitalize('john'); // > "John"
+e.cap('john'); // > "John"
 ```
 
 ***downcase***

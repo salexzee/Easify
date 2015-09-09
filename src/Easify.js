@@ -100,7 +100,7 @@
     // **************
     // **************
 
-    capitalize: function(str) {
+    cap: function(str) {
       if (validateString(str)) {
         var strList = str.split('');
         strList[0] = strList[0].toUpperCase();
@@ -1009,7 +1009,6 @@
   // and replaced with simply equal()
 
 
-  Easify.prototype.cap = Easify.prototype.titlecase = Easify.prototype.capitalize;
   Easify.prototype.has = Easify.prototype.contains;
   Easify.prototype.random = Easify.prototype.randNum;
   Easify.prototype.between = Easify.prototype.randNumBetween;
