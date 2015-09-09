@@ -23,3 +23,5 @@ If you're adding a new feature, you'll need:
 
 If you're fixing a bug, make sure it doesn't break any existing code and check if the tests are passing before submitting your PR.
 
+Make sure you submit your PR from your branch. This makes life easier for everyone involved. Don't stack a bunch of unrelated changes into 1 branch. Be liberal with your use of branches, they won't hurt you.
+
