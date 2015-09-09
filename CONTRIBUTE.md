@@ -1,8 +1,7 @@
 Contribute
 ===============
 
-There are multiple ways to contribute to this project. Below is a list of them and instructions for each:
-
+If you would like to contribute to this project, choose one of the following options.
 
 ###1. Submit an issue.
 
@@ -10,17 +9,17 @@ If you see a bug in the program or you would like a feature to be added, please 
 
 ###2. You can submit code via Pull Request.
 
-First things first when you're thinking about providing some code via pull request is to check if there's already an issue about it. This will prevent you from wasting your time by writing code that someone else is responsible for writing.
+First things first when you're thinking about providing some code via pull request is to check if there's already an issue about it. This will prevent you from spending time on something that someone else is looking into. If there is no issue for what you want to work on, create one. In the issue, provide as much detail as possible (i.e use cases, how to replicate bug, etc.) to see if the change is really necessary.
 
-So you've checked the issues and haven't found anything about your proposed idea or bug fix. Your next step is to submit an issue. This is a feeling out process to see if what you're proposing is something needed in the project. If this is something you plan on tackling yourself, make sure you assign yourself to the issue.
+[FORK EASIFY](https://github.com/salexzee/Easify#fork-destination-box)
 
-Now it's time to submit code. Your idea has been deemed necessary and you've already written up all of your code. Now's the easy part, submit your code. Some things to remember are that you'll need to make sure you add in some passing tests and that you update the README with how to use your new code (if necessary).
+One big thing to keep in mind is to keep your master copy clean. This means keep all of your changes off of your master copy and instead, create branches for any change you plan on making. Learn more about what I mean [HERE](https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches). By keeping all of your changes in branches, it makes it easier for you to make seperate changes if your PR has not been merged yet.
 
-*Note: Before submitting a PR, make sure you have the most up-to-date repository.
+If you're adding a new feature, you'll need:
 
-###3. Documentation
+- Your working code (obviously)
+- Atleast 1 passing test
+- Update to the README
 
-Documentation is a beast. There is a nice amount of documentation in the source code, but not everyone wants to look there. Sometimes functionality gets added without any mention of it in the documentation which means people may not be able to use this software at it's full capacity. The overall goal is to have everything documented.
-
-You still need to sumit an issue, but it doesn't need to be approved. The reason for the issue is to let people know what you plan to work on so that they don't duplicate your efforts. Just say which methods you plan on adding documentation for and give it the label "In progress". Giving your issue the "Documentation" label will also help when filtering through issues.
+If you're fixing a bug, make sure it doesn't break any existing code and check if the tests are passing before submitting your PR.
 
