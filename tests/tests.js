@@ -212,7 +212,8 @@
   tests.push(
     function() {
       var text = 'stray() returns a random item from an array';
-      runTest((e.stray([1,2,3]) === 1) || (e.stray([1,2,3]) === 2) || (e.stray([1,2,3]) === 3), text);
+      var stray = e.stray([1,2,3]);
+      runTest((stray === 1) || (stray === 2) || (stray === 3), text);
     }
   );
 
@@ -269,141 +270,141 @@
 
   tests.push(
     function() {
-      var text = 'isEqual() returns true when 2 arguments are strictly equal';
-      runTest(e.isEqual(5, 5) === true, text);
+      var text = 'equal() returns true when 2 arguments are strictly equal';
+      runTest(e.equal(5, 5) === true, text);
     }
   );
 
   tests.push(
     function() {
-      var text = 'isEqual() returns false when 2 arguments are not strictly equal';
-      runTest(e.isEqual(5, '5') === false, text);
+      var text = 'equal() returns false when 2 arguments are not strictly equal';
+      runTest(e.equal(5, '5') === false, text);
     }
   );
 
   tests.push(
     function() {
-      var text = 'isNotEqual() returns true when 2 arguments are not strictly equal';
-      runTest(e.isNotEqual(5, '5') === true, text);
+      var text = 'notEqual() returns true when 2 arguments are not strictly equal';
+      runTest(e.notEqual(5, '5') === true, text);
     }
   );
 
   tests.push(
     function() {
-      var text = 'isNotEqual() returns false when 2 arguments are strictly equal';
-      runTest(e.isNotEqual(5, 5) === false, text);
+      var text = 'notEqual() returns false when 2 arguments are strictly equal';
+      runTest(e.notEqual(5, 5) === false, text);
     }
   );
 
   tests.push(
     function() {
-      var text = 'isSimilar() returns true when 2 arguments are equal, but not strictly equal';
-      runTest(e.isSimilar(5, '5') === true, text);
+      var text = 'similar() returns true when 2 arguments are equal, but not strictly equal';
+      runTest(e.similar(5, '5') === true, text);
     }
   );
 
   tests.push(
     function() {
-      var text = 'isSimilar() returns false when 2 arguments are not equal';
-      runTest(e.isSimilar(5, 4) === false, text);
+      var text = 'similar() returns false when 2 arguments are not equal';
+      runTest(e.similar(5, 4) === false, text);
     }
   );
 
   tests.push(
     function() {
-      var text = 'isNotSimilar() returns true when 2 arguments are not equal';
-      runTest(e.isNotSimilar(5, 4) === true, text);
+      var text = 'notSimilar() returns true when 2 arguments are not equal';
+      runTest(e.notSimilar(5, 4) === true, text);
     }
   );
 
   tests.push(
     function() {
-      var text = 'isNotSimilar() returns false whe 2 arguments are equal';
-      runTest(e.isNotSimilar(5, 5) === false, text);
+      var text = 'notSimilar() returns false whe 2 arguments are equal';
+      runTest(e.notSimilar(5, 5) === false, text);
     }
   );
 
   tests.push(
     function() {
-      var text = 'isTruthy() returns true when value is truthy';
+      var text = 'truthy() returns true when value is truthy';
       runTest(e.isTruthy(5) === true, text);
     }
   );
 
   tests.push(
     function() {
-      var text = 'isTruthy() returns false when value is falsey';
+      var text = 'truthy() returns false when value is falsey';
       runTest(e.isTruthy(0) === false, text);
     }
   );
 
   tests.push(
     function() {
-      var text = 'isFalsey() returns true when value is falsey';
+      var text = 'falsey() returns true when value is falsey';
       runTest(e.isFalsey(0) === true, text);
     }
   );
 
   tests.push(
     function() {
-      var text = 'isFalsey() returns false when value is truthy';
+      var text = 'falsey() returns false when value is truthy';
       runTest(e.isFalsey(5) === false, text);
     }
   );
 
   tests.push(
     function() {
-      var text = 'checkType() returns "array" when an array is passed in';
-      runTest(e.checkType([]) === 'array', text);
+      var text = 'type() returns "array" when an array is passed in';
+      runTest(e.type([]) === 'array', text);
     }
   );
 
   tests.push(
     function() {
-      var text = 'checkType() returns "object" when an object is passed in';
-      runTest(e.checkType({}) === 'object', text);
+      var text = 'type() returns "object" when an object is passed in';
+      runTest(e.type({}) === 'object', text);
     }
   );
 
   tests.push(
     function() {
-      var text = 'checkType() returns "string" when a string value is passed in';
-      runTest(e.checkType('test') === 'string', text);
+      var text = 'type() returns "string" when a string value is passed in';
+      runTest(e.type('test') === 'string', text);
     }
   );
 
   tests.push(
     function() {
-      var text = 'checkType() returns "boolean" when a boolean value is passed in';
-      runTest(e.checkType(false) === 'boolean', text);
+      var text = 'type() returns "boolean" when a boolean value is passed in';
+      runTest(e.type(false) === 'boolean', text);
     }
   );
 
   tests.push(
     function() {
-      var text = 'checkType() returns "function" when a function is passed in';
-      runTest(e.checkType(function(){}) === 'function', text);
+      var text = 'type() returns "function" when a function is passed in';
+      runTest(e.type(function(){}) === 'function', text);
     }
   );
 
   tests.push(
     function() {
-      var text = 'checkType() returns "null" when null is passed in';
-      runTest(e.checkType(null) === 'null', text);
+      var text = 'type() returns "null" when null is passed in';
+      runTest(e.type(null) === 'null', text);
     }
   );
 
   tests.push(
     function() {
-      var text = 'checkType() returns "undefined" when undefined is passed in';
-      runTest(e.checkType(undefined) === 'undefined', text);
+      var text = 'type() returns "undefined" when undefined is passed in';
+      runTest(e.type(undefined) === 'undefined', text);
     }
   );
 
   tests.push(
     function() {
-      var text = 'checkType() returns "undefined" when nothing is passed in';
-      runTest(e.checkType() === 'undefined', text);
+      var text = 'type() returns "undefined" when nothing is passed in';
+      runTest(e.type() === 'undefined', text);
     }
   );
 
