@@ -40,12 +40,10 @@ Now you can access all of the Easify methods by using dot notation.
 Aliases are simply different names you can use to access a method. For example:
 
 ```javascript
-e.capitalize('john'); // > "John"
+e.isOdd(5); // > true
 
 // The same can be accomplished with:
-e.cap('john'); // > "John"
-// And even:
-e.titlecase('john'); // > "john"
+e.odd(5); // > true
 ```
 
 ####String Methods
