@@ -60,8 +60,6 @@ e.cap('john'); // > "John"
 
 ***downcase***
 
-*Alias: lower*
-
 Converts all letters in a string to lowercase.
 
 ```javascript
@@ -160,8 +158,6 @@ e.trim(' hello world '); // > "hello world"
 ```
 
 ***upcase***
-
-*Alias: upper*
 
 Converts all letters in a string to uppercase.
 
@@ -545,8 +541,6 @@ e.methodCount(); // > 41
 
 ***add***
 
-*Alias: plus*
-
 Performs addition on 2 or more numbers.
 
 ```javascript
@@ -558,8 +552,6 @@ e.add([5, 5, 5]); // > 15
 ```
 
 ***subtract***
-
-*Alias: minus*
 
 Performs subtraction on 2 or more numbers.
 
