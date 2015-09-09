@@ -753,7 +753,7 @@
     },
 
     // Checks if the argument is a truthy value
-    isTruthy: function(a) {
+    truthy: function(a) {
       if (a) {
         return true;
       } else {
@@ -762,7 +762,7 @@
     },
 
     // Checks if the argument is a falsey value
-    isFalsey: function(a) {
+    falsey: function(a) {
       if(!a) {
         return true;
       } else {

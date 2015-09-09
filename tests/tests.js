@@ -327,28 +327,28 @@
   tests.push(
     function() {
       var text = 'truthy() returns true when value is truthy';
-      runTest(e.isTruthy(5) === true, text);
+      runTest(e.truthy(5) === true, text);
     }
   );
 
   tests.push(
     function() {
       var text = 'truthy() returns false when value is falsey';
-      runTest(e.isTruthy(0) === false, text);
+      runTest(e.truthy(0) === false, text);
     }
   );
 
   tests.push(
     function() {
       var text = 'falsey() returns true when value is falsey';
-      runTest(e.isFalsey(0) === true, text);
+      runTest(e.falsey(0) === true, text);
     }
   );
 
   tests.push(
     function() {
       var text = 'falsey() returns false when value is truthy';
-      runTest(e.isFalsey(5) === false, text);
+      runTest(e.falsey(5) === false, text);
     }
   );
 
