@@ -447,7 +447,7 @@ Returns true if input is truthy value.
 ```javascript
 // Numbers
 e.truthy(0); // > false
-e.isTruthy(1); // > true
+e.truthy(1); // > true
 
 // Strings
 e.truthy(''); // > false
