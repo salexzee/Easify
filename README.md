@@ -67,7 +67,7 @@ e.capitalize('john'); // > "John"
 Converts all letters in a string to lowercase.
 
 ```javascript
-e.upcase('HELLO WORLD'); // > "hello world"
+e.downcase('HELLO WORLD'); // > "hello world"
 ```
 
 ***isString***
