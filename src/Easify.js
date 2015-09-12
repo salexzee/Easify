@@ -622,20 +622,16 @@
     
     // Clones an object
     clone: function(obj){
-      if(this.isObject(obj)) {
-        if (null == obj || "object" != typeof obj) { 
-          return obj;
-        }
-        var copy = obj.constructor();
-          for (var attr in obj) {
-            if (obj.hasOwnProperty(attr)){ 
-              copy[attr] = obj[attr];
-            }
-          }
-        return copy;
-      } else {
-        return false;
+      if (null == obj || "object" != typeof obj) { 
+        return obj;
       }
+      var copy = obj.constructor();
+        for (var attr in obj) {
+          if (obj.hasOwnProperty(attr)){ 
+            copy[attr] = obj[attr];
+          }
+        }
+      return copy;
     },
 
     // Converts an object into an array of key/value arrays
