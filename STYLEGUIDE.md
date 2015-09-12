@@ -5,7 +5,7 @@ This style guide is for contributors of Easify.js to understand the ways we pref
 
 ###Basics
 
-- Use single quotes for strings
+- Use single quotes for strings.
 
 ```javascript
 //good
@@ -18,7 +18,7 @@ This style guide is for contributors of Easify.js to understand the ways we pref
 String('Hello world');
 ```
 
-- Always setup new variables with the var keyword
+- Always setup new variables with the var keyword.
 ```javascript
 //good
 var food1 = 'turkey';
@@ -27,7 +27,7 @@ var food1 = 'turkey';
 food2 = 'chicken';
 ```
 
-- Always end a statement with a semicolon
+- Always end a statement with a semicolon.
 ```javascript
 //good
 var car1 = 'Mustang';
@@ -36,4 +36,22 @@ var car1 = 'Mustang';
 var car2 = 'Escort'
 ```
 
+- Create new objects with literal notation.
+```javascript
+//good
+var obj1 = {};
 
+//bad, unless absolutely necessary
+var obj2 = new Object();
+```
+
+- List variables on seperate lines, lined up by the first letter of the name when creating multiple variables.
+```javascript
+//good
+var car1,
+    car2,
+    car3
+
+//bad
+var car1, car2, car3
+```
