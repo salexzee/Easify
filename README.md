@@ -3,6 +3,7 @@ EasifyJS
 
 [![Version 0.4.0](https://img.shields.io/badge/version-0.4.0-blue.svg?style=flat-square)](https://github.com/salexzee/Easify/tree/master/versions/0.4.X)
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](LICENSE)
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/salexzee/Easify?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 A small library that makes JavaScript easier to work with.
 
