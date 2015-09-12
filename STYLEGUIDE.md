@@ -44,6 +44,14 @@ var obj1 = {};
 //bad, unless absolutely necessary
 var obj2 = new Object();
 ```
+-  Use the literal syntax for array creation.
+```javascript
+// good
+var cars = [];
+
+// bad
+var cars = new Array();
+```
 
 - List variables on seperate lines, lined up by the first letter of the name when creating multiple variables.
 ```javascript
