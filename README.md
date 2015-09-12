@@ -12,6 +12,8 @@ A small library that makes JavaScript easier to work with.
 
 [How to contribute.](CONTRIBUTE.md)
 
+[Check out the style guide.](STYLEGUIDE.md)
+
 
 ##DOCUMENTATION
 
