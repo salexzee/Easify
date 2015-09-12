@@ -1,7 +1,7 @@
 EasifyJS
 ===============
 
-![Version 0.5.0](https://img.shields.io/badge/version-0.5.0-blue.svg?style=flat-square)
+![Version 0.4.0](https://img.shields.io/badge/version-0.5.0-blue.svg?style=flat-square)
 ![MIT License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)
 
 A small library that makes JavaScript easier to work with.
