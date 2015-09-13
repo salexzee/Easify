@@ -18,14 +18,14 @@ A small library that makes JavaScript easier to work with.
     - [Number Methods](#number-methods)
  - [Tests](#tests)
  
-##Contribute
+#Contribute
 
 For more information on how to contribute, view `CONTRIBUTE.md` or click [here](CONTRIBUTE.md).
 
 If you want a list of contributors in order of thier contribution, view `CONTRIBUTORS.md` or click [here](CONTRIBUTORS.md).
 
 
-##Installation	
+#Installation	
 
 To get started, include `Easify.min.js` in your website. Make sure it's included above your websites JS file. To make sure JS doesn't interfere with the loading of your HTML and CSS, it is suggested that you add your JS files right above your closing `body` tag.
 
