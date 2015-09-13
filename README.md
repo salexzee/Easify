@@ -3,22 +3,31 @@ EasifyJS
 
 [![Version 0.5.0](https://img.shields.io/badge/version-0.5.0-blue.svg?style=flat-square)](https://github.com/salexzee/Easify/tree/master/versions/0.5.X)
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](LICENSE)
-[![Join the chat at https://gitter.im/salexzee/Easify](https://img.shields.io/badge/GITTER-join%20chat-brightgreen.svg?style=flat-square)](https://gitter.im/salexzee/Easify?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/salexzee/Easify](https://img.shields.io/badge/GITTER-join%20chat-45cba1.svg?style=flat-square)](https://gitter.im/salexzee/Easify?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 A small library that makes JavaScript easier to work with.
 
----------------
+ - [Contribute](#contribute)
+ -  [Installation](#installation)
+ -  [Documentation](#documentation)
+    - [String Methods](#string-methods)
+    - [Array Methods](#array-methods)
+    - [Object Methods](#object-methods)
+    - [DOM Methods](#dom-methods)
+    - [Universal Methods](#universal-methods)
+    - [Number Methods](#number-methods)
+ - [Tests](#tests)
+ 
+#Contribute
 
-##CONTRIBUTE
+For more information on how to contribute, view `CONTRIBUTE.md` or click [here](CONTRIBUTE.md).
 
-[How to contribute.](CONTRIBUTE.md)
-
-[View contributors.](CONTRIBUTORS.md)
+If you want a list of contributors in order of thier contribution, view `CONTRIBUTORS.md` or click [here](CONTRIBUTORS.md).
 
 
-##DOCUMENTATION
+#Installation	
 
-To get started, include Easify.min.js in your website. Make sure it's included above your websites JS file. To make sure JS doesn't interfere with the loading of your HTML and CSS, it is suggested that you add your JS files right above your closing `body` tag.
+To get started, include `Easify.min.js` in your website. Make sure it's included above your websites JS file. To make sure JS doesn't interfere with the loading of your HTML and CSS, it is suggested that you add your JS files right above your closing `body` tag.
 
 ```html
     <script src="js/Easify.min.js"></script>
@@ -27,9 +36,13 @@ To get started, include Easify.min.js in your website. Make sure it's included a
 </html>
 ```
 
-You'll know it's included if you look in the console and see 'Easify loaded!'
+You'll know it's included if you look in the console and see:
 
-Once included, you'll need to initialize an Easify object. There are 2 ways to do this:
+    Easify loaded!
+
+#Documentation
+
+Once included/installed, you will need to initialize an Easify object. There are 2 ways to do this:
 
 ```javascript
 // The long hand version
@@ -39,12 +52,12 @@ var e = Easify();
 var e = $E();
 
 // Will be using the 'e' variable for the rest of this section
-````
+```
 
 Now you can access all of the Easify methods by using dot notation.
 
 Aliases are simply different names you can use to access a method. For example:
-
+ 
 ```javascript
 e.isOdd(5); // > true
 
@@ -52,7 +65,8 @@ e.isOdd(5); // > true
 e.odd(5); // > true
 ```
 
-####String Methods
+String Methods
+---
 
 ***cap***
 
@@ -191,7 +205,8 @@ e.wrap('hello world', 'h1'); // > "<h1>hello world</h1>"
 ```
 
 
-####ARRAY METHODS
+Array Methods
+---
 
 ***bridge***
 
@@ -265,7 +280,8 @@ e.shuffle([1,2,3,4,5]); // > [2, 4, 1, 5, 3]
 ```
 
 
-####OBJECT METHODS
+Object Methods
+---
 
 ***combine***
 
@@ -352,8 +368,8 @@ var person = {firstname: 'John', lastname: 'Doe'};
 e.toArray(person); // > [["firstname", "John"], ["lastname", "Doe"]]
 ```
 
-
-####DOM Methods
+DOM Methods
+---
 
 ***insertHTML***
 
@@ -411,7 +427,8 @@ e.elementsFromName('city');
 ```
 
 
-####Universal Methods
+Universal Methods
+---
 
 ***equal***
 
@@ -550,7 +567,8 @@ e.methodCount(); // > 41
 ```
 
 
-####Number Methods
+Number Methods
+---
 
 ***add***
 
@@ -674,7 +692,7 @@ e.randNumBetween(5.5, 5.5); // > 5
 ```
 
 
-##TESTS
+##Tests
 
 To run tests is simple, just open test/index.html in your browser of choice and click the "Run Tests" button. You'll see a long list of the tests that were run and whether they passed or failed.
 
