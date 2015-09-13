@@ -18,6 +18,21 @@ This style guide is for contributors of Easify.js to understand the ways we pref
 String('Hello world');
 ```
 
+- Use strict equality for comparisons
+```javascript
+//good
+5 === '5' // > false
+
+//good
+5 !== '5' // > true
+
+//bad
+5 == '5' // > true
+
+//bad
+5 != '5' // > false
+```
+
 - Always setup new variables with the var keyword.
 ```javascript
 //good
@@ -44,6 +59,7 @@ var obj1 = {};
 //bad, unless absolutely necessary
 var obj2 = new Object();
 ```
+
 -  Use the literal syntax for array creation.
 ```javascript
 // good
