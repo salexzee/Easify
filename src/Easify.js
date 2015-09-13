@@ -104,7 +104,7 @@
     // **************
     // **************
 
-    capitalize: function(str) {
+    cap: function(str) {
       if (validateString(str)) {
         var strList = str.split('');
         strList[0] = strList[0].toUpperCase();
@@ -752,27 +752,27 @@
     // *****************
 
     // Returns true if arguments are equal.
-    isEqual: function(a, b) {
+    equal: function(a, b) {
       return a === b;
     },
 
     // Returns true if arguments are not equal.
-    isNotEqual: function(a, b) {
+    notEqual: function(a, b) {
       return a !== b;
     },
 
     // Returns true if arguments can be coerced to equal.
-    isSimilar: function(a, b) {
+    similar: function(a, b) {
       return a == b;
     },
 
     // Returns true if arguments can not be coreced to equal.
-    isNotSimilar: function(a, b) {
+    notSimilar: function(a, b) {
       return a != b;
     },
 
     // Checks if the argument is a truthy value
-    isTruthy: function(a) {
+    truthy: function(a) {
       if (a) {
         return true;
       } else {
@@ -781,7 +781,7 @@
     },
 
     // Checks if the argument is a falsey value
-    isFalsey: function(a) {
+    falsey: function(a) {
       if(!a) {
         return true;
       } else {
@@ -808,7 +808,7 @@
     },
 
     // Checks the type of a passed in value
-    checkType: function(a) {
+    type: function(a) {
       // Specific check for arrays since they return from
       // typeof as 'object'
       if (Array.isArray(a) === true) {
@@ -1027,25 +1027,15 @@
   // the actual method. Things like isEqual() will be removed
   // and replaced with simply equal()
 
-  Easify.prototype.equal = Easify.prototype.isEqual;
-  Easify.prototype.notEqual = Easify.prototype.isNotEqual;
-  Easify.prototype.type = Easify.prototype.checkType;
-  Easify.prototype.cap = Easify.prototype.titlecase = Easify.prototype.capitalize;
+
   Easify.prototype.has = Easify.prototype.contains;
   Easify.prototype.random = Easify.prototype.randNum;
   Easify.prototype.between = Easify.prototype.randNumBetween;
-  Easify.prototype.upper = Easify.prototype.upcase;
-  Easify.prototype.lower = Easify.prototype.downcase;
-  Easify.prototype.plus = Easify.prototype.add;
-  Easify.prototype.minus = Easify.prototype.subtract;
   Easify.prototype.even = Easify.prototype.isEven;
   Easify.prototype.odd = Easify.prototype.isOdd;
   Easify.prototype.number = Easify.prototype.isNum;
   Easify.prototype.string = Easify.prototype.isString;
-  Easify.prototype.similar = Easify.prototype.isSimilar;
-  Easify.prototype.notSimilar = Easify.prototype.isNotSimilar;
   Easify.prototype.array = Easify.prototype.isArray;
-  Easify.prototype.unite = Easify.prototype.unify;
   Easify.prototype.format = Easify.prototype.supplant;
 
 

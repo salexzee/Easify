@@ -46,29 +46,23 @@ Now you can access all of the Easify methods by using dot notation.
 Aliases are simply different names you can use to access a method. For example:
 
 ```javascript
-e.capitalize('john'); // > "John"
+e.isOdd(5); // > true
 
 // The same can be accomplished with:
-e.cap('john'); // > "John"
-// And even:
-e.titlecase('john'); // > "john"
+e.odd(5); // > true
 ```
 
 ####String Methods
 
-***capitalize***
-
-*Aliases: cap, titlecase*
+***cap***
 
 Used to capitalize the first letter of a provided string.
 
 ```javascript
-e.capitalize('john'); // > "John"
+e.cap('john'); // > "John"
 ```
 
 ***downcase***
-
-*Alias: lower*
 
 Converts all letters in a string to lowercase.
 
@@ -169,8 +163,6 @@ e.trim(' hello world '); // > "hello world"
 
 ***upcase***
 
-*Alias: upper*
-
 Converts all letters in a string to uppercase.
 
 ```javascript
@@ -210,8 +202,6 @@ e.bridge([1,2,3], [4,5,6]); // > [1, 2, 3, 4, 5, 6]
 ```
 
 ***unify***
-
-*Alias: unite*
 
 Combines 2 arrays keeping only unique values
 
@@ -423,102 +413,94 @@ e.elementsFromName('city');
 
 ####Universal Methods
 
-***isEqual***
-
-*Alias: equal*
+***equal***
 
 Returns true if both arguments are equal (strict).
 
 ```javascript
-e.isEqual(5, 5); // > true
-e.isEqual(5, '5'); // > false
-e.isEqual('hello', 'hello'); // > true
+e.equal(5, 5); // > true
+e.equal(5, '5'); // > false
+e.equal('hello', 'hello'); // > true
 ```
 
-***isNotEqual***
-
-*Alias: notEqual*
+***notEqual***
 
 Returns true if both arguments are not equal (strict).
 
 ```javascript
-e.isNotEqual(5, 5); // > false
-e.isNotEqual(5, '5'); // > true
-e.isNotEqual('hello', 'Hello'); // true
+e.notEqual(5, 5); // > false
+e.notEqual(5, '5'); // > true
+e.notEqual('hello', 'Hello'); // true
 ```
 
-***isSimilar***
-
-*Alias: similar*
+***similar***
 
 Returns true if both arguments are equal (not strict).
 
 ```javascript
-e.isSimilar(5, 5); // > true
-e.isSimilar(5, '5'); // > true
-e.isSimilar('hello', 'Hello'); // > false
+e.similar(5, 5); // > true
+e.similar(5, '5'); // > true
+e.similar('hello', 'Hello'); // > false
 ```
 
-***isNotSimilar***
-
-*Alias: notSimilar*
+***notSimilar***
 
 Returns true if both arguments are not equal (not strict).
 
 ```javascript
-e.isNotSimilar(5, 5); // > false
-e.isNotSimilar(5, '5') // > false
-e.isNotSimilar('hello', 'Hello'); // > true
+e.notSimilar(5, 5); // > false
+e.notSimilar(5, '5') // > false
+e.notSimilar('hello', 'Hello'); // > true
 ```
 
-***isTruthy***
+***truthy***
 
 Returns true if input is truthy value.
 
 ```javascript
 // Numbers
-e.isTruthy(0); // > false
-e.isTruthy(1); // > true
+e.truthy(0); // > false
+e.truthy(1); // > true
 
 // Strings
-e.isTruthy(''); // > false
-e.isTruthy('hello'); // > true
+e.truthy(''); // > false
+e.truthy('hello'); // > true
 
 // Arrays
-e.isTruthy([]); // > true
-e.isTruthy([1, 2, 3]); // > true
+e.truthy([]); // > true
+e.truthy([1, 2, 3]); // > true
 
 // Objects
-e.isTruthy({}); // > true
-e.isTruthy({a: 1, b: 2, c: 3}); // > true
+e.truthy({}); // > true
+e.truthy({a: 1, b: 2, c: 3}); // > true
 
 // Functions
-e.isTruthy(function(){}); // > true
+e.truthy(function(){}); // > true
 ```
 
-***isFalsey***
+***falsey***
 
 Returns true if input is falsey value.
 
 ```javascript
 // Numbers
-e.isFalsey(0); // > true
-e.isFalsey(1); // > false
+e.falsey(0); // > true
+e.falsey(1); // > false
 
 // Strings
-e.isFalsey(''); // > true
-e.isFalsey('hello'); // > false
+e.falsey(''); // > true
+e.falsey('hello'); // > false
 
 // Arrays
-e.isFalsey([]); // > false
-e.isFalsey([1, 2, 3]); // > false
+e.falsey([]); // > false
+e.falsey([1, 2, 3]); // > false
 
 // Objects
-e.isFalsey({}); // > false
-e.isFalsey({a: 1, b: 2, c: 3}); // > false
+e.falsey({}); // > false
+e.falsey({a: 1, b: 2, c: 3}); // > false
 
 // Functions
-e.isFalsey(function(){}); // > false
+e.falsey(function(){}); // > false
 ```
 
 ***ifTrue***
@@ -539,18 +521,16 @@ e.ifFalse(1 > 2, function(){return '1 is actually less than 2'});
 // > "1 is actually less than 2"
 ```
 
-***checkType***
-
-*Alias: type*
+***type***
 
 Returns the type of a passed in value.
 
 ```javascript
-e.checkType([]); // > "array"
-e.checkType({}); // > "object"
-e.checkType('hello'); // > "string"
-e.checkType(3); // > "number"
-e.checkType(true); // > "boolean"
+e.type([]); // > "array"
+e.type({}); // > "object"
+e.type('hello'); // > "string"
+e.type(3); // > "number"
+e.type(true); // > "boolean"
 ```
 
 ***methods***
@@ -574,8 +554,6 @@ e.methodCount(); // > 41
 
 ***add***
 
-*Alias: plus*
-
 Performs addition on 2 or more numbers.
 
 ```javascript
@@ -587,8 +565,6 @@ e.add([5, 5, 5]); // > 15
 ```
 
 ***subtract***
-
-*Alias: minus*
 
 Performs subtraction on 2 or more numbers.
 
