@@ -9,6 +9,7 @@ A small library that makes JavaScript easier to work with.
 
  -  [Installation](#installation)
  -  [Documentation](#documentation)
+ 
 ##Contribute
 
 For more information on how to contribute, view `CONTRIBUTE.md` or click [here](CONTRIBUTE.md).
