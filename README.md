@@ -7,8 +7,16 @@ EasifyJS
 
 A small library that makes JavaScript easier to work with.
 
+ - [Contribute](#contribute)
  -  [Installation](#installation)
  -  [Documentation](#documentation)
+    - [String Methods](#string-methods)
+    - [Array Methods](#array-methods)
+    - [Object Methods](#object-methods)
+    - [DOM Methods](#dom-methods)
+    - [Universal Methods](#universal-methods)
+    - [Number Methods](#number-methods)
+ - [Tests](#tests)
  
 ##Contribute
 
@@ -32,7 +40,7 @@ You'll know it's included if you look in the console and see:
 
     Easify loaded!
 
-##Documentation
+#Documentation
 
 Once included/installed, you will need to initialize an Easify object. There are 2 ways to do this:
 
@@ -57,7 +65,8 @@ e.isOdd(5); // > true
 e.odd(5); // > true
 ```
 
-###String Methods
+String Methods
+---
 
 ***cap***
 
@@ -196,7 +205,8 @@ e.wrap('hello world', 'h1'); // > "<h1>hello world</h1>"
 ```
 
 
-####ARRAY METHODS
+Array Methods
+---
 
 ***bridge***
 
@@ -270,7 +280,8 @@ e.shuffle([1,2,3,4,5]); // > [2, 4, 1, 5, 3]
 ```
 
 
-####OBJECT METHODS
+Object Methods
+---
 
 ***combine***
 
@@ -357,8 +368,8 @@ var person = {firstname: 'John', lastname: 'Doe'};
 e.toArray(person); // > [["firstname", "John"], ["lastname", "Doe"]]
 ```
 
-
-####DOM Methods
+DOM Methods
+---
 
 ***insertHTML***
 
@@ -416,7 +427,8 @@ e.elementsFromName('city');
 ```
 
 
-####Universal Methods
+Universal Methods
+---
 
 ***equal***
 
@@ -555,7 +567,8 @@ e.methodCount(); // > 41
 ```
 
 
-####Number Methods
+Number Methods
+---
 
 ***add***
 
@@ -679,7 +692,7 @@ e.randNumBetween(5.5, 5.5); // > 5
 ```
 
 
-##TESTS
+##Tests
 
 To run tests is simple, just open test/index.html in your browser of choice and click the "Run Tests" button. You'll see a long list of the tests that were run and whether they passed or failed.
 
