@@ -1,6 +1,6 @@
 This is a list of contributors to the project, in order of their first contribution.
 
-*Author: [Sam Webb](http://samwebb.me/) ([SalexZee](https://github.com/salexzee))*
+*Author: [Sam Webb](http://samwebb.me/) ([SalexZee](https://github.com/salexzee)) [@samthewebb](https://twitter.com/SamTheWebb)*
 
 ###Contributors:
 
