@@ -252,6 +252,15 @@
       runTest(e.isObject(null) === false, text);
     }
   );
+  
+  tests.push(
+    function() {
+      var text = 'clone() returns a clonded object';
+      var car1 = { name: "Mustang", year: 2020 };
+      var car2 = e.clone(car1);
+      runTest(car2.name === "Mustang", text);
+    }
+  );
 
   // #########
   // #########
