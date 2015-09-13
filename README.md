@@ -1,7 +1,7 @@
 EasifyJS
 ===============
 
-[![Version 0.4.0](https://img.shields.io/badge/version-0.4.0-blue.svg?style=flat-square)](https://github.com/salexzee/Easify/tree/master/versions/0.4.X)
+[![Version 0.5.0](https://img.shields.io/badge/version-0.5.0-blue.svg?style=flat-square)](https://github.com/salexzee/Easify/tree/master/versions/0.5.X)
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](LICENSE)
 [![Join the chat at https://gitter.im/salexzee/Easify](https://img.shields.io/badge/GITTER-join%20chat-brightgreen.svg?style=flat-square)](https://gitter.im/salexzee/Easify?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
