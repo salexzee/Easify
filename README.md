@@ -704,7 +704,3 @@ Here is an example of a real world test:
     }
   );
 ```
-
-##FINAL NOTES
-
-The website portion of this uses AngularJS so if things look a little odd in your forked version, it's because you need to run it in some sort of server. If you're using [Brackets](http://brackets.io/) as your text editor, you should be good if you hit the preview button from website/index.html.
