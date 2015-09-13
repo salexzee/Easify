@@ -9,6 +9,7 @@
 // Start with semicolon in case other libraries
 // don't end with one.
 ;(function(global){
+  'use strict';
   // Creating new easify object:
   // var e = Easify();
   // or the preferred method
@@ -19,7 +20,10 @@
   var validateArray,
       validateString,
       validateNum,
-      randomNumberFromItemLength;
+      randomNumberFromItemLength,
+      randomLetter,
+      randomNumberAsString,
+      randomSpecialChar;
 
   // Private Functions
 
