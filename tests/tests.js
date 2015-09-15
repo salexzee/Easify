@@ -279,6 +279,15 @@
 
   tests.push(
     function() {
+      var text = 'compare() returns true if 2 arrays are the same (not containing functions, objects or arrays)';
+      var arr1 = [1,2,3];
+      var arr2 = [1,2,3];
+      runTest(e.compare(arr1, arr2) === true, text);
+    }
+  );
+
+  tests.push(
+    function() {
       var text = 'equal() returns true when 2 arguments are strictly equal';
       runTest(e.equal(5, 5) === true, text);
     }
