@@ -70,15 +70,13 @@ Converts all letters in a string to lowercase.
 e.downcase('HELLO WORLD'); // > "hello world"
 ```
 
-***isString***
-
-*Alias: string*
+***string***
 
 Used to check if the provided value is of type 'string'.
 
 ```javascript
-e.isString('hello world'); // > true
-e.isString(33); // > false
+e.string('hello world'); // > true
+e.string(33); // > false
 ```
 
 ***last***
@@ -169,14 +167,12 @@ Converts all letters in a string to uppercase.
 e.upcase('hello world'); // > "HELLO WORLD"
 ```
 
-***supplant***
-
-*Alias: format*
+***format***
 
 Evaluates a string literal containing one or more placeholders, returning a result in which the placeholders are replaced with their corresponding values.
 
 ```javascript
-e.supplant('Good {time}, how are {who}?', { time: 'afternoon', who: 'you' });
+e.format('Good {time}, how are {who}?', { time: 'afternoon', who: 'you' });
 // > "Good afternoon, how are you?"
 ```
 
@@ -226,16 +222,14 @@ e.has([1,2,3], 4); // > false
 e.has([1,2,3], 2); // > true
 ```
 
-***isArray***
-
-*Alias: array*
+***array***
 
 Used to check if passed in value is an array
 
 ```javascript
-e.isArray([]); // > true
-e.isArray({}); // > false
-e.isArray('hello'); // > false
+e.array([]); // > true
+e.array({}); // > false
+e.array('hello'); // > false
 ```
 
 ***parlay***
@@ -598,16 +592,14 @@ e.divide(6, 3); // > 2
 e.divide([20, 2, 5]); // > 2
 ```
 
-***isNum***
-
-*Alias: number*
+***number***
 
 Checks if provided argument is of type "number".
 
 ```javascript
-e.isNum(5); // > true
-e.isNum('5'); // > false
-e.isNum(true); // > false
+e.number(5); // > true
+e.number('5'); // > false
+e.number(true); // > false
 ```
 
 ***odd***

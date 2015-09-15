@@ -123,7 +123,7 @@
       }
     },
 
-    isString: function(str) {
+    string: function(str) {
       return validateString(str);
     },
 
@@ -351,8 +351,8 @@
     // Suplant a.k.a Interpolation string
     //
     // Takes 2 arguments(string, object)
-    // e.supplant("My favorite repo. is {repo}.", { repo: "Easify" })  //==> "My favorite repo. is Easify."
-    supplant:  function (str, o) {
+    // e.format("My favorite repo. is {repo}.", { repo: "Easify" })  //==> "My favorite repo. is Easify."
+    format:  function (str, o) {
       // Validate string
       if(validateString(str)){
        // Create a regex to find the brackets: {}
@@ -443,7 +443,7 @@
     },
 
     // Checks if input value is an array
-    isArray: function(arr) {
+    array: function(arr) {
       if (validateArray(arr)) {
         return true;
       } else {
@@ -534,7 +534,7 @@
         }
         return newObj;
       // Checks if first argument is an array
-      } else if (this.isArray(obj1)) {
+      } else if (this.array(obj1)) {
         var newObj = {};
         for (var i = 0; i < obj1.length; i++) {
           var keys = Object.keys(obj1[i]);
@@ -858,7 +858,7 @@
     add: function(a, b) {
       if (validateNum(a) && validateNum(b)) {
         return a + b;
-      } else if (this.isArray(a)) {
+      } else if (this.array(a)) {
         var val = 0;
         for (var i = 0; i < a.length; i++) {
           if (validateNum(a[i])) {
@@ -875,7 +875,7 @@
     subtract: function(a, b) {
       if (validateNum(a) && validateNum(b)) {
         return a - b;
-      } else if (this.isArray(a)) {
+      } else if (this.array(a)) {
         var val = a[0];
         for (var i = 1; i < a.length; i++) {
           if (validateNum(a[i])) {
@@ -892,7 +892,7 @@
     multiply: function(a, b) {
       if (validateNum(a) && validateNum(b)) {
         return a * b;
-      } else if (this.isArray(a)) {
+      } else if (this.array(a)) {
         var val = a[0];
         for (var i = 1; i < a.length; i++) {
           if (validateNum(a[i])) {
@@ -909,7 +909,7 @@
     divide: function(a, b) {
       if (validateNum(a) && validateNum(b)) {
         return a / b;
-      } else if (this.isArray(a)) {
+      } else if (this.array(a)) {
         var val = a[0];
         for (var i = 1; i < a.length; i++) {
           if (validateNum(a[i])) {
@@ -923,7 +923,7 @@
     },
 
     // Returns true if the provided argument is of type "number"
-    isNum: function(num) {
+    number: function(num) {
       return validateNum(num);
     },
 
@@ -1016,18 +1016,6 @@
     }
 
   }
-
-  // **********
-  // **********
-  // ALTERNATES
-  // **********
-  // **********
-
-  Easify.prototype.number = Easify.prototype.isNum;
-  Easify.prototype.string = Easify.prototype.isString;
-  Easify.prototype.array = Easify.prototype.isArray;
-  Easify.prototype.format = Easify.prototype.supplant;
-
 
 
   // ******************************
