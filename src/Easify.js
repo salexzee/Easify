@@ -123,7 +123,7 @@
       }
     },
 
-    isString: function(str) {
+    string: function(str) {
       return validateString(str);
     },
 
@@ -351,8 +351,8 @@
     // Suplant a.k.a Interpolation string
     //
     // Takes 2 arguments(string, object)
-    // e.supplant("My favorite repo. is {repo}.", { repo: "Easify" })  //==> "My favorite repo. is Easify."
-    supplant:  function (str, o) {
+    // e.format("My favorite repo. is {repo}.", { repo: "Easify" })  //==> "My favorite repo. is Easify."
+    format:  function (str, o) {
       // Validate string
       if(validateString(str)){
        // Create a regex to find the brackets: {}
@@ -428,7 +428,7 @@
     },
 
     // Returns true if the passed in value is inside of the array
-    contains: function(arr, value) {
+    has: function(arr, value) {
       if (validateArray(arr)) {
         var isIn = false;
         for (var i = 0; i < arr.length; i++) {
@@ -443,7 +443,7 @@
     },
 
     // Checks if input value is an array
-    isArray: function(arr) {
+    array: function(arr) {
       if (validateArray(arr)) {
         return true;
       } else {
@@ -534,7 +534,7 @@
         }
         return newObj;
       // Checks if first argument is an array
-      } else if (this.isArray(obj1)) {
+      } else if (this.array(obj1)) {
         var newObj = {};
         for (var i = 0; i < obj1.length; i++) {
           var keys = Object.keys(obj1[i]);
@@ -553,7 +553,7 @@
         var keys = Object.keys(obj);
         var newObj = {};
         for (var i = 0; i < keys.length; i++) {
-          if (!this.contains(dropKeys, keys[i])) {
+          if (!this.has(dropKeys, keys[i])) {
             newObj[keys[i]] = obj[keys[i]];
           }
         }
@@ -580,7 +580,7 @@
         var keys = Object.keys(obj);
         var newObj = {};
         for (var i = 0; i < keys.length; i++) {
-          if (this.contains(mKeys, keys[i])) {
+          if (this.has(mKeys, keys[i])) {
             newObj[keys[i]] = obj[keys[i]];
           }
         }
@@ -751,6 +751,44 @@
     // *****************
     // *****************
 
+    // Returns true if 2 data structures contain all the same values
+    // Does not work if data structures contain more data structures
+    // Order matters for arrays
+    compare: function(d1, d2) {
+      if (validateArray(d1) && validateArray(d2)) {
+        if (d1.length === d2.length) {
+          for (var i = 0; i < d1.length; i++) {
+            if (!this.has(d2, d1[i])) {
+              return false;
+            }
+          }
+          return true;
+        } else {
+          return false;
+        }
+      } else if (this.isObject(d1) && this.isObject(d2)) {
+        var keys1 = Object.keys(d1);
+        var keys2 = Object.keys(d2);
+        var len1 = keys1.length;
+        var len2 = keys2.length;
+        if (len1 === len2) {
+          for (var i = 0; i < len1; i++) {
+            if (!this.has(keys2, keys1[i])) {
+              return false;
+            }
+            if (!(d1[keys1[i]] === d2[keys2[i]])) {
+              return false
+            }
+          }
+          return true;
+        } else {
+          return false;
+        }
+      } else {
+        return false;
+      }
+    },
+
     // Returns true if arguments are equal.
     equal: function(a, b) {
       return a === b;
@@ -858,7 +896,7 @@
     add: function(a, b) {
       if (validateNum(a) && validateNum(b)) {
         return a + b;
-      } else if (this.isArray(a)) {
+      } else if (this.array(a)) {
         var val = 0;
         for (var i = 0; i < a.length; i++) {
           if (validateNum(a[i])) {
@@ -875,7 +913,7 @@
     subtract: function(a, b) {
       if (validateNum(a) && validateNum(b)) {
         return a - b;
-      } else if (this.isArray(a)) {
+      } else if (this.array(a)) {
         var val = a[0];
         for (var i = 1; i < a.length; i++) {
           if (validateNum(a[i])) {
@@ -892,7 +930,7 @@
     multiply: function(a, b) {
       if (validateNum(a) && validateNum(b)) {
         return a * b;
-      } else if (this.isArray(a)) {
+      } else if (this.array(a)) {
         var val = a[0];
         for (var i = 1; i < a.length; i++) {
           if (validateNum(a[i])) {
@@ -909,7 +947,7 @@
     divide: function(a, b) {
       if (validateNum(a) && validateNum(b)) {
         return a / b;
-      } else if (this.isArray(a)) {
+      } else if (this.array(a)) {
         var val = a[0];
         for (var i = 1; i < a.length; i++) {
           if (validateNum(a[i])) {
@@ -923,12 +961,12 @@
     },
 
     // Returns true if the provided argument is of type "number"
-    isNum: function(num) {
+    number: function(num) {
       return validateNum(num);
     },
 
     // Returns true if number is odd
-    isOdd: function(num) {
+    odd: function(num) {
       if(validateNum(num)) {
         if (num % 2 !== 0) {
           return true;
@@ -941,7 +979,7 @@
     },
 
     // Returns true if number is even
-    isEven: function(num) {
+    even: function(num) {
       if(validateNum(num)) {
         if (num % 2 === 0) {
           return true;
@@ -959,7 +997,7 @@
     },
 
     // Returns a random number from 1 to the specified number
-    randNum: function(num) {
+    random: function(num) {
       if(validateNum(num)) {
         return Math.floor(Math.random() * num) + 1;
       } else {
@@ -970,7 +1008,7 @@
     // Returns a number anywhere from the first input to the second
     // If numbers are the same, and are decimal, that will be returned
     // rounded down to the nearest whole number
-    randNumBetween: function(a, b) {
+    between: function(a, b) {
       if(validateNum(a) && validateNum(b)) {
         if (a < b) {
           var num = Math.floor(Math.random() * b) + 1;
@@ -1016,28 +1054,6 @@
     }
 
   }
-
-  // **********
-  // **********
-  // ALTERNATES
-  // **********
-  // **********
-
-  // In the future, some aliases will take the place of
-  // the actual method. Things like isEqual() will be removed
-  // and replaced with simply equal()
-
-
-  Easify.prototype.has = Easify.prototype.contains;
-  Easify.prototype.random = Easify.prototype.randNum;
-  Easify.prototype.between = Easify.prototype.randNumBetween;
-  Easify.prototype.even = Easify.prototype.isEven;
-  Easify.prototype.odd = Easify.prototype.isOdd;
-  Easify.prototype.number = Easify.prototype.isNum;
-  Easify.prototype.string = Easify.prototype.isString;
-  Easify.prototype.array = Easify.prototype.isArray;
-  Easify.prototype.format = Easify.prototype.supplant;
-
 
 
   // ******************************
