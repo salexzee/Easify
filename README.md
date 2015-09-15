@@ -70,15 +70,13 @@ Converts all letters in a string to lowercase.
 e.downcase('HELLO WORLD'); // > "hello world"
 ```
 
-***isString***
-
-*Alias: string*
+***string***
 
 Used to check if the provided value is of type 'string'.
 
 ```javascript
-e.isString('hello world'); // > true
-e.isString(33); // > false
+e.string('hello world'); // > true
+e.string(33); // > false
 ```
 
 ***last***
@@ -169,14 +167,12 @@ Converts all letters in a string to uppercase.
 e.upcase('hello world'); // > "HELLO WORLD"
 ```
 
-***supplant***
-
-*Alias: format*
+***format***
 
 Evaluates a string literal containing one or more placeholders, returning a result in which the placeholders are replaced with their corresponding values.
 
 ```javascript
-e.supplant('Good {time}, how are {who}?', { time: 'afternoon', who: 'you' });
+e.format('Good {time}, how are {who}?', { time: 'afternoon', who: 'you' });
 // > "Good afternoon, how are you?"
 ```
 
@@ -217,27 +213,23 @@ Used to check the types of all values contained in a passed in array
 e.checkTypes([{}, [], 'hello', 3, function(){}, true]); // > ["object", "array", "string", "number", "function", "boolean"]
 ```
 
-***contains***
-
-*Alias: has*
+***has***
 
 Used to check if a specific value is inside of an array
 
 ```javascript
-e.contains([1,2,3], 4); // > false
-e.contains([1,2,3], 2); // > true
+e.has([1,2,3], 4); // > false
+e.has([1,2,3], 2); // > true
 ```
 
-***isArray***
-
-*Alias: array*
+***array***
 
 Used to check if passed in value is an array
 
 ```javascript
-e.isArray([]); // > true
-e.isArray({}); // > false
-e.isArray('hello'); // > false
+e.array([]); // > true
+e.array({}); // > false
+e.array('hello'); // > false
 ```
 
 ***parlay***
@@ -600,38 +592,32 @@ e.divide(6, 3); // > 2
 e.divide([20, 2, 5]); // > 2
 ```
 
-***isNum***
-
-*Alias: number*
+***number***
 
 Checks if provided argument is of type "number".
 
 ```javascript
-e.isNum(5); // > true
-e.isNum('5'); // > false
-e.isNum(true); // > false
+e.number(5); // > true
+e.number('5'); // > false
+e.number(true); // > false
 ```
 
-***isOdd***
-
-*Alias: odd*
+***odd***
 
 Checks if number is odd.
 
 ```javascript
-e.isOdd(5); // > true
-e.isOdd(4); // > false
+e.odd(5); // > true
+e.odd(4); // > false
 ```
 
-***isEven***
-
-*Alias: even*
+***even***
 
 Checks if number is even.
 
 ```javascript
-e.isEven(5); // > false
-e.isEven(4); // > true
+e.even(5); // > false
+e.even(4); // > true
 ```
 
 ***PI***
@@ -642,35 +628,31 @@ Returns the value of PI.
 e.PI(); // > 3.141592653589793
 ```
 
-***randNum***
-
-*Alias: random*
+***random***
 
 Returns a random whole number from 1 to the specified number.
 
 ```javascript
-e.randNum(5); // > 4
-e.randNum(5); // > 1
-e.randNum(5); // > 2
+e.random(5); // > 4
+e.random(5); // > 1
+e.random(5); // > 2
 
 // If argument is 0, return value will be 1
-e.randNum(0); // > 1
+e.random(0); // > 1
 ```
 
-***randNumBetween***
-
-*Alias: between*
+***between***
 
 Returns a random whole number between and including the 2 arguments.
 
 ```javascript
-e.randNumBetween(5, 10); // > 7
+e.between(5, 10); // > 7
 
 // The order of the numbers doesn't matter
-e.randNumBetween(10, 5); // > 6
+e.between(10, 5); // > 6
 
 // 2 of the same decimal number will round down to it's whole number
-e.randNumBetween(5.5, 5.5); // > 5
+e.between(5.5, 5.5); // > 5
 ```
 
 
@@ -696,11 +678,11 @@ tests.push(
 Here is an example of a real world test:
 
 ```javascript
-// Checks if capitalize() returns a string with the first letter capitalized
+// Checks if cap() returns a string with the first letter capitalized
   tests.push(
     function() {
-      var text = "capitalize() returns a new string with the first letter capitalized";
-      runTest(e.capitalize('testing') === 'Testing', text);
+      var text = "cap() returns a new string with the first letter capitalized";
+      runTest(e.cap('testing') === 'Testing', text);
     }
   );
 ```
