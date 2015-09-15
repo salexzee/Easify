@@ -188,15 +188,15 @@
 
   tests.push(
     function() {
-      var text = 'contains() returns true if the passed in value is inside of the passed in array';
-      runTest(e.contains([1,2,3], 3) === true, text);
+      var text = 'has() returns true if the passed in value is inside of the passed in array';
+      runTest(e.has([1,2,3], 3) === true, text);
     }
   );
 
   tests.push(
     function() {
-      var text = 'contains() returns false if the passed in value is not inside of the passed in array';
-      runTest(e.contains([1,2,3], 4) === false, text);
+      var text = 'has() returns false if the passed in value is not inside of the passed in array';
+      runTest(e.has([1,2,3], 4) === false, text);
     }
   );
 
@@ -474,44 +474,44 @@
 
   tests.push(
     function() {
-      var text = 'isOdd() returns true if input number is odd';
-      runTest(e.isOdd(5) === true, text);
+      var text = 'odd() returns true if input number is odd';
+      runTest(e.odd(5) === true, text);
     }
   );
 
   tests.push(
     function() {
-      var text = 'isOdd() returns false if input number is even';
-      runTest(e.isOdd(4) === false, text);
+      var text = 'odd() returns false if input number is even';
+      runTest(e.odd(4) === false, text);
     }
   );
 
   tests.push(
     function() {
-      var text = 'isEven() returns true if input number is even';
-      runTest(e.isEven(4) === true, text);
+      var text = 'even() returns true if input number is even';
+      runTest(e.even(4) === true, text);
     }
   );
 
   tests.push(
     function() {
-      var text = 'isEven() returns false if input number is not even';
-      runTest(e.isEven(5) === false, text);
+      var text = 'even() returns false if input number is not even';
+      runTest(e.even(5) === false, text);
     }
   );
 
   tests.push(
     function() {
-      var text = 'randNum() returns a number from 1 to the input value';
-      var num = e.randNum(3);
+      var text = 'random() returns a number from 1 to the input value';
+      var num = e.random(3);
       runTest((num === 1) || (num === 2) || (num === 3), text);
     }
   );
 
   tests.push(
     function() {
-      var text = 'randNumBetween() returns a number from the higher value number to the lower value number';
-      var num = e.randNumBetween(1,3);
+      var text = 'between() returns a number from the higher value number to the lower value number';
+      var num = e.between(1,3);
       runTest((num === 1) || (num === 2) || (num === 3), text);
     }
   );

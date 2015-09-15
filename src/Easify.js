@@ -428,7 +428,7 @@
     },
 
     // Returns true if the passed in value is inside of the array
-    contains: function(arr, value) {
+    has: function(arr, value) {
       if (validateArray(arr)) {
         var isIn = false;
         for (var i = 0; i < arr.length; i++) {
@@ -553,7 +553,7 @@
         var keys = Object.keys(obj);
         var newObj = {};
         for (var i = 0; i < keys.length; i++) {
-          if (!this.contains(dropKeys, keys[i])) {
+          if (!this.has(dropKeys, keys[i])) {
             newObj[keys[i]] = obj[keys[i]];
           }
         }
@@ -580,7 +580,7 @@
         var keys = Object.keys(obj);
         var newObj = {};
         for (var i = 0; i < keys.length; i++) {
-          if (this.contains(mKeys, keys[i])) {
+          if (this.has(mKeys, keys[i])) {
             newObj[keys[i]] = obj[keys[i]];
           }
         }
@@ -928,7 +928,7 @@
     },
 
     // Returns true if number is odd
-    isOdd: function(num) {
+    odd: function(num) {
       if(validateNum(num)) {
         if (num % 2 !== 0) {
           return true;
@@ -941,7 +941,7 @@
     },
 
     // Returns true if number is even
-    isEven: function(num) {
+    even: function(num) {
       if(validateNum(num)) {
         if (num % 2 === 0) {
           return true;
@@ -959,7 +959,7 @@
     },
 
     // Returns a random number from 1 to the specified number
-    randNum: function(num) {
+    random: function(num) {
       if(validateNum(num)) {
         return Math.floor(Math.random() * num) + 1;
       } else {
@@ -970,7 +970,7 @@
     // Returns a number anywhere from the first input to the second
     // If numbers are the same, and are decimal, that will be returned
     // rounded down to the nearest whole number
-    randNumBetween: function(a, b) {
+    between: function(a, b) {
       if(validateNum(a) && validateNum(b)) {
         if (a < b) {
           var num = Math.floor(Math.random() * b) + 1;
@@ -1023,16 +1023,6 @@
   // **********
   // **********
 
-  // In the future, some aliases will take the place of
-  // the actual method. Things like isEqual() will be removed
-  // and replaced with simply equal()
-
-
-  Easify.prototype.has = Easify.prototype.contains;
-  Easify.prototype.random = Easify.prototype.randNum;
-  Easify.prototype.between = Easify.prototype.randNumBetween;
-  Easify.prototype.even = Easify.prototype.isEven;
-  Easify.prototype.odd = Easify.prototype.isOdd;
   Easify.prototype.number = Easify.prototype.isNum;
   Easify.prototype.string = Easify.prototype.isString;
   Easify.prototype.array = Easify.prototype.isArray;

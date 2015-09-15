@@ -1,7 +1,7 @@
 EasifyJS
 ===============
 
-[![Version 0.4.0](https://img.shields.io/badge/version-0.4.0-blue.svg?style=flat-square)](https://github.com/salexzee/Easify/tree/master/versions/0.4.X)
+[![Version 0.5.0](https://img.shields.io/badge/version-0.5.0-blue.svg?style=flat-square)](https://github.com/salexzee/Easify/tree/master/versions/0.5.X)
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](LICENSE)
 [![Join the chat at https://gitter.im/salexzee/Easify](https://img.shields.io/badge/GITTER-join%20chat-brightgreen.svg?style=flat-square)](https://gitter.im/salexzee/Easify?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -217,15 +217,13 @@ Used to check the types of all values contained in a passed in array
 e.checkTypes([{}, [], 'hello', 3, function(){}, true]); // > ["object", "array", "string", "number", "function", "boolean"]
 ```
 
-***contains***
-
-*Alias: has*
+***has***
 
 Used to check if a specific value is inside of an array
 
 ```javascript
-e.contains([1,2,3], 4); // > false
-e.contains([1,2,3], 2); // > true
+e.has([1,2,3], 4); // > false
+e.has([1,2,3], 2); // > true
 ```
 
 ***isArray***
@@ -612,26 +610,22 @@ e.isNum('5'); // > false
 e.isNum(true); // > false
 ```
 
-***isOdd***
-
-*Alias: odd*
+***odd***
 
 Checks if number is odd.
 
 ```javascript
-e.isOdd(5); // > true
-e.isOdd(4); // > false
+e.odd(5); // > true
+e.odd(4); // > false
 ```
 
-***isEven***
-
-*Alias: even*
+***even***
 
 Checks if number is even.
 
 ```javascript
-e.isEven(5); // > false
-e.isEven(4); // > true
+e.even(5); // > false
+e.even(4); // > true
 ```
 
 ***PI***
@@ -642,35 +636,31 @@ Returns the value of PI.
 e.PI(); // > 3.141592653589793
 ```
 
-***randNum***
-
-*Alias: random*
+***random***
 
 Returns a random whole number from 1 to the specified number.
 
 ```javascript
-e.randNum(5); // > 4
-e.randNum(5); // > 1
-e.randNum(5); // > 2
+e.random(5); // > 4
+e.random(5); // > 1
+e.random(5); // > 2
 
 // If argument is 0, return value will be 1
-e.randNum(0); // > 1
+e.random(0); // > 1
 ```
 
-***randNumBetween***
-
-*Alias: between*
+***between***
 
 Returns a random whole number between and including the 2 arguments.
 
 ```javascript
-e.randNumBetween(5, 10); // > 7
+e.between(5, 10); // > 7
 
 // The order of the numbers doesn't matter
-e.randNumBetween(10, 5); // > 6
+e.between(10, 5); // > 6
 
 // 2 of the same decimal number will round down to it's whole number
-e.randNumBetween(5.5, 5.5); // > 5
+e.between(5.5, 5.5); // > 5
 ```
 
 
@@ -704,7 +694,3 @@ Here is an example of a real world test:
     }
   );
 ```
-
-##FINAL NOTES
-
-The website portion of this uses AngularJS so if things look a little odd in your forked version, it's because you need to run it in some sort of server. If you're using [Brackets](http://brackets.io/) as your text editor, you should be good if you hit the preview button from website/index.html.
