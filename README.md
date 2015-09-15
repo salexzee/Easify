@@ -422,6 +422,30 @@ e.elementsFromName('city');
 Universal Methods
 ---
 
+***compare***
+
+Returns true if 2 arrays or objects are the same
+
+Note: This only works if arrays or objects only contain primitive values
+
+```javascript
+var arr1 = [1,2,3];
+var arr2 = [1,2,3];
+e.compare(arr1, arr2); // > true
+
+var arr1 = [1,2,3];
+var arr2 = [1,2,3,4];
+e.compare(arr1, arr2); // > false
+
+var obj1 = {name: 'John', age: 21};
+var obj2 = {name: 'John', age: 21};
+e.compare(obj1, obj2); // > true
+
+var obj1 = {name: 'John', age: 21};
+var obj2 = {name: 'Jane', age: 28};
+e.compare(obj1, obj2); // > false
+```
+
 ***equal***
 
 Returns true if both arguments are equal (strict).
