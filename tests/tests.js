@@ -288,6 +288,33 @@
 
   tests.push(
     function() {
+      var text = 'compare() returns false if 2 arrays are different (not containing functions, objects or arrays)';
+      var arr1 = [1,2,3];
+      var arr2 = [1,2,3,4];
+      runTest(e.compare(arr1, arr2) === false, text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'compare() returns true if 2 objects are the same (not containing functions, objects or arrays)';
+      var obj1 = {name: 'John', age: 21};
+      var obj2 = {name: 'John', age: 21};
+      runTest(e.compare(obj1, obj2) === true, text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'compare() returns false if 2 objects are different (not containing functions, objects or arrays)';
+      var obj1 = {name: 'John', age: 21};
+      var obj2 = {name: 'Jane', age: 28};
+      runTest(e.compare(obj1, obj2) === false, text);
+    }
+  );
+
+  tests.push(
+    function() {
       var text = 'equal() returns true when 2 arguments are strictly equal';
       runTest(e.equal(5, 5) === true, text);
     }
