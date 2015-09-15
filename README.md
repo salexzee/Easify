@@ -686,11 +686,11 @@ tests.push(
 Here is an example of a real world test:
 
 ```javascript
-// Checks if capitalize() returns a string with the first letter capitalized
+// Checks if cap() returns a string with the first letter capitalized
   tests.push(
     function() {
-      var text = "capitalize() returns a new string with the first letter capitalized";
-      runTest(e.capitalize('testing') === 'Testing', text);
+      var text = "cap() returns a new string with the first letter capitalized";
+      runTest(e.cap('testing') === 'Testing', text);
     }
   );
 ```
