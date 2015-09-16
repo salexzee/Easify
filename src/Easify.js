@@ -117,10 +117,14 @@
     // **************
     // **************
 
+    // Capitalizes the first letter of a string
     cap: function(str) {
       if (validateString(str)) {
+        // Split the string by character and store the array
         var strList = str.split('');
+        // Grab the first letter and make it uppercase
         strList[0] = strList[0].toUpperCase();
+        // Recombine the string
         str = strList.join('');
         return str;
       } else {
@@ -128,6 +132,8 @@
       }
     },
 
+    // An Easify wrapper for the toLowerCase() method
+    // Makes all letters in a string lowercase
     downcase: function(str) {
       if(validateString(str)) {
         return str.toLowerCase();
@@ -136,6 +142,7 @@
       }
     },
 
+    // Gives the user access to the validateString() function
     string: function(str) {
       return validateString(str);
     },
@@ -467,6 +474,9 @@
     // Returns a new array with only the specified indexes
     parlay: function(arr, indexes) {
       if (validateArray(arr)) {
+
+        // Checks each item in the indexes array to make sure
+        // they're all numbers
         for (var i = 0; i < indexes.length; i++) {
           if (!validateNum(indexes[i])) {
             return;
