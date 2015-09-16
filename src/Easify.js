@@ -456,7 +456,7 @@
       if (validateArray(arr)) {
         for (var i = 0; i < indexes.length; i++) {
           if (!validateNum(indexes[i])) {
-            return;
+            return false;
           }
         }
 
