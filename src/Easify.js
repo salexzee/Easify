@@ -16,6 +16,9 @@
   // var e = $E();
   // Will be using e variable throughout the code
 
+  // Any variables outside of Easify need to be created
+  // up front
+
   // Variables
   var validateArray,
       validateString,
@@ -65,17 +68,25 @@
     return true;
   }
 
+  // Returns a randome letter. Pretty simple
   randomLetter = function() {
+    // Sets up the array holding all 26 letters
     var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    // Gets the random letter and returns it
     return letters[randomNumberFromItemLength(letters)];
   }
 
+  // Returns a random number from 1-10 as a string
   randomNumberAsString = function() {
+    // Uses Math.ceil() which means it'll never equal 0
     return String(Math.ceil(Math.random() * 10));
   }
 
+  // Returns a randome special character
   randomSpecialChar = function() {
+    // An array of special characters
     var specials = ["!", "@", "#", "$", "%", "&", "*"];
+    // Gets a random special character and returns it
     return specials[randomNumberFromItemLength(specials)];
   }
 
@@ -83,6 +94,8 @@
 
   // 'new' Easify object
   var Easify = function() {
+    // Prevents the user from having to use the 'new' keyword
+    // in their apps
     return new Easify.init();
   }
 
