@@ -56,12 +56,28 @@ var e = $E();
 
 Now you can access all of the Easify methods by using dot notation.
 
-For example:
+For example, find out if a number is odd or not:
  
 ```javascript
 // This checks to see if a number is odd
-e.odd(5) // > true
-e.odd(4) // > false
+e.odd(5); // > true
+e.odd(4); // > false
+
+
+// The above code is simplifying something similar to this:
+function odd(num) {
+  if (num % 2 !== 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+odd(5); // > true
+odd(4); // > false
+
+
+// Which would you rather have in your code?
 ```
 
 String Methods
