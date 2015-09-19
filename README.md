@@ -56,13 +56,12 @@ var e = $E();
 
 Now you can access all of the Easify methods by using dot notation.
 
-Aliases are simply different names you can use to access a method. For example:
+For example:
  
 ```javascript
-e.isOdd(5); // > true
-
-// The same can be accomplished with:
-e.odd(5); // > true
+// This checks to see if a number is odd
+e.odd(5) // > true
+e.odd(4) // > false
 ```
 
 String Methods
