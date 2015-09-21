@@ -7,6 +7,19 @@ This style guide is for contributors of Easify.js to understand the ways we pref
 
 - Use 2 spaces for indentation
 
+```javascript
+//good
+while(true) {
+  something(); // uses 2 spaces
+}
+
+//bad
+while(true) {
+    something(); // uses 4 spaces
+}
+
+```
+
 - Use single quotes for strings.
 
 ```javascript
