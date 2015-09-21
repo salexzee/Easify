@@ -5,6 +5,8 @@ This style guide is for contributors of Easify.js to understand the ways we pref
 
 ###Basics
 
+- Use 2 spaces for indentation
+
 - Use single quotes for strings.
 
 ```javascript
