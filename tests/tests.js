@@ -263,6 +263,16 @@
     }
   );
 
+  tests.push(
+    function() {
+      var text = 'drop() removes the provided keys from the provided object';
+      var person = {name: 'John Doe', age: 21, eyeColor: 'green'};
+      e.drop(person, ['eyeColor']);
+      var keys = Object.keys(person);
+      runTest(keys.indexOf('eyeColor') === -1, text);
+    }
+  );
+
   // #########
   // #########
   // DOM TESTS
