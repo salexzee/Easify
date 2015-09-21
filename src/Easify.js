@@ -16,6 +16,9 @@
   // var e = $E();
   // Will be using e variable throughout the code
 
+  // Any variables outside of Easify need to be created
+  // up front
+
   // Variables
   var validateArray,
       validateString,
@@ -65,17 +68,25 @@
     return true;
   }
 
+  // Returns a randome letter. Pretty simple
   randomLetter = function() {
+    // Sets up the array holding all 26 letters
     var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    // Gets the random letter and returns it
     return letters[randomNumberFromItemLength(letters)];
   }
 
+  // Returns a random number from 1-10 as a string
   randomNumberAsString = function() {
+    // Uses Math.ceil() which means it'll never equal 0
     return String(Math.ceil(Math.random() * 10));
   }
 
+  // Returns a randome special character
   randomSpecialChar = function() {
+    // An array of special characters
     var specials = ["!", "@", "#", "$", "%", "&", "*"];
+    // Gets a random special character and returns it
     return specials[randomNumberFromItemLength(specials)];
   }
 
@@ -83,6 +94,8 @@
 
   // 'new' Easify object
   var Easify = function() {
+    // Prevents the user from having to use the 'new' keyword
+    // in their apps
     return new Easify.init();
   }
 
@@ -104,10 +117,17 @@
     // **************
     // **************
 
+    // Capitalizes the first letter of a string
+    //
+    // Takes 1 argument (string)
+    // e.cap('hello'); //=> "Hello"
     cap: function(str) {
       if (validateString(str)) {
+        // Split the string by character and store the array
         var strList = str.split('');
+        // Grab the first letter and make it uppercase
         strList[0] = strList[0].toUpperCase();
+        // Recombine the string
         str = strList.join('');
         return str;
       } else {
@@ -115,6 +135,11 @@
       }
     },
 
+    // An Easify wrapper for the toLowerCase() method
+    // Makes all letters in a string lowercase
+    //
+    // Takes 1 argument (string)
+    // e.downcase('HELLO'); //=> "hello"
     downcase: function(str) {
       if(validateString(str)) {
         return str.toLowerCase();
@@ -123,6 +148,11 @@
       }
     },
 
+    // Gives the user access to the validateString() function
+    //
+    // Takes 1 argument (value)
+    // e.string('hello'); //=> true
+    // e.string(1); //=> false
     string: function(str) {
       return validateString(str);
     },
@@ -263,9 +293,9 @@
     },
 
     // Letters in a string are randomly set to upper and lowercase
+    //
     // Takes 1 argument(string)
     // e.randomcase("Hello") //=> "HeLLo"
-
     randomcase: function(str) {
       // Randomize string
       if (validateString(str)) {
@@ -332,6 +362,9 @@
     },
 
     // Pulls from the original trim method
+    //
+    // Takes 1 argument (string)
+    // e.trim(' hello '); //=> "hello"
     trim: function(str) {
       if(validateString(str)) {
         return str.trim();
@@ -340,6 +373,10 @@
       }
     },
 
+    // Makes all letters in a string uppercase
+    //
+    // Takes 1 argument (string)
+    // e.upcase('hello'); //=> "HELLO"
     upcase: function(str) {
       if(validateString(str)) {
         return str.toUpperCase();
@@ -348,7 +385,7 @@
       }
     },
 
-    // Suplant a.k.a Interpolation string
+    // Format allows string interpolation
     //
     // Takes 2 arguments(string, object)
     // e.format("My favorite repo. is {repo}.", { repo: "Easify" })  //==> "My favorite repo. is Easify."
@@ -386,7 +423,11 @@
     // *************
     // *************
 
-    // Combines 2 arrays into a single array with all the values
+    // Returns a new array which is a combination of 2 arrays
+    // *If item duplicates exist, they will be kept*
+    //
+    // Takes 2 arguments (array, array)
+    // e.bridge(['hello', 'world'], ['world']); //=> ["hello", "world", "world"]
     bridge: function(arr1, arr2) {
       if (validateArray(arr1) && validateArray(arr2)) {
         var newArr = arr1;
@@ -400,6 +441,9 @@
     },
 
     // Combines 2 arrays keeping only unique values
+    //
+    // Takes 2 arguments (array, array)
+    // e.unify(['hello', 'world'], ['world']); //=> ["hello", "world"]
     unify: function(arr1, arr2) {
       var newArr = arr1.concat(arr2.filter(function (i) {
         return arr1.indexOf(i) < 0;
@@ -454,6 +498,9 @@
     // Returns a new array with only the specified indexes
     parlay: function(arr, indexes) {
       if (validateArray(arr)) {
+
+        // Checks each item in the indexes array to make sure
+        // they're all numbers
         for (var i = 0; i < indexes.length; i++) {
           if (!validateNum(indexes[i])) {
             return;
