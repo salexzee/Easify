@@ -118,6 +118,9 @@
     // **************
 
     // Capitalizes the first letter of a string
+    //
+    // Takes 1 argument (string)
+    // e.cap('hello'); //=> "Hello"
     cap: function(str) {
       if (validateString(str)) {
         // Split the string by character and store the array
@@ -134,6 +137,9 @@
 
     // An Easify wrapper for the toLowerCase() method
     // Makes all letters in a string lowercase
+    //
+    // Takes 1 argument (string)
+    // e.downcase('HELLO'); //=> "hello"
     downcase: function(str) {
       if(validateString(str)) {
         return str.toLowerCase();
@@ -143,6 +149,10 @@
     },
 
     // Gives the user access to the validateString() function
+    //
+    // Takes 1 argument (value)
+    // e.string('hello'); //=> true
+    // e.string(1); //=> false
     string: function(str) {
       return validateString(str);
     },
