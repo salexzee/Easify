@@ -2,31 +2,38 @@
 // Author: Sam Webb
 // Copyright: 2015
 // License: MIT
-// Version: 0.2.0
+// Version: 0.6.0 dev
 
 // Dependencies: N/A
 
 // Start with semicolon in case other libraries
 // don't end with one.
 ;(function(global){
+  'use strict';
   // Creating new easify object:
   // var e = Easify();
   // or the preferred method
   // var e = $E();
   // Will be using e variable throughout the code
 
+  // Any variables outside of Easify need to be created
+  // up front
+
   // Variables
   var validateArray,
       validateString,
       validateNum,
-      randomNumberFromItemLength;
+      randomNumberFromItemLength,
+      randomLetter,
+      randomNumberAsString,
+      randomSpecialChar;
 
   // Private Functions
 
   // Returns a random number from 0 to the length of
   // the passed in array or string
   randomNumberFromItemLength = function(item) {
-    return Math.floor(Math.random() * item.length)
+    return Math.floor(Math.random() * item.length);
   }
 
   validateArray = function(arr) {
@@ -61,14 +68,38 @@
     return true;
   }
 
+  // Returns a randome letter. Pretty simple
+  randomLetter = function() {
+    // Sets up the array holding all 26 letters
+    var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    // Gets the random letter and returns it
+    return letters[randomNumberFromItemLength(letters)];
+  }
+
+  // Returns a random number from 1-10 as a string
+  randomNumberAsString = function() {
+    // Uses Math.ceil() which means it'll never equal 0
+    return String(Math.ceil(Math.random() * 10));
+  }
+
+  // Returns a randome special character
+  randomSpecialChar = function() {
+    // An array of special characters
+    var specials = ["!", "@", "#", "$", "%", "&", "*"];
+    // Gets a random special character and returns it
+    return specials[randomNumberFromItemLength(specials)];
+  }
+
   // End of private functions
 
   // 'new' Easify object
   var Easify = function() {
+    // Prevents the user from having to use the 'new' keyword
+    // in their apps
     return new Easify.init();
   }
 
-  Easify.VERSION = '0.2.0';
+  Easify.VERSION = '0.6.0';
 
   // Function that actually creates object
   // to remove 'new' keyword for users
@@ -86,18 +117,43 @@
     // **************
     // **************
 
-    capitalize: function(str) {
+    // Capitalizes the first letter of a string
+    //
+    // Takes 1 argument (string)
+    // e.cap('hello'); //=> "Hello"
+    cap: function(str) {
       if (validateString(str)) {
+        // Split the string by character and store the array
         var strList = str.split('');
+        // Grab the first letter and make it uppercase
         strList[0] = strList[0].toUpperCase();
+        // Recombine the string
         str = strList.join('');
         return str;
       } else {
-        throw 'String validation failed.'
+        return false;
       }
     },
 
-    isString: function(str) {
+    // An Easify wrapper for the toLowerCase() method
+    // Makes all letters in a string lowercase
+    //
+    // Takes 1 argument (string)
+    // e.downcase('HELLO'); //=> "hello"
+    downcase: function(str) {
+      if(validateString(str)) {
+        return str.toLowerCase();
+      } else {
+        return false;
+      }
+    },
+
+    // Gives the user access to the validateString() function
+    //
+    // Takes 1 argument (value)
+    // e.string('hello'); //=> true
+    // e.string(1); //=> false
+    string: function(str) {
       return validateString(str);
     },
 
@@ -109,7 +165,37 @@
       if (validateString(str)) {
         return str[str.length - 1];
       } else {
-        throw 'String validation failed.'
+        return false;
+      }
+    },
+
+    // Creates a random string at the specified length
+    // For use as a password
+    // If no length is passed in, it defaults to 12
+    //
+    // Takes 1 optional argument(number)
+    // e.password(); //=> "39108%47m!s8e"
+    password: function(len) {
+      // Set default length to 12
+      var len = len || 12;
+
+      if (validateNum(len)) {
+        // Setup variables
+        var password = '';
+        // Letters, numbers and special characters all have a 33% chance
+        // of being selected. To change the odds, add the proper method
+        // to the possibilities array.
+        // For example:
+        // To have the following chances: letters(50%), numbers(25%) and special characters(25%)
+        // You would need to add another randomLetter item to the possibilities list
+        var possibilities = [randomLetter, randomSpecialChar, randomNumberAsString];
+        // This does all the work
+        for (var i = 0; i < len; i++) {
+          password += possibilities[randomNumberFromItemLength(possibilities)]();
+        }
+        return password;
+      } else {
+        return false;
       }
     },
 
@@ -141,7 +227,7 @@
         newString = arr.join('');
         return newString;
       } else {
-        throw 'Argument validation failed.';
+        return false;
       }
 
     },
@@ -155,7 +241,7 @@
       if (validateString(str) && validateString(letter)) {
         // Makes sure the letter argument is 1 character long
         if (letter.length !== 1) {
-          throw 'The letter argument should not be greater or less than 1.'
+          return false;
         }
         // Sets some variables.
         var newString;
@@ -176,7 +262,7 @@
         newString = arr.join('');
         return newString;
       } else {
-        throw 'String validation failed.'
+        return false;
       }
     },
 
@@ -202,8 +288,37 @@
         }
         return newString;
       } else {
-        throw 'String validation failed.'
+        return false;
       }
+    },
+
+    // Letters in a string are randomly set to upper and lowercase
+    //
+    // Takes 1 argument(string)
+    // e.randomcase("Hello") //=> "HeLLo"
+    randomcase: function(str) {
+      // Randomize string
+      if (validateString(str)) {
+       // Split the string into an array
+        var arr = str.split('');
+        // Set some variables
+        var newString = '';
+        for (var i = 0; i < arr.length; i++) {
+          // Generate a 50/50 chance
+          if(Math.round(Math.random() * 1) === 1){
+            // Make it Lower case
+            newString += arr[i].toLowerCase();
+          } else {
+            // Make it upper case
+            newString += arr[i].toUpperCase();
+          }
+        }
+        return newString;
+
+      } else {
+        throw 'String validation failed.';
+      }
+
     },
 
     // Repeat the same string multiple times, trimming off
@@ -223,7 +338,7 @@
         }
         return repeatedString.trim();
       } else {
-        throw 'Argument validation failed.'
+        return false;
       }
     },
 
@@ -242,15 +357,53 @@
         var newString = arr.join('');
         return newString;
       } else {
-        throw 'String validation failed.'
+        return false;
       }
     },
 
     // Pulls from the original trim method
+    //
+    // Takes 1 argument (string)
+    // e.trim(' hello '); //=> "hello"
     trim: function(str) {
-      return str.trim();
+      if(validateString(str)) {
+        return str.trim();
+      } else {
+        return false;
+      }
     },
 
+    // Makes all letters in a string uppercase
+    //
+    // Takes 1 argument (string)
+    // e.upcase('hello'); //=> "HELLO"
+    upcase: function(str) {
+      if(validateString(str)) {
+        return str.toUpperCase();
+      } else {
+        return false;
+      }
+    },
+
+    // Format allows string interpolation
+    //
+    // Takes 2 arguments(string, object)
+    // e.format("My favorite repo. is {repo}.", { repo: "Easify" })  //==> "My favorite repo. is Easify."
+    format:  function (str, o) {
+      // Validate string
+      if(validateString(str)){
+       // Create a regex to find the brackets: {}
+        return str.replace(/{([^{}]*)}/g,
+        function (a, b) {
+            var r = o[b];
+            return typeof r === 'string' || typeof r === 'number' ? r : a;
+          }
+        );
+      } else {
+        return false;
+      }
+    },
+    
     // Wrap a string in a specified element
     //
     // Takes 2 arguments(string, string)
@@ -260,7 +413,7 @@
       if (validateString(str) && validateString(element)) {
         return '<' + element + '>' + str + '</' + element + '>';
       } else {
-        throw 'String validation failed.'
+        return false;
       }
     },
 
@@ -270,7 +423,11 @@
     // *************
     // *************
 
-    // Combines 2 arrays into a single array with all the values
+    // Returns a new array which is a combination of 2 arrays
+    // *If item duplicates exist, they will be kept*
+    //
+    // Takes 2 arguments (array, array)
+    // e.bridge(['hello', 'world'], ['world']); //=> ["hello", "world", "world"]
     bridge: function(arr1, arr2) {
       if (validateArray(arr1) && validateArray(arr2)) {
         var newArr = arr1;
@@ -278,7 +435,20 @@
           newArr.push(arr2[i]);
         }
         return newArr;
+      } else {
+        return false;
       }
+    },
+
+    // Combines 2 arrays keeping only unique values
+    //
+    // Takes 2 arguments (array, array)
+    // e.unify(['hello', 'world'], ['world']); //=> ["hello", "world"]
+    unify: function(arr1, arr2) {
+      var newArr = arr1.concat(arr2.filter(function (i) {
+        return arr1.indexOf(i) < 0;
+      }));
+      return newArr
     },
 
     // Checks the type of each element contained in the passed
@@ -296,12 +466,13 @@
           returnedArray.push(this.checkType(arr[i]));
         }
         return returnedArray;
+      } else {
+        return false;
       }
-      throw 'checkTypes() requires an array argument'
     },
 
     // Returns true if the passed in value is inside of the array
-    contains: function(arr, value) {
+    has: function(arr, value) {
       if (validateArray(arr)) {
         var isIn = false;
         for (var i = 0; i < arr.length; i++) {
@@ -310,12 +481,13 @@
           }
         }
         return isIn;
+      } else {
+        return false;
       }
-      throw 'contains() requires an array argument'
     },
 
     // Checks if input value is an array
-    isArray: function(arr) {
+    array: function(arr) {
       if (validateArray(arr)) {
         return true;
       } else {
@@ -326,6 +498,9 @@
     // Returns a new array with only the specified indexes
     parlay: function(arr, indexes) {
       if (validateArray(arr)) {
+
+        // Checks each item in the indexes array to make sure
+        // they're all numbers
         for (var i = 0; i < indexes.length; i++) {
           if (!validateNum(indexes[i])) {
             return;
@@ -339,6 +514,8 @@
           }
         }
         return newArr;
+      } else {
+        return false;
       }
     },
 
@@ -352,20 +529,35 @@
           }
         }
         return newArray;
+      } else {
+        return false;
       }
     },
 
     // Returns a new array with the elements shuffled
     shuffle: function(arr) {
-      var inputArr = arr;
-      var newArr = [];
-      var num;
-      while (inputArr.length > 0) {
-        num = randomNumberFromItemLength(inputArr);
-        newArr.push(inputArr[num]);
-        this.removeItem(inputArr, num);
+      if(validateArray(arr)) {
+        var inputArr = arr;
+        var newArr = [];
+        var num;
+        while (inputArr.length > 0) {
+          num = randomNumberFromItemLength(inputArr);
+          newArr.push(inputArr[num]);
+          this.removeItem(inputArr, num);
+        }
+        return newArr;
+      } else {
+        return false;
       }
-      return newArr;
+    },
+
+    // Returns a random item from an array
+    stray: function(arr) {
+      if (validateArray(arr)) {
+        return arr[randomNumberFromItemLength(arr)];
+      } else {
+        return false;
+      }
     },
 
     // **************
@@ -376,6 +568,7 @@
 
     // Combines 2 objects or an array of objects into 1
     combine: function(obj1, obj2) {
+      // Checks if both arguments are objects
       if(this.isObject(obj1) && this.isObject(obj2)) {
         var keys1 = Object.keys(obj1);
         var keys2 = Object.keys(obj2);
@@ -387,7 +580,8 @@
           newObj[keys2[i]] = obj2[keys2[i]];
         }
         return newObj;
-      } else if (this.isArray(obj1)) {
+      // Checks if first argument is an array
+      } else if (this.array(obj1)) {
         var newObj = {};
         for (var i = 0; i < obj1.length; i++) {
           var keys = Object.keys(obj1[i]);
@@ -400,13 +594,13 @@
       return;
     },
 
-    // Returns an array with all but the specified keys
+    // Returns an object with all but the specified keys
     drop: function(obj, dropKeys) {
-      if (this.isObject(obj) && this.isArray(dropKeys)) {
+      if (this.isObject(obj) && validateArray(dropKeys)) {
         var keys = Object.keys(obj);
         var newObj = {};
         for (var i = 0; i < keys.length; i++) {
-          if (!this.contains(dropKeys, keys[i])) {
+          if (!this.has(dropKeys, keys[i])) {
             newObj[keys[i]] = obj[keys[i]];
           }
         }
@@ -429,23 +623,29 @@
 
     // Returns an object with only the specified keys
     maintain: function(obj, mKeys) {
-      if (this.isObject(obj) && this.isArray(mKeys)) {
+      if (this.isObject(obj) && validateArray(mKeys)) {
         var keys = Object.keys(obj);
         var newObj = {};
         for (var i = 0; i < keys.length; i++) {
-          if (this.contains(mKeys, keys[i])) {
+          if (this.has(mKeys, keys[i])) {
             newObj[keys[i]] = obj[keys[i]];
           }
         }
         return newObj;
+      } else {
+        return false;
       }
     },
 
     // Adds a property or method to an existing object
     // This method mutates the original object
     objectPush: function(obj, property, value) {
-      obj[property] = value;
-      return {property: value};
+      if (this.isObject(obj) && validateString(property)) {
+        obj[property] = value;
+        return {property: value};
+      } else {
+        return false;
+      }
     },
 
     // Renames a property of an object and returns it as a new object
@@ -466,6 +666,23 @@
           return;
         }
         return newObj;
+      } else {
+        return false;
+      }
+    },
+    
+    // Clones an object
+    clone: function(obj){
+      if(this.isObject(obj)){
+        var copy = obj.constructor();
+          for (var attr in obj) {
+            if (obj.hasOwnProperty(attr)){ 
+              copy[attr] = obj[attr];
+            }
+          }
+        return copy;
+      } else {
+        return false; 
       }
     },
 
@@ -478,6 +695,8 @@
           mainArr.push([keys[i], obj[keys[i]]]);
         }
         return mainArr;
+      } else {
+        return false;
       }
     },
 
@@ -502,7 +721,7 @@
     //
     // The selector artument is expecting a string that
     // corrisponds to the name provided in the HTML
-    // 
+    //
     // The input argument can be any valid HTML or text
     //
     // The amount argument is an optional argument and is
@@ -579,28 +798,66 @@
     // *****************
     // *****************
 
+    // Returns true if 2 data structures contain all the same values
+    // Does not work if data structures contain more data structures
+    // Order matters for arrays
+    compare: function(d1, d2) {
+      if (validateArray(d1) && validateArray(d2)) {
+        if (d1.length === d2.length) {
+          for (var i = 0; i < d1.length; i++) {
+            if (!this.has(d2, d1[i])) {
+              return false;
+            }
+          }
+          return true;
+        } else {
+          return false;
+        }
+      } else if (this.isObject(d1) && this.isObject(d2)) {
+        var keys1 = Object.keys(d1);
+        var keys2 = Object.keys(d2);
+        var len1 = keys1.length;
+        var len2 = keys2.length;
+        if (len1 === len2) {
+          for (var i = 0; i < len1; i++) {
+            if (!this.has(keys2, keys1[i])) {
+              return false;
+            }
+            if (!(d1[keys1[i]] === d2[keys2[i]])) {
+              return false
+            }
+          }
+          return true;
+        } else {
+          return false;
+        }
+      } else {
+        return false;
+      }
+    },
+
     // Returns true if arguments are equal.
-    isEqual: function(a, b) {
+    equal: function(a, b) {
       return a === b;
     },
 
     // Returns true if arguments are not equal.
-    isNotEqual: function(a, b) {
+    notEqual: function(a, b) {
       return a !== b;
     },
 
     // Returns true if arguments can be coerced to equal.
-    isSimilar: function(a, b) {
+    similar: function(a, b) {
       return a == b;
     },
 
     // Returns true if arguments can not be coreced to equal.
-    isNotSimilar: function(a, b) {
+    notSimilar: function(a, b) {
       return a != b;
     },
 
     // Checks if the argument is a truthy value
-    isTruthy: function(a) {
+    truthy: function(a) {
       if (a) {
         return true;
       } else {
@@ -609,7 +866,7 @@
     },
 
     // Checks if the argument is a falsey value
-    isFalsey: function(a) {
+    falsey: function(a) {
       if(!a) {
         return true;
       } else {
@@ -621,6 +878,8 @@
     ifTrue: function(comparison, callback){
       if(comparison) {
         callback();
+      } else {
+        return false;
       }
     },
 
@@ -628,11 +887,13 @@
     ifFalse: function(comparison, callback) {
       if(!comparison) {
         callback();
+      } else {
+        return false;
       }
     },
 
     // Checks the type of a passed in value
-    checkType: function(a) {
+    type: function(a) {
       // Specific check for arrays since they return from
       // typeof as 'object'
       if (Array.isArray(a) === true) {
@@ -641,7 +902,7 @@
       // 'object'
       } else if (a === null) {
         return 'null';
-      } {
+      } else {
         // Checks for everything else with typeof
         switch (typeof a) {
           case 'string':
@@ -670,18 +931,176 @@
     // Returns the amount of Easify methods
     methodCount: function() {
       return this.methods().length;
+    },
+
+    // ************
+    // ************
+    // NUMBER METHODS
+    // ************
+    // ************
+
+    // Returns the sum of the provided numbers
+    add: function(a, b) {
+      if (validateNum(a) && validateNum(b)) {
+        return a + b;
+      } else if (this.array(a)) {
+        var val = 0;
+        for (var i = 0; i < a.length; i++) {
+          if (validateNum(a[i])) {
+            val += a[i];
+          }
+        }
+        return val;
+      } else {
+        return false;
+      }
+    },
+
+    // Returns the deduction of the provided numbers
+    subtract: function(a, b) {
+      if (validateNum(a) && validateNum(b)) {
+        return a - b;
+      } else if (this.array(a)) {
+        var val = a[0];
+        for (var i = 1; i < a.length; i++) {
+          if (validateNum(a[i])) {
+            val -= a[i];
+          }
+        }
+        return val;
+      } else {
+        return false;
+      }
+    },
+
+    // Returns the product of the provided numbers
+    multiply: function(a, b) {
+      if (validateNum(a) && validateNum(b)) {
+        return a * b;
+      } else if (this.array(a)) {
+        var val = a[0];
+        for (var i = 1; i < a.length; i++) {
+          if (validateNum(a[i])) {
+            val *= a[i];
+          }
+        }
+        return val;
+      } else {
+        return false;
+      }
+    },
+
+    // Returns the quotient of the provided numbers
+    divide: function(a, b) {
+      if (validateNum(a) && validateNum(b)) {
+        return a / b;
+      } else if (this.array(a)) {
+        var val = a[0];
+        for (var i = 1; i < a.length; i++) {
+          if (validateNum(a[i])) {
+            val /= a[i];
+          }
+        }
+        return val;
+      } else {
+        return false;
+      }
+    },
+
+    // Returns true if the provided argument is of type "number"
+    number: function(num) {
+      return validateNum(num);
+    },
+
+    // Returns true if number is odd
+    odd: function(num) {
+      if(validateNum(num)) {
+        if (num % 2 !== 0) {
+          return true;
+        } else {
+          return false;
+        }
+      } else {
+        return false;
+      }
+    },
+
+    // Returns true if number is even
+    even: function(num) {
+      if(validateNum(num)) {
+        if (num % 2 === 0) {
+          return true;
+        } else {
+          return false;
+        }
+      } else {
+        return false;
+      }
+    },
+
+    // Returns the value of PI
+    PI: function() {
+      return Math.PI;
+    },
+
+    // Returns a random number from 1 to the specified number
+    random: function(num) {
+      if(validateNum(num)) {
+        return Math.floor(Math.random() * num) + 1;
+      } else {
+        return false;
+      }
+    },
+
+    // Returns a number anywhere from the first input to the second
+    // If numbers are the same, and are decimal, that will be returned
+    // rounded down to the nearest whole number
+    between: function(a, b) {
+      if(validateNum(a) && validateNum(b)) {
+        if (a < b) {
+          var num = Math.floor(Math.random() * b) + 1;
+          while(num < a || num > b) {
+            num = Math.floor(Math.random() * b) + 1;
+          }
+          return num;
+        } else if (b < a) {
+          var num = Math.floor(Math.random() * a) + 1;
+          while(num < b || num > a) {
+            num = Math.floor(Math.random() * a) + 1;
+          }
+          return num;
+        } else {
+          return Math.floor(a);
+        }
+      } else {
+        return false;
+      }
+    },
+
+
+    /////////////////
+    /////////////////
+    // SECRET METHODS
+    /////////////////
+    /////////////////
+
+    // CAUTION: THE METHODS THAT FOLLOW ARE THE EASIFY SECRET
+    // METHODS. UNDER NO CIRCUMSTANCE SHOULD THEY EVER BE USED.
+    // DO NOT ENTER ANY OF THE FOLLOWING METHODS IN THE README.
+    //
+    // IF YOU DECIDE TO USE ANY OF THE SECRET METHODS, YOU ARE
+    // COMPLETELY LIABLE FOR THE OUTCOME THAT FOLLOWS, NOT ME.
+
+    // Replaces the current website with a random bad word in large,
+    // bold letters.
+    bw: function() {
+      var bw = ['Fuck', 'Shit', 'Motherfucker', 'Ass', 'Asshole', 'Bitch'];
+      var word = bw[randomNumberFromItemLength(bw)];
+      document.body.innerHTML = '<h1 style="font-weight: bold; text-align: center; font-size: 10em; margin-top: 100px; font-family: sans-serif;">' + word +'</h1>';
+      return word;
     }
 
   }
-
-  // **********
-  // **********
-  // ALTERNATES
-  // **********
-  // **********
-
-  // Alternate name for isEqual method
-  Easify.prototype.equals = Easify.prototype.isEqual;
 
 
   // ******************************
@@ -692,6 +1111,6 @@
 
   // Sets up global variables
   global.Easify = global.$E = Easify
-  
+
   console.log("Easify loaded!");
 }(window));

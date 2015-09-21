@@ -1,34 +1,50 @@
 EasifyJS
 ===============
 
-![Version 0.4.0](https://img.shields.io/badge/version-0.4.0-blue.svg?style=flat-square)
+[![Version 0.6.0](https://img.shields.io/badge/version-0.6.0-blue.svg?style=flat-square)](https://github.com/salexzee/Easify/tree/master/versions/0.6.X)
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](LICENSE)
+[![Join the chat at https://gitter.im/salexzee/Easify](https://img.shields.io/badge/GITTER-join%20chat-45cba1.svg?style=flat-square)](https://gitter.im/salexzee/Easify?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 A small library that makes JavaScript easier to work with.
 
----------------
+ - [Contribute](#contribute)
+ -  [Installation](#installation)
+ -  [Documentation](#documentation)
+    - [String Methods](#string-methods)
+    - [Array Methods](#array-methods)
+    - [Object Methods](#object-methods)
+    - [DOM Methods](#dom-methods)
+    - [Universal Methods](#universal-methods)
+    - [Number Methods](#number-methods)
+ - [Tests](#tests)
+ 
+#Contribute
 
-##CONTRIBUTE
+For more information on how to contribute, view `CONTRIBUTE.md` or click [here](CONTRIBUTE.md).
 
-[How to contribute.](CONTRIBUTE.md)
+If you want a list of contributors in order of thier contribution, view `CONTRIBUTORS.md` or click [here](CONTRIBUTORS.md).
 
 [Check out the style guide.](STYLEGUIDE.md)
 
 
-##DOCUMENTATION
+#Installation	
 
-To get started, include Easify.min.js in your website. Make sure it's included above your websites JS file. To make sure JS doesn't interfere with the loading of your HTML and CSS, it is suggested that you add your JS files right above your closing `body` tag.
+To get started, include `Easify.min.js` in your website. Make sure it's included above your websites JS file. To make sure JS doesn't interfere with the loading of your HTML and CSS, it is suggested that you add your JS files right above your closing `body` tag.
 
 ```html
-    <script src="js/Easify.min.js"></script>
+    <script src="js/easify-min.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
 ```
 
-You'll know it's included if you look in the console and see 'Easify loaded!'
+You'll know it's included if you look in the console and see:
 
-Once included, you'll need to initialize an Easify object. There are 2 ways to do this:
+    Easify loaded!
+
+#Documentation
+
+Once included/installed, you will need to initialize an Easify object. There are 2 ways to do this:
 
 ```javascript
 // The long hand version
@@ -38,36 +54,46 @@ var e = Easify();
 var e = $E();
 
 // Will be using the 'e' variable for the rest of this section
-````
+```
 
 Now you can access all of the Easify methods by using dot notation.
 
-Aliases are simply different names you can use to access a method. For example:
-
+For example, find out if a number is odd or not:
+ 
 ```javascript
-e.capitalize('john'); // > "John"
+// This checks to see if a number is odd
+e.odd(5); // > true
+e.odd(4); // > false
 
-// The same can be accomplished with:
-e.cap('john'); // > "John"
-// And even:
-e.titlecase('john'); // > "john"
+
+// The above code is simplifying something similar to this:
+function odd(num) {
+  if (num % 2 !== 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+odd(5); // > true
+odd(4); // > false
+
+
+// Which would you rather have in your code?
 ```
 
-####String Methods
+String Methods
+---
 
-***capitalize***
-
-*Aliases: cap, titlecase*
+***cap***
 
 Used to capitalize the first letter of a provided string.
 
 ```javascript
-e.capitalize('john'); // > "John"
+e.cap('john'); // > "John"
 ```
 
 ***downcase***
-
-*Alias: lower*
 
 Converts all letters in a string to lowercase.
 
@@ -75,15 +101,13 @@ Converts all letters in a string to lowercase.
 e.downcase('HELLO WORLD'); // > "hello world"
 ```
 
-***isString***
-
-*Alias: string*
+***string***
 
 Used to check if the provided value is of type 'string'.
 
 ```javascript
-e.isString('hello world'); // > true
-e.isString(33); // > false
+e.string('hello world'); // > true
+e.string(33); // > false
 ```
 
 ***last***
@@ -168,22 +192,18 @@ e.trim(' hello world '); // > "hello world"
 
 ***upcase***
 
-*Alias: upper*
-
 Converts all letters in a string to uppercase.
 
 ```javascript
 e.upcase('hello world'); // > "HELLO WORLD"
 ```
 
-***supplant***
-
-*Alias: format*
+***format***
 
 Evaluates a string literal containing one or more placeholders, returning a result in which the placeholders are replaced with their corresponding values.
 
 ```javascript
-e.supplant('Good {time}, how are {who}?', { time: 'afternoon', who: 'you' });
+e.format('Good {time}, how are {who}?', { time: 'afternoon', who: 'you' });
 // > "Good afternoon, how are you?"
 ```
 
@@ -198,7 +218,8 @@ e.wrap('hello world', 'h1'); // > "<h1>hello world</h1>"
 ```
 
 
-####ARRAY METHODS
+Array Methods
+---
 
 ***bridge***
 
@@ -209,8 +230,6 @@ e.bridge([1,2,3], [4,5,6]); // > [1, 2, 3, 4, 5, 6]
 ```
 
 ***unify***
-
-*Alias: unite*
 
 Combines 2 arrays keeping only unique values
 
@@ -226,27 +245,23 @@ Used to check the types of all values contained in a passed in array
 e.checkTypes([{}, [], 'hello', 3, function(){}, true]); // > ["object", "array", "string", "number", "function", "boolean"]
 ```
 
-***contains***
-
-*Alias: has*
+***has***
 
 Used to check if a specific value is inside of an array
 
 ```javascript
-e.contains([1,2,3], 4); // > false
-e.contains([1,2,3], 2); // > true
+e.has([1,2,3], 4); // > false
+e.has([1,2,3], 2); // > true
 ```
 
-***isArray***
-
-*Alias: array*
+***array***
 
 Used to check if passed in value is an array
 
 ```javascript
-e.isArray([]); // > true
-e.isArray({}); // > false
-e.isArray('hello'); // > false
+e.array([]); // > true
+e.array({}); // > false
+e.array('hello'); // > false
 ```
 
 ***parlay***
@@ -274,7 +289,8 @@ e.shuffle([1,2,3,4,5]); // > [2, 4, 1, 5, 3]
 ```
 
 
-####OBJECT METHODS
+Object Methods
+---
 
 ***combine***
 
@@ -343,6 +359,15 @@ var person = {firstname: 'John'};
 e.rename(person, 'firstname', 'name'); // > {name: "John"}
 ```
 
+***clone***
+
+Clones an object and its properties/attributes
+
+```javascript
+var person = {firstname: 'John'};
+var person2 = e.clone(person); // > { firstname: "John" }
+```
+
 ***toArray***
 
 Converts an object into an array of arrays containing the key and value
@@ -352,8 +377,8 @@ var person = {firstname: 'John', lastname: 'Doe'};
 e.toArray(person); // > [["firstname", "John"], ["lastname", "Doe"]]
 ```
 
-
-####DOM Methods
+DOM Methods
+---
 
 ***insertHTML***
 
@@ -411,104 +436,121 @@ e.elementsFromName('city');
 ```
 
 
-####Universal Methods
+Universal Methods
+---
 
-***isEqual***
+***compare***
 
-*Alias: equal*
+Returns true if 2 arrays or objects are the same
+
+Note: This only works if arrays or objects only contain primitive values
+
+```javascript
+var arr1 = [1,2,3];
+var arr2 = [1,2,3];
+e.compare(arr1, arr2); // > true
+
+var arr1 = [1,2,3];
+var arr2 = [1,2,3,4];
+e.compare(arr1, arr2); // > false
+
+var obj1 = {name: 'John', age: 21};
+var obj2 = {name: 'John', age: 21};
+e.compare(obj1, obj2); // > true
+
+var obj1 = {name: 'John', age: 21};
+var obj2 = {name: 'Jane', age: 28};
+e.compare(obj1, obj2); // > false
+```
+
+***equal***
 
 Returns true if both arguments are equal (strict).
 
 ```javascript
-e.isEqual(5, 5); // > true
-e.isEqual(5, '5'); // > false
-e.isEqual('hello', 'hello'); // > true
+e.equal(5, 5); // > true
+e.equal(5, '5'); // > false
+e.equal('hello', 'hello'); // > true
 ```
 
-***isNotEqual***
-
-*Alias: notEqual*
+***notEqual***
 
 Returns true if both arguments are not equal (strict).
 
 ```javascript
-e.isNotEqual(5, 5); // > false
-e.isNotEqual(5, '5'); // > true
-e.isNotEqual('hello', 'Hello'); // true
+e.notEqual(5, 5); // > false
+e.notEqual(5, '5'); // > true
+e.notEqual('hello', 'Hello'); // true
 ```
 
-***isSimilar***
-
-*Alias: similar*
+***similar***
 
 Returns true if both arguments are equal (not strict).
 
 ```javascript
-e.isSimilar(5, 5); // > true
-e.isSimilar(5, '5'); // > true
-e.isSimilar('hello', 'Hello'); // > false
+e.similar(5, 5); // > true
+e.similar(5, '5'); // > true
+e.similar('hello', 'Hello'); // > false
 ```
 
-***isNotSimilar***
-
-*Alias: notSimilar*
+***notSimilar***
 
 Returns true if both arguments are not equal (not strict).
 
 ```javascript
-e.isNotSimilar(5, 5); // > false
-e.isNotSimilar(5, '5') // > false
-e.isNotSimilar('hello', 'Hello'); // > true
+e.notSimilar(5, 5); // > false
+e.notSimilar(5, '5') // > false
+e.notSimilar('hello', 'Hello'); // > true
 ```
 
-***isTruthy***
+***truthy***
 
 Returns true if input is truthy value.
 
 ```javascript
 // Numbers
-e.isTruthy(0); // > false
-e.isTruthy(1); // > true
+e.truthy(0); // > false
+e.truthy(1); // > true
 
 // Strings
-e.isTruthy(''); // > false
-e.isTruthy('hello'); // > true
+e.truthy(''); // > false
+e.truthy('hello'); // > true
 
 // Arrays
-e.isTruthy([]); // > true
-e.isTruthy([1, 2, 3]); // > true
+e.truthy([]); // > true
+e.truthy([1, 2, 3]); // > true
 
 // Objects
-e.isTruthy({}); // > true
-e.isTruthy({a: 1, b: 2, c: 3}); // > true
+e.truthy({}); // > true
+e.truthy({a: 1, b: 2, c: 3}); // > true
 
 // Functions
-e.isTruthy(function(){}); // > true
+e.truthy(function(){}); // > true
 ```
 
-***isFalsey***
+***falsey***
 
 Returns true if input is falsey value.
 
 ```javascript
 // Numbers
-e.isFalsey(0); // > true
-e.isFalsey(1); // > false
+e.falsey(0); // > true
+e.falsey(1); // > false
 
 // Strings
-e.isFalsey(''); // > true
-e.isFalsey('hello'); // > false
+e.falsey(''); // > true
+e.falsey('hello'); // > false
 
 // Arrays
-e.isFalsey([]); // > false
-e.isFalsey([1, 2, 3]); // > false
+e.falsey([]); // > false
+e.falsey([1, 2, 3]); // > false
 
 // Objects
-e.isFalsey({}); // > false
-e.isFalsey({a: 1, b: 2, c: 3}); // > false
+e.falsey({}); // > false
+e.falsey({a: 1, b: 2, c: 3}); // > false
 
 // Functions
-e.isFalsey(function(){}); // > false
+e.falsey(function(){}); // > false
 ```
 
 ***ifTrue***
@@ -529,18 +571,16 @@ e.ifFalse(1 > 2, function(){return '1 is actually less than 2'});
 // > "1 is actually less than 2"
 ```
 
-***checkType***
-
-*Alias: type*
+***type***
 
 Returns the type of a passed in value.
 
 ```javascript
-e.checkType([]); // > "array"
-e.checkType({}); // > "object"
-e.checkType('hello'); // > "string"
-e.checkType(3); // > "number"
-e.checkType(true); // > "boolean"
+e.type([]); // > "array"
+e.type({}); // > "object"
+e.type('hello'); // > "string"
+e.type(3); // > "number"
+e.type(true); // > "boolean"
 ```
 
 ***methods***
@@ -560,11 +600,10 @@ e.methodCount(); // > 41
 ```
 
 
-####Number Methods
+Number Methods
+---
 
 ***add***
-
-*Alias: plus*
 
 Performs addition on 2 or more numbers.
 
@@ -577,8 +616,6 @@ e.add([5, 5, 5]); // > 15
 ```
 
 ***subtract***
-
-*Alias: minus*
 
 Performs subtraction on 2 or more numbers.
 
@@ -614,38 +651,32 @@ e.divide(6, 3); // > 2
 e.divide([20, 2, 5]); // > 2
 ```
 
-***isNum***
-
-*Alias: number*
+***number***
 
 Checks if provided argument is of type "number".
 
 ```javascript
-e.isNum(5); // > true
-e.isNum('5'); // > false
-e.isNum(true); // > false
+e.number(5); // > true
+e.number('5'); // > false
+e.number(true); // > false
 ```
 
-***isOdd***
-
-*Alias: odd*
+***odd***
 
 Checks if number is odd.
 
 ```javascript
-e.isOdd(5); // > true
-e.isOdd(4); // > false
+e.odd(5); // > true
+e.odd(4); // > false
 ```
 
-***isEven***
-
-*Alias: even*
+***even***
 
 Checks if number is even.
 
 ```javascript
-e.isEven(5); // > false
-e.isEven(4); // > true
+e.even(5); // > false
+e.even(4); // > true
 ```
 
 ***PI***
@@ -656,39 +687,35 @@ Returns the value of PI.
 e.PI(); // > 3.141592653589793
 ```
 
-***randNum***
-
-*Alias: random*
+***random***
 
 Returns a random whole number from 1 to the specified number.
 
 ```javascript
-e.randNum(5); // > 4
-e.randNum(5); // > 1
-e.randNum(5); // > 2
+e.random(5); // > 4
+e.random(5); // > 1
+e.random(5); // > 2
 
 // If argument is 0, return value will be 1
-e.randNum(0); // > 1
+e.random(0); // > 1
 ```
 
-***randNumBetween***
-
-*Alias: between*
+***between***
 
 Returns a random whole number between and including the 2 arguments.
 
 ```javascript
-e.randNumBetween(5, 10); // > 7
+e.between(5, 10); // > 7
 
 // The order of the numbers doesn't matter
-e.randNumBetween(10, 5); // > 6
+e.between(10, 5); // > 6
 
 // 2 of the same decimal number will round down to it's whole number
-e.randNumBetween(5.5, 5.5); // > 5
+e.between(5.5, 5.5); // > 5
 ```
 
 
-##TESTS
+##Tests
 
 To run tests is simple, just open test/index.html in your browser of choice and click the "Run Tests" button. You'll see a long list of the tests that were run and whether they passed or failed.
 
@@ -710,15 +737,11 @@ tests.push(
 Here is an example of a real world test:
 
 ```javascript
-// Checks if capitalize() returns a string with the first letter capitalized
+// Checks if cap() returns a string with the first letter capitalized
   tests.push(
     function() {
-      var text = "capitalize() returns a new string with the first letter capitalized";
-      runTest(e.capitalize('testing') === 'Testing', text);
+      var text = "cap() returns a new string with the first letter capitalized";
+      runTest(e.cap('testing') === 'Testing', text);
     }
   );
 ```
-
-##FINAL NOTES
-
-The website portion of this uses AngularJS so if things look a little odd in your forked version, it's because you need to run it in some sort of server. If you're using [Brackets](http://brackets.io/) as your text editor, you should be good if you hit the preview button from website/index.html.
