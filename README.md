@@ -30,7 +30,7 @@ If you want a list of contributors in order of thier contribution, view `CONTRIB
 To get started, include `Easify.min.js` in your website. Make sure it's included above your websites JS file. To make sure JS doesn't interfere with the loading of your HTML and CSS, it is suggested that you add your JS files right above your closing `body` tag.
 
 ```html
-    <script src="js/Easify.min.js"></script>
+    <script src="js/easify-min.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
