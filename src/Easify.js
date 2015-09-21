@@ -293,9 +293,9 @@
     },
 
     // Letters in a string are randomly set to upper and lowercase
+    //
     // Takes 1 argument(string)
     // e.randomcase("Hello") //=> "HeLLo"
-
     randomcase: function(str) {
       // Randomize string
       if (validateString(str)) {
@@ -362,6 +362,9 @@
     },
 
     // Pulls from the original trim method
+    //
+    // Takes 1 argument (string)
+    // e.trim(' hello '); //=> "hello"
     trim: function(str) {
       if(validateString(str)) {
         return str.trim();
@@ -370,6 +373,10 @@
       }
     },
 
+    // Makes all letters in a string uppercase
+    //
+    // Takes 1 argument (string)
+    // e.upcase('hello'); //=> "HELLO"
     upcase: function(str) {
       if(validateString(str)) {
         return str.toUpperCase();
@@ -378,7 +385,7 @@
       }
     },
 
-    // Suplant a.k.a Interpolation string
+    // Format allows string interpolation
     //
     // Takes 2 arguments(string, object)
     // e.format("My favorite repo. is {repo}.", { repo: "Easify" })  //==> "My favorite repo. is Easify."
@@ -416,7 +423,11 @@
     // *************
     // *************
 
-    // Combines 2 arrays into a single array with all the values
+    // Returns a new array which is a combination of 2 arrays
+    // *If item duplicates exist, they will be kept*
+    //
+    // Takes 2 arguments (array, array)
+    // e.bridge(['hello', 'world'], ['world']); //=> ["hello", "world", "world"]
     bridge: function(arr1, arr2) {
       if (validateArray(arr1) && validateArray(arr2)) {
         var newArr = arr1;
@@ -430,6 +441,9 @@
     },
 
     // Combines 2 arrays keeping only unique values
+    //
+    // Takes 2 arguments (array, array)
+    // e.unify(['hello', 'world'], ['world']); //=> ["hello", "world"]
     unify: function(arr1, arr2) {
       var newArr = arr1.concat(arr2.filter(function (i) {
         return arr1.indexOf(i) < 0;
