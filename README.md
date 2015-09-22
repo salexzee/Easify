@@ -717,9 +717,16 @@ e.between(5.5, 5.5); // > 5
 
 ##Tests
 
-To run tests is simple, just open test/index.html in your browser of choice and click the "Run Tests" button. You'll see a long list of the tests that were run and whether they passed or failed.
+To run tests is simple. Run the command `npm run test` in your terminal window, which will open `tests/index.html` in your default web browser, then click the "Run Tests" button. You'll see a long list of the tests that were run and whether they passed or failed.
 
-To make sure all the tests were run, look in the console for a line that says, "Tests run!"
+To make sure all the tests were run, look in the console and you'll see something similar to the following:
+
+```
+Tests run!
+62 passed - 0 failed
+```
+
+*Numbers will be different as more tests are added.*
 
 Tests are very simple to implement. Here's the format:
 
