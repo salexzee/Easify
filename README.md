@@ -24,13 +24,15 @@ For more information on how to contribute, view `CONTRIBUTE.md` or click [here](
 
 If you want a list of contributors in order of thier contribution, view `CONTRIBUTORS.md` or click [here](CONTRIBUTORS.md).
 
+[Check out the style guide.](STYLEGUIDE.md)
+
 
 #Installation	
 
 To get started, include `Easify.min.js` in your website. Make sure it's included above your websites JS file. To make sure JS doesn't interfere with the loading of your HTML and CSS, it is suggested that you add your JS files right above your closing `body` tag.
 
 ```html
-    <script src="js/Easify.min.js"></script>
+    <script src="js/easify-min.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
@@ -56,13 +58,28 @@ var e = $E();
 
 Now you can access all of the Easify methods by using dot notation.
 
-Aliases are simply different names you can use to access a method. For example:
+For example, find out if a number is odd or not:
  
 ```javascript
-e.isOdd(5); // > true
-
-// The same can be accomplished with:
+// This checks to see if a number is odd
 e.odd(5); // > true
+e.odd(4); // > false
+
+
+// The above code is simplifying something similar to this:
+function odd(num) {
+  if (num % 2 !== 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+odd(5); // > true
+odd(4); // > false
+
+
+// Which would you rather have in your code?
 ```
 
 String Methods
