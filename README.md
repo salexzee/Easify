@@ -1,7 +1,7 @@
 EasifyJS
 ===============
 
-[![Version 0.6.0](https://img.shields.io/badge/version-0.6.0-blue.svg?style=flat-square)](https://github.com/salexzee/Easify/tree/master/versions/0.6.X)
+[![Version 0.7.0](https://img.shields.io/badge/version-0.7.0-blue.svg?style=flat-square)](https://github.com/salexzee/Easify/tree/master/easify.js)
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](LICENSE)
 [![Join the chat at https://gitter.im/salexzee/Easify](https://img.shields.io/badge/GITTER-join%20chat-45cba1.svg?style=flat-square)](https://gitter.im/salexzee/Easify?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -29,10 +29,23 @@ If you want a list of contributors in order of thier contribution, view `CONTRIB
 
 #Installation	
 
-To get started, include `Easify.min.js` in your website. Make sure it's included above your websites JS file. To make sure JS doesn't interfere with the loading of your HTML and CSS, it is suggested that you add your JS files right above your closing `body` tag.
+To get started, include `easify-min.js` in your website. Make sure it's included above your websites JS file. To make sure JS doesn't interfere with the loading of your HTML and CSS, it is suggested that you add your JS files right above your closing `body` tag.
+
+**Normal download usage**
 
 ```html
     <script src="js/easify-min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
+```
+
+**Node usage**
+
+In the terminal, run `npm install easifyjs`
+
+```html
+    <script src="node_modules/easifyjs/easify-min.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
@@ -717,9 +730,16 @@ e.between(5.5, 5.5); // > 5
 
 ##Tests
 
-To run tests is simple, just open test/index.html in your browser of choice and click the "Run Tests" button. You'll see a long list of the tests that were run and whether they passed or failed.
+To run tests is simple. Run the command `npm run test` in your terminal window, which will open `tests/index.html` in your default web browser, then click the "Run Tests" button. You'll see a long list of the tests that were run and whether they passed or failed.
 
-To make sure all the tests were run, look in the console for a line that says, "Tests run!"
+To make sure all the tests were run, look in the console and you'll see something similar to the following:
+
+```
+Tests run!
+62 passed - 0 failed
+```
+
+*Numbers will be different as more tests are added.*
 
 Tests are very simple to implement. Here's the format:
 
