@@ -98,7 +98,7 @@
     return new Easify.init();
   }
 
-  Easify.VERSION = '0.6.0';
+  Easify.VERSION = '0.7.0';
 
   // Function that actually creates object
   // to remove 'new' keyword for users

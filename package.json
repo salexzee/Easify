@@ -1,6 +1,6 @@
 {
   "name": "easifyjs",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "A small library to make JavaScript easier to work with.",
   "main": "easify-min.js",
   "directories": {
