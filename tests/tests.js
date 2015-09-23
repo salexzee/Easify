@@ -162,6 +162,13 @@
       runTest(e.trim(' testing ') === 'testing', text);
     }
   );
+
+  tests.push(
+    function() {
+      var text = 'upcase() returns an all uppercase version of the input string';
+      runTest(e.upcase('testing') === 'TESTING', text);
+    }
+  );
   
   tests.push(
     function() {
