@@ -456,8 +456,6 @@ Universal Methods
 
 Returns true if 2 arrays or objects are the same
 
-Note: This only works if arrays or objects only contain primitive values
-
 ```javascript
 var arr1 = [1,2,3];
 var arr2 = [1,2,3];
