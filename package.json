@@ -1,0 +1,26 @@
+{
+  "name": "easifyjs",
+  "version": "0.7.0",
+  "description": "A small library to make JavaScript easier to work with.",
+  "main": "easify-min.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "open tests/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salexzee/Easify.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "library"
+  ],
+  "author": "Sam Webb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/salexzee/Easify/issues"
+  },
+  "homepage": "https://github.com/salexzee/Easify#readme"
+}

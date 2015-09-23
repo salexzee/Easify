@@ -2,9 +2,6 @@
 // Author: Sam Webb
 // Copyright: 2015
 // License: MIT
-// Version: 0.7.0 dev
-
-// Dependencies: N/A
 
 // Start with semicolon in case other libraries
 // don't end with one.
@@ -777,21 +774,22 @@
     },
 
     // Returns the DOM element with the passed in ID
-    elementFromId: function(id) {
+    id: function(id) {
       return document.getElementById(id);
     },
 
     // Returns a list of DOM elements with the passed in class
-    elementsFromClass: function(classname) {
+    className: function(classname) {
       return document.getElementsByClassName(classname);
     },
 
     // Returns a list of DOM elements with the passed in tag
-    elementsFromTag: function(tag) {
+    tagName: function(tag) {
       return document.getElementsByTagName(tag);
     },
 
-    elementsFromName: function(name) {
+    // Returns a list of DOM elements with the passed in name
+    name: function(name) {
       return document.getElementsByName(name);
     },
 
