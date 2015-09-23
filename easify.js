@@ -78,7 +78,7 @@
   // Returns a random number from 1-10 as a string
   randomNumberAsString = function() {
     // Uses Math.ceil() which means it'll never equal 0
-    return String(Math.ceil(Math.random() * 10));
+    return String(Math.ceil(Math.random() * 9));
   }
 
   // Returns a randome special character
@@ -176,9 +176,9 @@
     // e.password(); //=> "39108%47m!s8e"
     password: function(len) {
       // Set default length to 12
-      var len = len || 12;
+      var length = len || 12;
 
-      if (validateNum(len)) {
+      if (validateNum(length)) {
         // Setup variables
         var password = '';
         // Letters, numbers and special characters all have a 33% chance
@@ -189,7 +189,7 @@
         // You would need to add another randomLetter item to the possibilities list
         var possibilities = [randomLetter, randomSpecialChar, randomNumberAsString];
         // This does all the work
-        for (var i = 0; i < len; i++) {
+        for (var i = 0; i < length; i++) {
           password += possibilities[randomNumberFromItemLength(possibilities)]();
         }
         return password;
