@@ -809,19 +809,9 @@
           return false;
         }
       } else if (this.isObject(d1) && this.isObject(d2)) {
-        var keys1 = Object.keys(d1);
-        var keys2 = Object.keys(d2);
-        var len1 = keys1.length;
-        var len2 = keys2.length;
-        if (len1 === len2) {
-          for (var i = 0; i < len1; i++) {
-            if (!this.has(keys2, keys1[i])) {
-              return false;
-            }
-            if (!(d1[keys1[i]] === d2[keys2[i]])) {
-              return false
-            }
-          }
+        var arr1 = this.toArray(d1);
+        var arr2 = this.toArray(d2);
+        if(JSON.stringify(arr1) === JSON.stringify(arr2)) {
           return true;
         } else {
           return false;
