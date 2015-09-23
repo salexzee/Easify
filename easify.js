@@ -799,8 +799,9 @@
     // *****************
 
     // Returns true if 2 data structures contain all the same values
-    // Does not work if data structures contain more data structures
-    // Order matters for arrays
+    // in the same order
+    // Primitives can now be compared but it is still recommended to
+    // use equal() for that
     compare: function(d1, d2) {
       if (validateArray(d1) && validateArray(d2)) {
         if (JSON.stringify(d1) === JSON.stringify(d2)) {
@@ -817,7 +818,11 @@
           return false;
         }
       } else {
-        return false;
+        if (d1 === d2) {
+          return true
+        } else {
+          return false;
+        }
       }
     },
 
