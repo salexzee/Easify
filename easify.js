@@ -315,7 +315,7 @@
         return newString;
 
       } else {
-        throw 'String validation failed.';
+        return false;
       }
 
     },
