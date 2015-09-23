@@ -61,8 +61,15 @@
 
   tests.push(
     function() {
-      var text = "cap() returns a new string with the first letter capitalized";
+      var text = 'cap() returns a new string with the first letter capitalized';
       runTest(e.cap('testing') === 'Testing', text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'downcase() returns a lowercase version of the input string';
+      runTest(e.downcase('TESTING') === 'testing', text);
     }
   );
 
@@ -82,8 +89,15 @@
 
   tests.push(
     function() {
-      var text = "last() returns the last letter in a string";
+      var text = 'last() returns the last letter in a string';
       runTest(e.last('testing') === 'g', text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'password() returns a string that is the requested length';
+      runTest(e.password(12).length === 12, text);
     }
   );
 
@@ -139,6 +153,20 @@
     function() {
       var text = 'reverse() returns the provided string backwawrds';
       runTest(e.reverse('testing') === 'gnitset', text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'trim() returns a string with no whitespace at the beginning and end';
+      runTest(e.trim(' testing ') === 'testing', text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'upcase() returns an all uppercase version of the input string';
+      runTest(e.upcase('testing') === 'TESTING', text);
     }
   );
   
