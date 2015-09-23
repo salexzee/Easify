@@ -803,12 +803,7 @@
     // Order matters for arrays
     compare: function(d1, d2) {
       if (validateArray(d1) && validateArray(d2)) {
-        if (d1.length === d2.length) {
-          for (var i = 0; i < d1.length; i++) {
-            if (!this.has(d2, d1[i])) {
-              return false;
-            }
-          }
+        if (JSON.stringify(d1) === JSON.stringify(d2)) {
           return true;
         } else {
           return false;
