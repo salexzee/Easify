@@ -291,6 +291,15 @@
     }
   );
 
+  tests.push(
+    function() {
+      var text = 'values() returns an array of the values from the provided object';
+      var obj = {firstname: 'John', lastname: 'Doe'};
+      var expect = ['John', 'Doe'].toString();
+      runTest(e.values(obj).toString() === expect, text);
+    }
+  );
+
   // #########
   // #########
   // DOM TESTS
