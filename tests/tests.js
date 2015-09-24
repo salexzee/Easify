@@ -310,6 +310,16 @@
     }
   );
 
+  tests.push(
+    function() {
+      var text = 'proto() returns the prototype of a provided object';
+      function Hello(){};
+      Hello.prototype = {greet: 'Hello world'};
+      var h = new Hello();
+      runTest(e.proto(h).toString() === Hello.prototype.toString(), text);
+    }
+  );
+
   // #########
   // #########
   // DOM TESTS

@@ -656,6 +656,10 @@
       }
     },
 
+    proto: function(obj) {
+      return obj.__proto__;
+    },
+
     // Renames a property of an object and returns it as a new object
     rename: function(obj, original, update) {
       if (this.isObject(obj) && validateString(original) && validateString(update)) {
