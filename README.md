@@ -343,6 +343,15 @@ e.isObject(4); // > false
 e.isObject(null); // > false
 ```
 
+***keys***
+
+Returns an array containing the keys of the provided object
+
+```javascritp
+var obj = {name: 'John Smith', age: 21};
+e.keys(obj); // > ["name", "age"]
+```
+
 ***maintain***
 
 Returns a new object with only the specified keys

@@ -281,6 +281,15 @@
       runTest(e.isObject(null) === false, text);
     }
   );
+
+  tests.push(
+    function() {
+      var text = 'keys() returns an array containing the keys of a provided object';
+      var obj = {name: 'John Doe', age: 21};
+      var expect = ['name', 'age'].toString();
+      runTest(e.keys(obj).toString() === expect, text);
+    }
+  )
   
   tests.push(
     function() {

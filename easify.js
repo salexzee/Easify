@@ -620,6 +620,14 @@
       }
     },
 
+    keys: function(obj) {
+      if (this.isObject(obj)) {
+        return Object.keys(obj);
+      } else {
+        return false;
+      }
+    },
+
     // Returns an object with only the specified keys
     maintain: function(obj, mKeys) {
       if (this.isObject(obj) && validateArray(mKeys)) {
