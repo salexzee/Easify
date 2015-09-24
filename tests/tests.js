@@ -291,6 +291,14 @@
     }
   );
 
+  tests.push(
+    function() {
+      var text = 'size() returns the amount of keys in an object';
+      var obj = {car1: 'Mustang', car2: 'Impala', car3: 'Pento'};
+      runTest(e.size(obj) === 3, text);
+    }
+  );
+
   // #########
   // #########
   // DOM TESTS
