@@ -363,6 +363,17 @@ var person = {name: 'John', age: 21};
 e.objectPush(person, 'title', 'Mr.'); // > {name: "John", age: 21, title: "Mr."}
 ```
 
+***proto***
+
+Returns the prototype of the provided object
+
+```javascript
+function Hello(){};
+Hello.prototype = {greet: 'Hello world'};
+h = new Hello();
+e.proto(h); // > {greet: "Hello world"}
+```
+
 ***rename***
 
 Changes the name of the specified property name of an object
