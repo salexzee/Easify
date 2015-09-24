@@ -403,6 +403,15 @@ var person = {firstname: 'John'};
 var person2 = e.clone(person); // > { firstname: "John" }
 ```
 
+***size***
+
+Returns the amount of keys in the provided object
+
+```javascript
+var obj = {car1: 'Mustang', car2: 'Impala', car3: 'Pento'};
+e.size(obj); //> 3
+```
+
 ***toArray***
 
 Converts an object into an array of arrays containing the key and value

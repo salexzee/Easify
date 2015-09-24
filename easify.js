@@ -698,6 +698,14 @@
       }
     },
 
+    size: function(obj) {
+      if (this.isObject(obj)) {
+        return Object.keys(obj).length;
+      } else {
+        return false;
+      }
+    },
+
     // Converts an object into an array of key/value arrays
     toArray: function(obj) {
       if (this.isObject(obj)) {
