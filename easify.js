@@ -3,8 +3,6 @@
 // Copyright: 2015
 // License: MIT
 
-// Dependencies: N/A
-
 // Start with semicolon in case other libraries
 // don't end with one.
 ;(function(global){
@@ -593,17 +591,20 @@
       return;
     },
 
-    // Returns an object with all but the specified keys
+    // Removes the specified methods/properties from the input object 
     drop: function(obj, dropKeys) {
+      // Checks
       if (this.isObject(obj) && validateArray(dropKeys)) {
+        // Grabs the keys from the input object
         var keys = Object.keys(obj);
-        var newObj = {};
+        // Loops over those keys
         for (var i = 0; i < keys.length; i++) {
-          if (!this.has(dropKeys, keys[i])) {
-            newObj[keys[i]] = obj[keys[i]];
+          // Checks if any of the object keys are in the passed in array
+          if (this.has(dropKeys, keys[i])) {
+            // Removes specified keys from the object
+            delete obj[keys[i]];
           }
         }
-        return newObj;
       }
     },
 

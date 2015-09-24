@@ -324,12 +324,14 @@ e.combine([person, cat, dog]); // > {name: "John", age: 21, fur: "black", eyes: 
 
 ***drop***
 
-Returns a new object without the specified keys
+Removes the specified methods/properties from the input object 
 
 ```javascript
 var person = {name: 'John', age: 21, title: 'Mr.'};
 
-e.drop(person, ["title"]); // > {name: "John", age: 21}
+e.drop(person, ["title", "age"]);
+
+console.log(person); // > {name: "John"}
 ```
 
 ***isObject***
