@@ -421,6 +421,15 @@ var person = {firstname: 'John', lastname: 'Doe'};
 e.toArray(person); // > [["firstname", "John"], ["lastname", "Doe"]]
 ```
 
+***values***
+
+Returns an array of the values from the provided object
+
+```javascript
+var person = {firstname: 'John', lastname: 'Doe'};
+e.values(person) // > ["John", "Doe"]
+```
+
 DOM Methods
 ---
 

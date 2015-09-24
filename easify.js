@@ -720,6 +720,20 @@
       }
     },
 
+    // Returns an array containing all of the values in the provided object
+    values: function(obj) {
+      if (this.isObject(obj)) {
+        var keys = Object.keys(obj);
+        var arr = [];
+        for (var i = 0; i < keys.length; i++) {
+          arr.push(obj[keys[i]]);
+        }
+        return arr;
+      } else {
+        return false;
+      }
+    },
+
     // ***********
     // ***********
     // DOM METHODS

@@ -319,11 +319,21 @@
       runTest(e.proto(h).toString() === Hello.prototype.toString(), text);
     }
   );
-tests.push(
+  
+  tests.push(
     function() {
       var text = 'size() returns the amount of keys in an object';
       var obj = {car1: 'Mustang', car2: 'Impala', car3: 'Pento'};
       runTest(e.size(obj) === 3, text);
+    }
+  );
+
+  tests.push(
+    function() {
+      var text = 'values() returns an array of the values from the provided object';
+      var obj = {firstname: 'John', lastname: 'Doe'};
+      var expect = ['John', 'Doe'].toString();
+      runTest(e.values(obj).toString() === expect, text);
     }
   );
 
