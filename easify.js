@@ -799,40 +799,30 @@
     // *****************
 
     // Returns true if 2 data structures contain all the same values
-    // Does not work if data structures contain more data structures
-    // Order matters for arrays
+    // in the same order
+    // Primitives can now be compared but it is still recommended to
+    // use equal() for that
     compare: function(d1, d2) {
       if (validateArray(d1) && validateArray(d2)) {
-        if (d1.length === d2.length) {
-          for (var i = 0; i < d1.length; i++) {
-            if (!this.has(d2, d1[i])) {
-              return false;
-            }
-          }
+        if (JSON.stringify(d1) === JSON.stringify(d2)) {
           return true;
         } else {
           return false;
         }
       } else if (this.isObject(d1) && this.isObject(d2)) {
-        var keys1 = Object.keys(d1);
-        var keys2 = Object.keys(d2);
-        var len1 = keys1.length;
-        var len2 = keys2.length;
-        if (len1 === len2) {
-          for (var i = 0; i < len1; i++) {
-            if (!this.has(keys2, keys1[i])) {
-              return false;
-            }
-            if (!(d1[keys1[i]] === d2[keys2[i]])) {
-              return false
-            }
-          }
+        var arr1 = this.toArray(d1);
+        var arr2 = this.toArray(d2);
+        if(JSON.stringify(arr1) === JSON.stringify(arr2)) {
           return true;
         } else {
           return false;
         }
       } else {
-        return false;
+        if (d1 === d2) {
+          return true
+        } else {
+          return false;
+        }
       }
     },
 
