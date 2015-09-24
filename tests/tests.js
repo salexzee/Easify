@@ -1,8 +1,6 @@
 
 // Testing for Easify.JS
 
-// Extra Dependencies: N/A
-
 // Starts with semicolon to make sure it runs
 ;(function(){
   // Some variable setup
@@ -319,7 +317,7 @@
       runTest(e.proto(h).toString() === Hello.prototype.toString(), text);
     }
   );
-  
+
   tests.push(
     function() {
       var text = 'size() returns the amount of keys in an object';
