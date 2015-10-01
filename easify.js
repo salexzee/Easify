@@ -34,10 +34,9 @@
   }
 
   validateArray = function(arr) {
-    if (Array.isArray(arr) === true) {
-      return true;
-    }
-    return false;
+    var a;
+    Array.isArray(arr) === true ? a = true : a = false;
+    return a;
   }
 
   // For validating strings
@@ -58,11 +57,10 @@
   // For validating numbers
   // Always use this if method takes a number argument
   validateNum = function(num) {
+    var a;
     // If num is not of type "number" it will fail
-    if(typeof num !== "number") {
-      return false;
-    }
-    return true;
+    typeof num !== "number" ? a = false : a = true;
+    return a;
   }
 
   // Returns a randome letter. Pretty simple
@@ -96,7 +94,7 @@
     return new Easify.init();
   }
 
-  Easify.VERSION = '0.8.1';
+  Easify.VERSION = '0.8.2';
 
   // Function that actually creates object
   // to remove 'new' keyword for users
@@ -138,11 +136,9 @@
     // Takes 1 argument (string)
     // e.downcase('HELLO'); //=> "hello"
     downcase: function(str) {
-      if(validateString(str)) {
-        return str.toLowerCase();
-      } else {
-        return false;
-      }
+      var a;
+      validateString(str) ? a = str.toLowerCase() : a = false;
+      return a;
     },
 
     // Gives the user access to the validateString() function
@@ -159,11 +155,9 @@
     // Takes 1 argument(string)
     // e.last('hello'); //=> "o"
     last: function(str) {
-      if (validateString(str)) {
-        return str[str.length - 1];
-      } else {
-        return false;
-      }
+      var a;
+      validateString(str) ? a = str[str.length -1] : a = false;
+      return a;
     },
 
     // Creates a random string at the specified length
@@ -363,11 +357,9 @@
     // Takes 1 argument (string)
     // e.trim(' hello '); //=> "hello"
     trim: function(str) {
-      if(validateString(str)) {
-        return str.trim();
-      } else {
-        return false;
-      }
+      var a;
+      validateString(str) ? a = str.trim() : a = false;
+      return a;
     },
 
     // Makes all letters in a string uppercase
@@ -375,11 +367,9 @@
     // Takes 1 argument (string)
     // e.upcase('hello'); //=> "HELLO"
     upcase: function(str) {
-      if(validateString(str)) {
-        return str.toUpperCase();
-      } else {
-        return false;
-      }
+      var a;
+      validateString(str) ? a = str.toUpperCase() : a = false;
+      return a;
     },
 
     // Format allows string interpolation
@@ -485,11 +475,9 @@
 
     // Checks if input value is an array
     array: function(arr) {
-      if (validateArray(arr)) {
-        return true;
-      } else {
-        return false;
-      }
+      var a;
+      validateArray(arr) ? a = true : a = false;
+      return a;
     },
 
     // Returns a new array with only the specified indexes
@@ -550,11 +538,9 @@
 
     // Returns a random item from an array
     stray: function(arr) {
-      if (validateArray(arr)) {
-        return arr[randomNumberFromItemLength(arr)];
-      } else {
-        return false;
-      }
+      var a;
+      validateArray(arr) ? a = arr[randomNumberFromItemLength(arr)] : a = false;
+      return a;
     },
 
     // **************
@@ -622,11 +608,9 @@
     },
 
     keys: function(obj) {
-      if (this.isObject(obj)) {
-        return Object.keys(obj);
-      } else {
-        return false;
-      }
+      var a;
+      this.isObject(obj) ? a = Object.keys(obj) : a = false;
+      return a;
     },
 
     // Returns an object with only the specified keys
@@ -699,11 +683,9 @@
     },
 
     size: function(obj) {
-      if (this.isObject(obj)) {
-        return Object.keys(obj).length;
-      } else {
-        return false;
-      }
+      var a;
+      this.isObject(obj) ? a = Object.keys(obj).length : a = false;
+      return a;
     },
 
     // Converts an object into an array of key/value arrays
@@ -883,38 +865,30 @@
 
     // Checks if the argument is a truthy value
     truthy: function(a) {
-      if (a) {
-        return true;
-      } else {
-        return false;
-      }
+      var b;
+      a ? b = true : b = false;
+      return b;
     },
 
     // Checks if the argument is a falsey value
     falsey: function(a) {
-      if(!a) {
-        return true;
-      } else {
-        return false;
-      }
+      var b;
+      !a ? b = true : b = false;
+      return b;
     },
 
     // Runs callback if comparison returns true
     ifTrue: function(comparison, callback){
-      if(comparison) {
-        callback();
-      } else {
-        return false;
-      }
+      var a;
+      comparison ? callback() : a = false;
+      return a;
     },
 
     // Runs callback if comparison returns false
     ifFalse: function(comparison, callback) {
-      if(!comparison) {
-        callback();
-      } else {
-        return false;
-      }
+      var a;
+      !comparison ? callback() : a = false;
+      return a;
     },
 
     // Checks the type of a passed in value
