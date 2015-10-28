@@ -3,6 +3,10 @@
 // Copyright: 2015
 // License: MIT
 
+if(typeof(window) === 'undefined') {
+  window = global;
+}
+
 // Start with semicolon in case other libraries
 // don't end with one.
 ;(function(global){
@@ -1113,3 +1117,4 @@
 
   console.log("Easify loaded!");
 }(window));
+

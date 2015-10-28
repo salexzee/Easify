@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "open tests/index.html",
+    "test": "mocha",
     "build": "uglifyjs easify.js -o easify-min.js"
   },
   "repository": {
@@ -23,5 +23,9 @@
   "bugs": {
     "url": "https://github.com/salexzee/Easify/issues"
   },
-  "homepage": "https://github.com/salexzee/Easify#readme"
+  "homepage": "https://github.com/salexzee/Easify#readme",
+  "devDependencies": {
+    "chai": "^3.4.0",
+    "mocha": "^2.3.3"
+  }
 }
