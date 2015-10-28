@@ -771,6 +771,14 @@ e.between(5.5, 5.5); // > 5
 
 Before submitting a pull request, make sure you run the the tests to make sure nothing broke.
 
+First make sure the dependencies are installed with:
+
+```shell
+npm install
+```
+
+Once the dependencies are installed, run the following:
+
 ```shell
 npm test
 ```
