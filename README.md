@@ -769,6 +769,18 @@ e.between(5.5, 5.5); // > 5
 
 ##Tests
 
+Before submitting a pull request, make sure you run the the tests to make sure nothing broke.
+
+```shell
+npm test
+```
+
+Yep, that's it. Simple right?
+
+To add a new test, open `test/test.js`. Easify uses [Chai](http://chaijs.com/)'s assert library inside of [Mocha](http://mochajs.org/). Check out the [Chai documentation](http://chaijs.com/api/assert/) to learn more about using the assert library. Also check out the [Mocha website](http://mochajs.org/) to learn about how our `test.js` file is formatted.
+
+** Note: Below is the old way to run tests **
+
 To run tests is simple. Run the command `npm run test` in your terminal window, which will open `tests/index.html` in your default web browser, then click the "Run Tests" button. You'll see a long list of the tests that were run and whether they passed or failed.
 
 To make sure all the tests were run, look in the console and you'll see something similar to the following:
