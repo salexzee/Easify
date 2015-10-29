@@ -18,8 +18,12 @@ describe('Easify', function() {
       assert.strictEqual(e.downcase('HELLO'), 'hello');
     });
 
-    it('string() should check if the argument is of type string', function() {
+    it('string() should return true if the argument is of type string', function() {
       assert.isTrue(e.string('Hello'));
+    });
+
+    it('string() should return false if the argument is not of type string', function() {
+      assert.isFalse(e.string(4));
     });
 
     it('last() should return the last letter of the string argument', function() {
@@ -82,6 +86,38 @@ describe('Easify', function() {
 
     it('checkTypes() should return an array of all the types contained in the input array', function() {
       assert.deepEqual(e.checkTypes(['hello', 4, {name: 'John Doe'}]), ['string', 'number', 'object']);
+    });
+
+    it('has() should return true if the provided array contains the specified value', function() {
+      assert.isTrue(e.has(['hello', 'world'], 'world'));
+    });
+
+    it('has() should return false if the provided array does not contain the specified value', function() {
+      assert.isFalse(e.has(['hello', 'world'], 'city'));
+    });
+
+    it('array() should return true if argument is of type array', function() {
+      assert.isTrue(e.array(['hello', 'world']));
+    });
+
+    it('array() should return false if argument is not of type array', function() {
+      assert.isFalse(e.array('hello world'));
+    });
+
+    it('parlay() should return the provided array with the non-specified indexes removed', function() {
+      assert.deepEqual(e.parlay(['hello', 'world', 'city'], [0, 1]), ['hello', 'world']);
+    });
+
+    it('removeItem() should return the input array with the specified index removed', function() {
+      assert.deepEqual(e.removeItem(['hello', 'world', 'city'], 2), ['hello', 'world']);
+    });
+
+    it('shuffle() should return an array of the same length as the provided array', function() {
+      assert.lengthOf(e.shuffle(['hello', 'world', 'this', 'is', 'it']), 5);
+    }); 
+
+    it('stray() should return a random value from the provided array', function() {
+      assert.isString(e.stray(['hello', 'world', 'this', 'is', 'it']));
     });
   });
 });
