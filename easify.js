@@ -532,7 +532,7 @@ if(typeof(window) === 'undefined') {
         while (inputArr.length > 0) {
           num = randomNumberFromItemLength(inputArr);
           newArr.push(inputArr[num]);
-          this.removeItem(inputArr, num);
+          inputArr = this.removeItem(inputArr, num);
         }
         return newArr;
       } else {
