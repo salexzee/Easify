@@ -1,9 +1,7 @@
 EasifyJS
 ===============
 
-[![Version 0.8.2](https://img.shields.io/badge/version-0.8.2-blue.svg?style=flat-square)](https://github.com/salexzee/Easify/tree/master/easify.js)
-[![MIT License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](LICENSE)
-[![Join the chat at https://gitter.im/salexzee/Easify](https://img.shields.io/badge/GITTER-join%20chat-45cba1.svg?style=flat-square)](https://gitter.im/salexzee/Easify?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/salexzee/Easify](https://img.shields.io/badge/GITTER-join%20chat-45cba1.svg)](https://gitter.im/salexzee/Easify?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/salexzee/Easify.svg?branch=master)](https://travis-ci.org/salexzee/Easify)
 
 A small library that makes JavaScript easier to work with.
