@@ -70,4 +70,18 @@ describe('Easify', function() {
       assert.strictEqual(e.wrap('hello', 'div'), '<div>hello</div>');
     });
   });
+
+  describe('Array Methods', function() {
+    it('bridge() should return a combined version of the 2 input arrays', function(){
+      assert.deepEqual(e.bridge(['hello'], ['world']), ['hello', 'world']);
+    });
+
+    it('unify() should return a combined version of the 2 input arrays omitting duplicate strings', function() {
+      assert.deepEqual(e.unify(['hello', 'world'], ['world']), ['hello', 'world']);
+    });
+
+    it('checkTypes() should return an array of all the types contained in the input array', function() {
+      assert.deepEqual(e.checkTypes(['hello', 4, {name: 'John Doe'}]), ['string', 'number', 'object']);
+    });
+  });
 });
