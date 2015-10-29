@@ -453,8 +453,8 @@ if(typeof(window) === 'undefined') {
       if (validateArray(arr)) {
         var returnedArray = [];
         for (var i = 0; i < arr.length; i++) {
-          // Method depends on checkType() method
-          returnedArray.push(this.checkType(arr[i]));
+          // Method depends on type() method
+          returnedArray.push(this.type(arr[i]));
         }
         return returnedArray;
       } else {
