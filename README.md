@@ -70,6 +70,8 @@ var e = $E();
 
 Now you can access all of the Easify methods by using dot notation.
 
+*Note: If you want to play around with Easify, visit easifyjs.com and open the console. There you can use the already setup `e` variable to run any of the Easify methods.*
+
 For example, find out if a number is odd or not:
  
 ```javascript
