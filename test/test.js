@@ -120,4 +120,36 @@ describe('Easify', function() {
       assert.isString(e.stray(['hello', 'world', 'this', 'is', 'it']));
     });
   });
+
+  describe('Object Methods', function() {
+    it('clear() should empty all properties and methods from an object', function() {
+      assert.deepEqual(e.clear({name: 'Sam', show: function(){return this.name}}), {});
+    });
+
+    it('combine() should combine 2 objects into one', function() {
+      assert.deepEqual(e.combine({name: 'Sam'}, {age: 27}), {name: 'Sam', age: 27})
+    });
+
+    it('drop() should remove the keys specified in the array', function() {
+      var obj = {name: 'Sam', age: 27};
+      e.drop(obj, ['age']);
+      assert.deepEqual(obj, {name: 'Sam'});
+    });
+
+    it('isObject() should return true if input is an object', function() {
+      assert.isTrue(e.isObject({name: 'Sam'}));
+    });
+
+    it('isObject() should return false if input is not an object', function() {
+      assert.isFalse(e.isObject('Sam'));
+    });
+  });
+
+  describe('Universal Methods', function() {
+
+  });
+
+  describe('Number Methods', function() {
+
+  });
 });
