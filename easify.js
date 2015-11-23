@@ -609,6 +609,7 @@ if(typeof(window) === 'undefined') {
     },
 
     // Removes the specified methods/properties from the input object 
+    // * Mutates the object *
     drop: function(obj, dropKeys) {
       // Checks
       if (this.isObject(obj) && validateArray(dropKeys)) {
