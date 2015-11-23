@@ -523,6 +523,16 @@ if(typeof(window) === 'undefined') {
       }
     },
 
+    search: function(arr, term) {
+      var newArr = [];
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i].search(new RegExp(term)) >= 0) {
+          newArr.push(arr[i]);
+        }
+      }
+      return newArr;
+    },
+
     // Returns a new array with the elements shuffled
     shuffle: function(arr) {
       if(validateArray(arr)) {

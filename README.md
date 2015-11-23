@@ -294,6 +294,15 @@ Returns a new array without the specified index of the input array
 e.removeItem(['a', 'b', 'c'], 1); // > ["a", "c"]
 ```
 
+***search***
+
+Takes an array and returns a new array of strings with character sequences that match the provided string.
+
+```javascript
+var food = ['ham', 'potatos', 'spam', 'jam', 'chicken'];
+e.search(food, 'am'); // > ['ham', 'spam', 'jam']
+```
+
 ***shuffle***
 
 Returnes a new array with the input array's values shuffled

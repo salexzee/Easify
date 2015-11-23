@@ -119,6 +119,11 @@ describe('Easify', function() {
     it('stray() should return a random value from the provided array', function() {
       assert.isString(e.stray(['hello', 'world', 'this', 'is', 'it']));
     });
+
+    it('search() should return a new array of strings with matching chr sequence from input string.', function (){
+      var food = ['ham', 'potatos', 'spam', 'jam', 'chicken'];
+      assert.deepEqual(e.search(food, 'am'), ['ham', 'spam', 'jam']);
+    });
   });
 
   describe('Object Methods', function() {
