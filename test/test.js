@@ -123,7 +123,9 @@ describe('Easify', function() {
 
   describe('Object Methods', function() {
     it('clear() should empty all properties and methods from an object', function() {
-      assert.deepEqual(e.clear({name: 'Sam', show: function(){return this.name}}), {});
+      var obj = {name: 'Sam', show: function(){return this.name}};
+      e.clear(obj);
+      assert.deepEqual(obj, {});
     });
 
     it('combine() should combine 2 objects into one', function() {

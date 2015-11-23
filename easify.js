@@ -554,26 +554,12 @@ if(typeof(window) === 'undefined') {
     // **************
 
     // Removes all keys and values from the provided object
-    clear: function(obj, mutate) {
+    // * Mutates object *
+    clear: function(obj) {
       if (this.isObject(obj)) {
-        mutate = mutate || false;
-        if (mutate !== true && mutate !== false) {
-          return false;
-        }
-        if (mutate === true) {
-          var keys = Object.keys(obj);
-          for (var i = 0; i < keys.length ;i++) {
-            delete obj[keys[i]];
-          }
-        } else if (mutate === false) {
-          var newObj = this.clone(obj);
-          var keys = Object.keys(newObj);
-          for (var i = 0; i < keys.length ;i++) {
-            delete newObj[keys[i]];
-          }
-          return newObj;
-        } else {
-          return false;
+        var keys = Object.keys(obj);
+        for (var i = 0; i < keys.length ;i++) {
+          delete obj[keys[i]];
         }
       } else {
         return false;

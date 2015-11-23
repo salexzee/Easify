@@ -306,6 +306,16 @@ e.shuffle([1,2,3,4,5]); // > [2, 4, 1, 5, 3]
 Object Methods
 ---
 
+***clear***
+
+Takes in an object and clears all the contents.
+
+```javascript
+var person = {name: 'John', age: 21};
+e.clear(person);
+person; // > {}
+```
+
 ***combine***
 
 Takes 2 object arguments or a single argument which is an array of objects.
