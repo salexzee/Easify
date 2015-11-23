@@ -98,7 +98,7 @@ if(typeof(window) === 'undefined') {
     return new Easify.init();
   }
 
-  Easify.VERSION = '0.8.3';
+  Easify.VERSION = '0.8.4';
 
   // Function that actually creates object
   // to remove 'new' keyword for users

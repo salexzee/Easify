@@ -33,7 +33,7 @@ To get started, include `easify-min.js` in your website. Make sure it's included
 **Normal download usage**
 
 ```html
-    <script src="js/easify-min.js"></script>
+    <script src="js/easify.min.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
@@ -44,10 +44,16 @@ To get started, include `easify-min.js` in your website. Make sure it's included
 In the terminal, run `npm install easifyjs`
 
 ```html
-    <script src="node_modules/easifyjs/easify-min.js"></script>
+    <script src="node_modules/easifyjs/easify.min.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
+```
+
+Easify is also accessible to your back-end JS by referring to the global scope:
+
+```javascript
+var e = global.Easify();
 ```
 
 You'll know it's included if you look in the console and see:
