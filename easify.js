@@ -20,24 +20,15 @@ if(typeof(window) === 'undefined') {
   // Any variables outside of Easify need to be created
   // up front
 
-  // Variables
-  var validateArray,
-      validateString,
-      validateNum,
-      randomNumberFromItemLength,
-      randomLetter,
-      randomNumberAsString,
-      randomSpecialChar;
-
   // Private Functions
 
   // Returns a random number from 0 to the length of
   // the passed in array or string
-  randomNumberFromItemLength = function(item) {
+  function randomNumberFromItemLength(item) {
     return Math.floor(Math.random() * item.length);
   }
 
-  validateArray = function(arr) {
+  function validateArray(arr) {
     var a;
     Array.isArray(arr) === true ? a = true : a = false;
     return a;
@@ -45,7 +36,7 @@ if(typeof(window) === 'undefined') {
 
   // For validating strings
   // Always use this if method takes a string artument
-  validateString = function(str) {
+  function validateString(str) {
     // If str can be coerced to false, it will fail
     if (!str) {
       return false;
@@ -60,7 +51,7 @@ if(typeof(window) === 'undefined') {
 
   // For validating numbers
   // Always use this if method takes a number argument
-  validateNum = function(num) {
+  function validateNum(num) {
     var a;
     // If num is not of type "number" it will fail
     typeof num !== "number" ? a = false : a = true;
@@ -68,7 +59,7 @@ if(typeof(window) === 'undefined') {
   }
 
   // Returns a randome letter. Pretty simple
-  randomLetter = function() {
+  function randomLetter() {
     // Sets up the array holding all 26 letters
     var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
     // Gets the random letter and returns it
@@ -76,13 +67,13 @@ if(typeof(window) === 'undefined') {
   }
 
   // Returns a random number from 1-10 as a string
-  randomNumberAsString = function() {
+  function randomNumberAsString() {
     // Uses Math.ceil() which means it'll never equal 0
     return String(Math.ceil(Math.random() * 9));
   }
 
   // Returns a randome special character
-  randomSpecialChar = function() {
+  function randomSpecialChar() {
     // An array of special characters
     var specials = ["!", "@", "#", "$", "%", "&", "*"];
     // Gets a random special character and returns it
@@ -130,6 +121,8 @@ if(typeof(window) === 'undefined') {
         str = strList.join('');
         return str;
       } else {
+        var err = new TypeError('cap() requires 1 argument[s] of type[s] string')
+        console.error(err.message)
         return false;
       }
     },
