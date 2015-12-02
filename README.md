@@ -812,7 +812,7 @@ Yep, that's it. Simple right?
 
 To add a new test, open `test/test.js`. Easify uses [Chai](http://chaijs.com/)'s assert library inside of [Mocha](http://mochajs.org/). Check out the [Chai documentation](http://chaijs.com/api/assert/) to learn more about using the assert library. Also check out the [Mocha website](http://mochajs.org/) to learn about how our `test.js` file is formatted.
 
-**Note: Below is the old way to run tests**
+**Note: Below is the old way to run tests (DEPRICATED)**
 
 Navigate to the `tests` directory and open `index.html` in your default web browser, then click the "Run Tests" button. You'll see a long list of the tests that were run and whether they passed or failed.
 
