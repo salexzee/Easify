@@ -80,6 +80,37 @@ if(typeof(window) === 'undefined') {
     return specials[randomNumberFromItemLength(specials)];
   }
 
+  // ERRORS
+
+  // Defines LengthError --
+  function LengthError(message) {
+    this.name = 'LengthError';
+    this.message = message || 'There was a length error.';
+    this.stack = (new Error()).stack;
+  }
+  LengthError.prototype = Object.create(Error.prototype);
+  LengthError.prototype.constructor = LengthError;
+  // -----------------------
+
+  // Takes the name of the method and an array of the argument types
+  function typeError(methodName, argTypeList) {
+    var len = argTypeList.length;
+    var argString = argTypeList.join(', ');
+    if (len === 1) {
+      var err = new TypeError('TypeError: ' + methodName + '() requires ' + len + ' argument of type ( ' + argString + ' ).');
+    } else {
+      var err = new TypeError('TypeError: ' + methodName + '() requires ' + len + ' arguments of types ( ' + argString + ' ).');
+    }
+    return err;
+  }
+
+  // Takes the argument name, the required length, and the name of the method
+  function lengthError(argName, length, methodName) {
+    var err = new LengthError('LengthError: ' + argName + ' argument in ' + methodName + '() is required to have a length of ' + length );
+    return err;
+  } 
+
+
   // End of private functions
 
   // 'new' Easify object
@@ -121,9 +152,9 @@ if(typeof(window) === 'undefined') {
         str = strList.join('');
         return str;
       } else {
-        var err = new TypeError('cap() requires 1 argument[s] of type[s] string')
+        var err = typeError('cap', ['string']);
         console.error(err.message)
-        return false;
+        return;
       }
     },
 
@@ -133,9 +164,15 @@ if(typeof(window) === 'undefined') {
     // Takes 1 argument (string)
     // e.downcase('HELLO'); //=> "hello"
     downcase: function(str) {
-      var a;
-      validateString(str) ? a = str.toLowerCase() : a = false;
-      return a;
+      if (validateString(str)) {
+        var a;
+        validateString(str) ? a = str.toLowerCase() : a = false;
+        return a;
+      } else {
+        var err = typeError('downcase', ['string']);
+        console.error(err.message)
+        return;
+      }
     },
 
     // Gives the user access to the validateString() function
@@ -152,9 +189,15 @@ if(typeof(window) === 'undefined') {
     // Takes 1 argument(string)
     // e.last('hello'); //=> "o"
     last: function(str) {
-      var a;
-      validateString(str) ? a = str[str.length -1] : a = false;
-      return a;
+      if(validateString(str)) {
+        var a;
+        validateString(str) ? a = str[str.length -1] : a = false;
+        return a;
+      } else {
+        var err = typeError('last', ['string']);
+        console.error(err.message)
+        return;
+      }
     },
 
     // Creates a random string at the specified length
@@ -183,7 +226,9 @@ if(typeof(window) === 'undefined') {
         }
         return password;
       } else {
-        return false;
+        var err = typeError('password', ['number']);
+        console.error(err.message)
+        return;
       }
     },
 
@@ -215,7 +260,9 @@ if(typeof(window) === 'undefined') {
         newString = arr.join('');
         return newString;
       } else {
-        return false;
+        var err = typeError('remove', ['string', "number"]);
+        console.error(err.message)
+        return;
       }
 
     },
@@ -229,7 +276,9 @@ if(typeof(window) === 'undefined') {
       if (validateString(str) && validateString(letter)) {
         // Makes sure the letter argument is 1 character long
         if (letter.length !== 1) {
-          return false;
+          var err = lengthError('letter', '1', 'removeAll');
+          console.error(err.message);
+          return;
         }
         // Sets some variables.
         var newString;
@@ -250,7 +299,9 @@ if(typeof(window) === 'undefined') {
         newString = arr.join('');
         return newString;
       } else {
-        return false;
+        var err = typeError('removeAll', ['string', 'string']);
+        console.error(err.message)
+        return;
       }
     },
 
@@ -276,7 +327,9 @@ if(typeof(window) === 'undefined') {
         }
         return newString;
       } else {
-        return false;
+        var err = typeError('randomize', ['string']);
+        console.error(err.message)
+        return;
       }
     },
 
@@ -304,7 +357,9 @@ if(typeof(window) === 'undefined') {
         return newString;
 
       } else {
-        return false;
+        var err = typeError('randomcase', ['string']);
+        console.error(err.message)
+        return;
       }
 
     },
@@ -326,7 +381,9 @@ if(typeof(window) === 'undefined') {
         }
         return repeatedString.trim();
       } else {
-        return false;
+        var err = typeError('repeat', ['string', 'number']);
+        console.error(err.message)
+        return;
       }
     },
 
@@ -345,7 +402,9 @@ if(typeof(window) === 'undefined') {
         var newString = arr.join('');
         return newString;
       } else {
-        return false;
+        var err = typeError('reverse', ['string']);
+        console.error(err.message)
+        return;
       }
     },
 
@@ -354,9 +413,15 @@ if(typeof(window) === 'undefined') {
     // Takes 1 argument (string)
     // e.trim(' hello '); //=> "hello"
     trim: function(str) {
-      var a;
-      validateString(str) ? a = str.trim() : a = false;
-      return a;
+      if (validateString(str)) {
+        var a;
+        validateString(str) ? a = str.trim() : a = false;
+        return a;
+      } else {
+        var err = typeError('trim', ['string']);
+        console.error(err.message)
+        return;
+      }
     },
 
     // Makes all letters in a string uppercase
@@ -364,9 +429,15 @@ if(typeof(window) === 'undefined') {
     // Takes 1 argument (string)
     // e.upcase('hello'); //=> "HELLO"
     upcase: function(str) {
-      var a;
-      validateString(str) ? a = str.toUpperCase() : a = false;
-      return a;
+      if (validateString(str)) {
+        var a;
+        validateString(str) ? a = str.toUpperCase() : a = false;
+        return a;
+      } else {
+        var err = typeError('upcase', ['string']);
+        console.error(err.message)
+        return;
+      }
     },
 
     // Format allows string interpolation
@@ -375,7 +446,7 @@ if(typeof(window) === 'undefined') {
     // e.format("My favorite repo. is {repo}.", { repo: "Easify" })  //==> "My favorite repo. is Easify."
     format:  function (str, o) {
       // Validate string
-      if(validateString(str)){
+      if(validateString(str) && this.isObject(o)){
        // Create a regex to find the brackets: {}
         return str.replace(/{([^{}]*)}/g,
         function (a, b) {
@@ -384,7 +455,9 @@ if(typeof(window) === 'undefined') {
           }
         );
       } else {
-        return false;
+        var err = typeError('format', ['string', 'object']);
+        console.error(err.message)
+        return;
       }
     },
     
@@ -397,7 +470,9 @@ if(typeof(window) === 'undefined') {
       if (validateString(str) && validateString(element)) {
         return '<' + element + '>' + str + '</' + element + '>';
       } else {
-        return false;
+        var err = typeError('wrap', ['string', 'string']);
+        console.error(err.message)
+        return;
       }
     },
 
