@@ -1,6 +1,6 @@
 {
   "name": "easifyjs",
-  "version": "0.8.4",
+  "version": "0.8.5",
   "description": "A small library to make JavaScript easier to work with.",
   "main": "easify-min.js",
   "directories": {
@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "mocha",
-    "build": "uglifyjs easify.js -o easify-min.js"
+    "build": "uglifyjs easify.js -o easify.min.js"
   },
   "repository": {
     "type": "git",
