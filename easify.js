@@ -495,7 +495,9 @@ if(typeof(window) === 'undefined') {
         }
         return newArr;
       } else {
-        return false;
+        var err = typeError('bridge', ['array', 'array']);
+        console.error(err.message)
+        return;
       }
     },
 
@@ -504,10 +506,16 @@ if(typeof(window) === 'undefined') {
     // Takes 2 arguments (array, array)
     // e.unify(['hello', 'world'], ['world']); //=> ["hello", "world"]
     unify: function(arr1, arr2) {
-      var newArr = arr1.concat(arr2.filter(function (i) {
-        return arr1.indexOf(i) < 0;
-      }));
-      return newArr
+      if (validateArray(arr1) && validateArray(arr2)) {
+        var newArr = arr1.concat(arr2.filter(function (i) {
+          return arr1.indexOf(i) < 0;
+        }));
+        return newArr
+      } else {
+        var err = typeError('unify', ['array', 'array']);
+        console.error(err.message)
+        return;
+      }
     },
 
     // Checks the type of each element contained in the passed
@@ -526,7 +534,9 @@ if(typeof(window) === 'undefined') {
         }
         return returnedArray;
       } else {
-        return false;
+        var err = typeError('checkTypes', ['array']);
+        console.error(err.message)
+        return;
       }
     },
 
@@ -541,7 +551,9 @@ if(typeof(window) === 'undefined') {
         }
         return isIn;
       } else {
-        return false;
+        var err = typeError('has', ['array', 'string']);
+        console.error(err.message)
+        return;
       }
     },
 
@@ -554,7 +566,7 @@ if(typeof(window) === 'undefined') {
 
     // Returns a new array with only the specified indexes
     parlay: function(arr, indexes) {
-      if (validateArray(arr)) {
+      if (validateArray(arr) && validateArray(arr)) {
 
         // Checks each item in the indexes array to make sure
         // they're all numbers
@@ -572,7 +584,9 @@ if(typeof(window) === 'undefined') {
         }
         return newArr;
       } else {
-        return false;
+        var err = typeError('parlay', ['array', 'array']);
+        console.error(err.message)
+        return;
       }
     },
 
@@ -587,18 +601,26 @@ if(typeof(window) === 'undefined') {
         }
         return newArray;
       } else {
-        return false;
+        var err = typeError('removeItem', ['array', 'number']);
+        console.error(err.message)
+        return;
       }
     },
 
     search: function(arr, term) {
-      var newArr = [];
-      for (var i = 0; i < arr.length; i++) {
-        if (arr[i].search(new RegExp(term)) >= 0) {
-          newArr.push(arr[i]);
+      if (validateArray(arr) && validateString(term)) {
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++) {
+          if (arr[i].search(new RegExp(term)) >= 0) {
+            newArr.push(arr[i]);
+          }
         }
+        return newArr;
+      } else {
+        var err = typeError('search', ['array', 'string']);
+        console.error(err.message)
+        return;
       }
-      return newArr;
     },
 
     // Returns a new array with the elements shuffled
@@ -614,15 +636,23 @@ if(typeof(window) === 'undefined') {
         }
         return newArr;
       } else {
-        return false;
+        var err = typeError('shuffle', ['array']);
+        console.error(err.message)
+        return;
       }
     },
 
     // Returns a random item from an array
     stray: function(arr) {
-      var a;
-      validateArray(arr) ? a = arr[randomNumberFromItemLength(arr)] : a = false;
-      return a;
+      if (validateArray(arr)) {
+        var a;
+        validateArray(arr) ? a = arr[randomNumberFromItemLength(arr)] : a = false;
+        return a;
+      } else {
+        var err = typeError('stray', ['array']);
+        console.error(err.message)
+        return;
+      }
     },
 
     // **************
