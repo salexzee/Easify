@@ -120,7 +120,7 @@ if(typeof(window) === 'undefined') {
     return new Easify.init();
   }
 
-  Easify.VERSION = '0.8.5';
+  Easify.VERSION = '0.8.6';
 
   // Function that actually creates object
   // to remove 'new' keyword for users
@@ -670,7 +670,9 @@ if(typeof(window) === 'undefined') {
           delete obj[keys[i]];
         }
       } else {
-        return false;
+        var err = typeError('clear', ['object']);
+        console.error(err.message)
+        return;
       }
     },
 
@@ -698,8 +700,11 @@ if(typeof(window) === 'undefined') {
           }
         }
         return newObj;
+      } else {
+        var err = typeError('combine', ['object', 'object']);
+        console.error(err.message)
+        return;
       }
-      return;
     },
 
     // Removes the specified methods/properties from the input object 
@@ -717,6 +722,10 @@ if(typeof(window) === 'undefined') {
             delete obj[keys[i]];
           }
         }
+      } else {
+        var err = typeError('drop', ['object', 'array']);
+        console.error(err.message)
+        return;
       }
     },
 
@@ -734,9 +743,15 @@ if(typeof(window) === 'undefined') {
     },
 
     keys: function(obj) {
-      var a;
-      this.isObject(obj) ? a = Object.keys(obj) : a = false;
-      return a;
+      if (this.isObject(obj)) {
+        var a;
+        this.isObject(obj) ? a = Object.keys(obj) : a = false;
+        return a;
+      } else {
+        var err = typeError('keys', ['object']);
+        console.error(err.message)
+        return;
+      }
     },
 
     // Returns an object with only the specified keys
@@ -751,7 +766,9 @@ if(typeof(window) === 'undefined') {
         }
         return newObj;
       } else {
-        return false;
+        var err = typeError('maintain', ['object', 'array']);
+        console.error(err.message)
+        return;
       }
     },
 
@@ -762,12 +779,20 @@ if(typeof(window) === 'undefined') {
         obj[property] = value;
         return {property: value};
       } else {
-        return false;
+        var err = typeError('objectPush', ['object', 'string', 'string']);
+        console.error(err.message)
+        return;
       }
     },
 
     proto: function(obj) {
-      return obj.__proto__;
+      if (this.isObject(obj)) {
+        return obj.__proto__;
+      } else {
+        var err = typeError('proto', ['object']);
+        console.error(err.message)
+        return;
+      }
     },
 
     // Renames a property of an object and returns it as a new object
@@ -789,7 +814,9 @@ if(typeof(window) === 'undefined') {
         }
         return newObj;
       } else {
-        return false;
+        var err = typeError('rename', ['object', 'string', 'string']);
+        console.error(err.message)
+        return;
       }
     },
     
@@ -804,14 +831,22 @@ if(typeof(window) === 'undefined') {
           }
         return copy;
       } else {
-        return false; 
+        var err = typeError('clone', ['object']);
+        console.error(err.message)
+        return;
       }
     },
 
     size: function(obj) {
-      var a;
-      this.isObject(obj) ? a = Object.keys(obj).length : a = false;
-      return a;
+      if (this.isObject(obj)) {
+        var a;
+        this.isObject(obj) ? a = Object.keys(obj).length : a = false;
+        return a;
+      } else {
+        var err = typeError('size', ['object']);
+        console.error(err.message)
+        return;
+      }
     },
 
     // Converts an object into an array of key/value arrays
@@ -824,7 +859,9 @@ if(typeof(window) === 'undefined') {
         }
         return mainArr;
       } else {
-        return false;
+        var err = typeError('toArray', ['object']);
+        console.error(err.message)
+        return;
       }
     },
 
@@ -838,7 +875,9 @@ if(typeof(window) === 'undefined') {
         }
         return arr;
       } else {
-        return false;
+        var err = typeError('values', ['object']);
+        console.error(err.message)
+        return;
       }
     },
 
